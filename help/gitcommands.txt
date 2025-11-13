@@ -1,0 +1,7 @@
+# . → busca desde la carpeta actual -type d → solo carpetas -empty → que estén vacías
+find . -type d -empty
+
+# Crear un archivo .gitkeep en cada carpeta vacía
+find . -type d -empty -exec touch {}/.gitkeep \;
+
+# 
