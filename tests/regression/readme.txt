@@ -1,0 +1,1 @@
+# Verifica que el proceso de pago sigue funcionando después de un cambio

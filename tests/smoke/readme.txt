@@ -1,0 +1,1 @@
+# Verifica si la aplicación arranca correctamente

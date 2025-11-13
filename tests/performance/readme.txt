@@ -1,0 +1,1 @@
+# load-test.spec.ts   # Pruebas de carga de la aplicación
