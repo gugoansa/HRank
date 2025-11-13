@@ -1,3 +1,16 @@
+#En sistemas basados en Unix (como Linux o macOS):
+tree -L 3
+#En Windows (si usas Git Bash o PowerShell):
+tree /f /a
+
+tree /f /a > arbol.txt // Guardar la salida en un archivo
+tree /f /a | clip      // Usar clip para copiar la salida al portapapeles
+tree /f /a | more      // Filtrar o limitar la profundidad
+
+
+
+
+###################################################
 my-project/
 ├── src/                      #Esta raiz solo debe contener codigo OJO.
 │   ├── config/               # Configuraciones generales (DB, APIs, etc.)
