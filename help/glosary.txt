@@ -1,0 +1,9 @@
+.ts (Simple): Es genérico.
+
+.model.ts (Convención): Indica que el archivo contiene la definición de una estructura de datos (interface o class). Es decir, define la "forma" de una entidad (como un Producto o un Usuario).
+
+.spec.ts: Se usa en Playwright o Jest para indicar que el archivo contiene las pruebas (los specs).
+
+.page.ts: Se usa en el patrón Page Object Model (POM) para indicar que el archivo contiene los localizadores y métodos de una página web específica (ej: LoginPage.page.ts).
+
+En resumen: Lo hago para darte

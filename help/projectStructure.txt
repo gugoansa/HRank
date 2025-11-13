@@ -1,0 +1,24 @@
+my-project/
+├── src/                      #Esta raiz solo debe contener codigo OJO.
+│   ├── config/               # Configuraciones generales (DB, APIs, etc.)
+│   ├── controllers/          # Lógica de control (maneja flujos)
+│   ├── services/             # Lógica de negocio (procesos)
+│   ├── models/               # Clases, interfaces o schemas
+│   ├── data/                 # Datos estáticos o mocks
+│   ├── utils/                # Funciones auxiliares
+│   ├── test/                 # Tests unitarios
+│   └── index.ts              # Punto de entrada principal
+│
+├── dist/                     # Código compilado (generado automáticamente)
+├── help/                     # Documentos, glosarios, referencias  / Notas, glosarios, ayudas temporales
+├── tests/                    # Tests e2e (por Playwright u otros)
+│   ├── e2e/
+├── docs/                     # Documentación formal del proyecto
+├── assets/                   # Imágenes, PDFs, etc.
+│   ├── images/
+│   ├── icons/
+│   ├── pdfs/
+├── node_modules/
+├── package.json
+├── tsconfig.json
+└── README.md

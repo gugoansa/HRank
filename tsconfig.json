@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    /* === 🧠 Compatibilidad y salida === */
+    "target": "ES2020",                  // JavaScript moderno
+    "module": "ESNext",                  // Usa import/export nativo
+    "moduleResolution": "node",          // Cómo resolver los imports
+
+    /* === 📁 Estructura de carpetas === */
+    "rootDir": "src",                    // Dónde están tus .ts
+    "outDir": "dist",                    // Dónde guardar los .js compilados
+
+    /* === ✅ Buenas prácticas === */
+    "strict": true,                      // Verificación estricta de tipos
+    "esModuleInterop": true,             // Permite importar módulos comunes
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+
+    /* === 🧩 Soporte para Node === */
+    "types": ["node"],                   // Autocompletado y tipos de Node
+    "resolveJsonModule": true            // Permite importar JSON si lo necesitas
+  },
+
+  /* === 📦 Qué incluir/excluir === */
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "tests"]
+}

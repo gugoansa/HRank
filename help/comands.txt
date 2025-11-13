@@ -1,0 +1,44 @@
+👉 TypeScript transpila directamente ese archivo y genera el .js en el mismo lugar donde está el .ts, porque:
+No hay un tsconfig.json que le indicara una carpeta de salida (outDir)/output directory.
+
+👉 --save-dev y -D significan lo mismo.
+
+Como correr TYPESCRIPT 
+# Primero instala Node.js
+# segundo usa npm para instalar typescript asi:
+    npm i -D typescript # -D is a shorthand for --save-dev
+# posterior necesitaras seguir una estructura de archivos
+
+# Posterior al paso anterior debes darle una organizacion a tu tsconfig asi:
+
+# 1️⃣ Crea el tsconfig.json
+npx tsc --init   # (si aún no lo hiciste)
+# 2️⃣ Reemplaza su contenido por el ejemplo de arriba
+# 3️⃣ Limpia los JS viejos
+rm src/**/*.js  # o bórralos manualmente si usas Windows
+# 4️⃣ Compila todo el proyecto
+npx tsc
+# 5️⃣ Ejecuta tu código
+node dist/test/procesarCompra.js
+
+
+
+#Transpila todo y adecmas crea la  carpeta dist/ que e sla que se debe usar para los outputs 
+npx tsc
+npx tsc --watch #Esto hace que TypeScript recompilen solo los archivos modificados, no todo.
+
+
+#Otra forma de correr el typescript
+#Primero debes instalar las dependencias de npm
+npm install --save-dev ts-node typescript
+npm install --save-dev @types/node
+#Luego puede ejecutar 
+npx ts-node src/test/procesarCompra.ts #
+#Esto Transpila tu código en memoria (sin generar .js en disco), Lo ejecuta directamente con Node.js. 💡 Ideal para desarrollo rápido, pruebas, o scripts cortos.
+###### No recomendable en producción (porque es más lento que usar los .js ya compilados).
+
+
+## Si hay scripts en el package.jason puedes correrlos archivos con 
+npm run build   # Compila todo
+npm run start   # Ejecuta el build compilado
+
