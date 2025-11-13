@@ -1,5 +1,5 @@
-import { Producto } from "../models/producto.model.ts";
-import { carritoDeCompras } from "../data/data.ts";
+import { Producto } from "../models/producto.model";
+//import { carritoDeCompras } from "../data/data.ts";
 /*Version antigua de llamar o importar*/ 
 //const { Producto } = require("../models/producto.model");
 //const { carritoDeCompras } = require("../data/data");

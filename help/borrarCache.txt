@@ -1,0 +1,16 @@
+# Limpiar el caché de ts-node:
+# A veces, el caché de ts-node puede almacenar información antigua que hace que no se resuelvan correctamente los módulos. Para solucionar esto:
+
+# Borra el caché de ts-node antes de volver a ejecutar el comando. Puedes hacerlo ejecutando:
+npx ts-node --no-cache src/test/procesarCompra.ts
+
+
+#linux
+~/.cache/ts-node
+cd ~/.cache/ts-node
+rm -rf ~/.cache/ts-node
+
+#Windows
+rd /s /q C:\Users\<TuUsuario>\AppData\Local\ts-node
+
+

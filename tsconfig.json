@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "allowImportingTsExtensions": true,
     /* === 🧠 Compatibilidad y salida === */
     "target": "ES2020",                  // JavaScript moderno
     "module": "ESNext",                  // Usa import/export nativo
     "moduleResolution": "node",          // Cómo resolver los imports
+    "allowJs": true,                    // Asegúrate de que se puedan usar archivos JS si los tienes
 
     /* === 📁 Estructura de carpetas === */
     "rootDir": "src",                    // Dónde están tus .ts
@@ -22,6 +22,6 @@
   },
 
   /* === 📦 Qué incluir/excluir === */
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "tests"]
+  "include": ["src/**/*"],                      // Incluye todo lo que está en la carpeta src
+  "exclude": ["node_modules", "dist", "tests"]  // Excluye node_modules y dist
 }

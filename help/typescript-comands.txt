@@ -27,11 +27,14 @@ node dist/test/procesarCompra.js
 npx tsc
 npx tsc --watch #Esto hace que TypeScript recompilen solo los archivos modificados, no todo.
 
-
+npx ts-node --version
 #Otra forma de correr el typescript
 #Primero debes instalar las dependencias de npm
 npm install --save-dev ts-node typescript
 npm install --save-dev @types/node
+npm install ts-node@latest
+#ejecuta esto para validar que se ste compoilando correctamente
+npx tsc --build
 #Luego puede ejecutar 
 npx ts-node src/test/procesarCompra.ts 
 #Esto Transpila tu código en memoria (sin generar .js en disco), Lo ejecuta directamente con Node.js. 💡 Ideal para desarrollo rápido, pruebas, o scripts cortos.
@@ -42,3 +45,12 @@ npx ts-node src/test/procesarCompra.ts
 npm run build   # Compila todo
 npm run start   # Ejecuta el build compilado
 
+#FORMAS DE EJECUTAR
+//SIEMPRE PRIMER  --> npx tsc
+#ejecutar sin cache
+npx ts-node --no-cache src/test/procesarCompra.ts
+#EJECUTAR CON NODE
+node dist/test/procesarCompra.js 
+# EJECUTAR CON NPX TS-NODE
+npx ts-node src/test/procesarCompra.ts
+npx ts-node --loader ts-node/esm src/test/procesarCompra.ts
