@@ -3,3 +3,18 @@ Como declarar arrays
 Array de strings,"const miArray: string[] = [""a"", ""b"", ""c""];",Correcto
 Array de números,"const miArray: number[] = [1, 2, 3];",Correcto
 Array vacío,const miArray: string[] = [];,Correcto
+
+!!!Ayuda opcional!!
+productos,El Array completo.,"[ {Objeto1}, {Objeto2}, ... ]"
+productos[i],El elemento en la posición i.,"{ nombre: 'lila', precio: 123, cantidad: 1 }"
+productos[i].precio,La propiedad precio dentro de ese Objeto.,123 (un número)
+
+
+
+
+SI O SI DEBE TENER ETIQUETAS 
+Caja (Elemento),Etiqueta (nombre),Valor,Etiqueta (capital),Valor
+Caja 1,nombre,"""Chile""",capital,"""Santiago"""
+Caja 2,nombre,"""Perú""",capital,"""Lima"""
+
+--> La Clave: Para acceder a "Santiago", dices: "Dame el País 1, y de ahí, dame la etiqueta capital."

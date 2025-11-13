@@ -1,0 +1,31 @@
+// Tipo: Un Array de Arrays, donde los arrays interiores contienen Strings
+const tablaPaises: string[][] = [
+    // Fila 1 (Array interior)
+    ["Chile", "Santiago"], 
+    // Fila 2 (Array interior)
+    ["Perú", "Lima"], 
+    // Fila 3 (Array interior)
+    ["Argentina", "Buenos Aires"]
+];
+
+// Para acceder:
+// console.log(tablaPaises[0][1]); // Accede a la Fila 0, Columna 1 -> Resultado: "Santiago"
+
+
+
+
+NO TIENE ETIQUETAS
+Fila (Elemento),Columna 0 (Valor),Columna 1 (Valor)
+Fila 0,"""Chile""","""Santiago"""
+Fila 1,"""Perú""","""Lima"""
+
+--> La Clave: Para acceder a "Santiago", tienes que saber que está en la Columna 1 de la Fila 0. Dices: "Dame la Fila 0, y de ahí, dame la Posición 1."
+
+
+💻 Ejemplo de Acceso a una MatrizAhora, usemos el ejemplo de la Matriz para que veas cómo se accede a los datos usando doble corchete (porque no hay etiquetas, solo posiciones).Paso 1: Declaración de la Matriz (Array de Arrays)TypeScript// Declaramos una Matriz: Array de Arrays de strings (string[][])
+const tablaPaises: string[][] = [
+    ["Chile", "Santiago"],  // -> Este es el índice [0]
+    ["Perú", "Lima"],       // -> Este es el índice [1]
+    ["Argentina", "Buenos Aires"] // -> Este es el índice [2]
+];
+Paso 2: El Acceso (Doble Corchete)CódigoSignificadoResultadoExplicacióntablaPaisesLa matriz completa.[ [Fila 0], [Fila 1], [Fila 2] ]Acceso a todo el estante.tablaPaises[1]La fila en la posición 1.["Perú", "Lima"]Acceso a la caja grande de la posición 1.tablaPaises[1][0]La fila 1, y el elemento en la posición 0."Perú"Acceso a la Fila 1 (Perú/Lima), Columna 0 (Perú).tablaPaises[2][1]La fila 2, y el elemento en la posición 1."Buenos Aires"Acceso a la Fila 2 (Argentina/BA), Columna 1 (Buenos Aires).

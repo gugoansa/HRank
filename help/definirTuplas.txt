@@ -1,0 +1,19 @@
+let nombreVariable: [Tipo1, Tipo2, Tipo3, ...] = [valor1, valor2, valor3, ...];
+let persona: [string, number] = ["Alice", 30];
+
+
+
+Para definir tuplas de dos dimensiones en TypeScript, usa corchetes [] anidados y especifica el tipo de cada elemento en la tupla interior y exterior. Por ejemplo, let matriz: [][]; se usa para un array de tuplas, donde cada tupla interior tiene un tipo fijo y ordenado de elementos. Para una matriz de 2x2, definirías [number, string][];. 
+Definición de tuplas de dos dimensiones
+Tupla 2D de tipo [number, number][]:
+Define una matriz de 2 filas x 2 columnas donde cada celda es un número.
+let matriz: [number, number][] = [[1, 2], [3, 4]];
+Tupla 2D de tipo [string, number][]:
+Define una matriz de 2 filas x 2 columnas donde cada celda es un string o un número.
+let matriz: [string, number][] = [["a", 1], ["b", 2]];
+Tupla 2D de tipo [string, string][][]:
+Define una matriz de 2 filas x 2 columnas donde cada celda es un string.
+let matriz: [string, string][][] = [["a", "b"], ["c", "d"]]; 
+Consideraciones
+Verificación de tipos: TypeScript se asegura de que los valores asignados a las tuplas coincidan con los tipos definidos. Si intentas asignar [1, "a"] a [string, number][], obtendrás un error.
+Acceso a elementos: Para acceder a los elementos de la tupla, usa índices. Por ejemplo, para let matriz = [[1, 2], [3, 4]];, matriz[0][0] devuelve 1. 

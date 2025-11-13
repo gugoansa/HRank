@@ -4,6 +4,7 @@ Las clases se usan para agrupar datos (propiedades) y funciones (métodos) que a
 TypeScript
 
 // Ejemplo de una Clase (molde para crear objetos)
+
 export class LoginPage {
     // 1. Datos/Propiedades de la Clase
     private readonly usernameField = '#username';
