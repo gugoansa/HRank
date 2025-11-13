@@ -20,9 +20,23 @@ async function procesarCompra(productos: Producto[]): Promise<void> {
         // 3. ACUMULAMOS el costo al subTotal:
         subTotal = subTotal + costoLinea; // o subTotal += costoLinea;
     }
+
+    console.log('---------------------------------');
+    console.log(`✅ Automatización terminada 1ErFOR. El subtotal es: $${subTotal.toFixed(2)}`);
+
+    subTotal =0;
+    console.log("***************************");
+    console.log("Reinicializamos la variable, otra forma de hacer el for para arrays");
+    console.log("***************************");
+
+    for (const productoActual of productos) {
+    const costoLinea = productoActual.precio * productoActual.cantidad;
+    subTotal += costoLinea;
+    console.log(subTotal)
+}
         
     console.log('---------------------------------');
-    console.log(`✅ Automatización terminada. El subtotal es: $${subTotal.toFixed(2)}`);
+    console.log(`✅ Automatización terminada 2DoFOR. El subtotal es: $${subTotal.toFixed(2)}`);
 }
 
 // Ejecutar la función

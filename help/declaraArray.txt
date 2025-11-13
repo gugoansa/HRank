@@ -1,0 +1,5 @@
+Como declarar arrays
+
+Array de strings,"const miArray: string[] = [""a"", ""b"", ""c""];",Correcto
+Array de números,"const miArray: number[] = [1, 2, 3];",Correcto
+Array vacío,const miArray: string[] = [];,Correcto

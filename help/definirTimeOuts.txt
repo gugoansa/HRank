@@ -1,0 +1,7 @@
+
+var saludo:string = 'hola';
+var name:string='que tal';
+
+setTimeout(function(saludo:string, name:string) {
+  console.log(saludo+' '+name);
+}, 1000,saludo,name );

@@ -1,0 +1,17 @@
+
+
+class Persona {
+  nombre: string;
+
+  constructor(nombre: string) {
+    this.nombre = nombre;
+  }
+
+  saludar() {
+    console.log("Hola, soy " + this.nombre);
+  }
+}
+
+// 👇 uso de la clase
+const persona1 = new Persona("Tatao");
+persona1.saludar();

@@ -1,0 +1,22 @@
+#asi ponemos una variable dntro de un texto
+
+
+Tenemos por ejemplo
+console.log
+(`✅ Automatización terminada 2DoFOR. El subtotal es: $${subTotal.toFixed(2)}`);
+
+¿Qué es \${subTotal.toFixed(2)}?
+Esto se llama Template Literals (o template strings), y es una característica 
+moderna de JavaScript/TypeScript:
+
+Las comillas invertidas (`...`) permiten escribir strings que pueden abarcar 
+varias líneas y tienen un formato especial.
+
+$ y llaves (${...}) permiten insertar el valor de una variable o el resultado 
+de una función directamente dentro del string.
+
+Tu caso: subTotal.toFixed(2) es una función que toma el número de subTotal y 
+se asegura de que tenga exactamente dos decimales (ej: transforma 1500 en "1500.00").
+
+El resultado final es un string elegante que muestra el subtotal con formato 
+de moneda: El subtotal es: $1500.00.

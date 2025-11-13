@@ -1,0 +1,16 @@
+Clases de TypeScript
+Las clases se usan para agrupar datos (propiedades) y funciones (métodos) que actúan sobre esos datos. Se usan mucho en Playwright con el patrón Page Object Model (POM).
+
+TypeScript
+
+// Ejemplo de una Clase (molde para crear objetos)
+export class LoginPage {
+    // 1. Datos/Propiedades de la Clase
+    private readonly usernameField = '#username';
+
+    // 2. Funciones/Métodos de la Clase
+    async login(user: string, pass: string) {
+        // En Playwright, usarías this.page.fill(this.usernameField, user)
+        console.log(`Logeando usuario: ${user}`);
+    }
+}

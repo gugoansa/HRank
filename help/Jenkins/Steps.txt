@@ -1,0 +1,47 @@
+0. instale JDK en la maquina donde se ejcutaran los pipelines verison compatible 17
+1. instale JENKINS en la maquina donde va a usar 
+2. Iniciar JENKINS
+
+java -jar jenkins.war
+
+http://localhost:8080
+
+C:\Program Files (x86)\Jenkins\secrets\initialAdminPassword
+
+o ejecutarlo desde otro puerto
+java -jar jenkins.war --httpPort=8081
+
+clave
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+la clave esta en 
+C:\Users\MiUsuario\.jenkins\secrets\initialAdminPassword
+
+
+Cerrar Jenkins
+Cerrando la terminal: Si lo iniciaste desde la terminal con el comando java -jar jenkins.war, simplemente presiona Ctrl + C en la terminal donde lo ejecutaste para detener Jenkins.
+Cerrando el servicio (si se instaló como servicio):
+Si Jenkins se está ejecutando como un servicio de Windows, puedes detenerlo desde el Administrador de servicios:
+Abre "Servicios" en el menú de inicio.
+Busca el servicio de Jenkins en la lista.
+Haz clic derecho y selecciona "Detener".
+
+***********************************
+***********************************
+***********************************
+Si no inicia y sale esto 
+
+java.net.BindException: Address already in use: bind
+
+validar el proceso que esta usando el puerto 
+netstat -ano | findstr :8080
+
+
+*****************************************************
+*****************************************************
+*****************************************************
+*****************************************************
+*****************************************************
+
+
+
+

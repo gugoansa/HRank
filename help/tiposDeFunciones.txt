@@ -1,0 +1,32 @@
+
+/*normal Function*/
+export function  sumar(a:any, b:any) {
+  return a + b;
+}
+
+const resultado = sumar(2,2);
+console.log(resultado);
+
+
+/*arrow function*/
+const sumar2 = (c:number,d:number)=>{
+    return c+d
+};
+console.log(sumar(3,3));
+
+
+/*arrow function shortest*/
+const sumar3 = (d:number,e:any)=> d+e;
+console.log(sumar3(4,'hi'));
+
+
+/*arrow functionbasica */
+() => console.log("Hola! amigo mio espero que te vaya muy bien en tu vida");
+const saludar4 = () => {console.log('hola que tal amigo mio!')};
+
+/*OTRO EJEMPLO FUNCION FLECHA
+const describirPersona = (nombre: string, edad: number, ciudad: string) => {
+  console.log(`Hola, soy ${nombre}, tengo ${edad} años y vivo en ${ciudad}.`);
+};
+
+describirPersona("Tatao", 10, "Sydney");

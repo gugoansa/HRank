@@ -1,0 +1,24 @@
+1. ¿Funciones con const o Clases?
+En TypeScript/JavaScript, tienes varias formas de definir funciones:
+
+A) Funciones Nombradas Tradicionales (No usa const)
+Esta es la forma más simple, y es la que usamos en el ejercicio:
+
+TypeScript
+
+async function procesarCompra(...) {
+    // ...
+}
+B) Funciones como Expresiones (Usa const o let)
+Aquí, la función es un valor que se asigna a una variable. Se usa mucho para exportar funciones o para funciones anónimas.
+
+TypeScript
+
+// La función es un valor inmutable, por eso usamos 'const'
+export const procesarCompra = async (...) => {
+    // ...
+};
+// O si quieres una función tradicional asignada a una constante:
+const sumar = function(a: number, b: number): number {
+    return a + b;
+};
