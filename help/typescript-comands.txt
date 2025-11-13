@@ -33,7 +33,7 @@ npx tsc --watch #Esto hace que TypeScript recompilen solo los archivos modificad
 npm install --save-dev ts-node typescript
 npm install --save-dev @types/node
 #Luego puede ejecutar 
-npx ts-node src/test/procesarCompra.ts #
+npx ts-node src/test/procesarCompra.ts 
 #Esto Transpila tu código en memoria (sin generar .js en disco), Lo ejecuta directamente con Node.js. 💡 Ideal para desarrollo rápido, pruebas, o scripts cortos.
 ###### No recomendable en producción (porque es más lento que usar los .js ya compilados).
 

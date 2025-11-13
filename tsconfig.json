@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     /* === 🧠 Compatibilidad y salida === */
     "target": "ES2020",                  // JavaScript moderno
     "module": "ESNext",                  // Usa import/export nativo
