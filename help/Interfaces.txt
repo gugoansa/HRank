@@ -1,0 +1,111 @@
+🟦 En TypeScript
+🔹 1. Implementar una interfaz
+
+Una interfaz define qué propiedades o métodos debe tener una clase.
+Para usarla, se usa la palabra clave implements.
+
+// Definimos una interfaz
+interface Animal {
+  nombre: string;
+  hacerSonido(): void;
+}
+
+// Una clase que implementa la interfaz
+class Perro implements Animal {
+  nombre: string;
+
+  constructor(nombre: string) {
+    this.nombre = nombre;
+  }
+
+  hacerSonido(): void {
+    console.log("Guau!");
+  }
+}
+
+const miPerro = new Perro("Firulais");
+miPerro.hacerSonido(); // Guau!
+
+
+👉 Aquí, Perro implementa la interfaz Animal, lo que significa que debe tener las propiedades y métodos definidos en ella.
+
+
+
+🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨
+🟨 En JavaScript puro:
+
+👉 No existen las interfaces como en TypeScript o Java.
+Pero puedes simular su comportamiento de varias maneras.
+
+🧩 Opción 1: Usar comentarios o convenciones
+
+Solo escribes qué métodos o propiedades debe tener un objeto, y tú te aseguras de cumplirlo.
+
+// "Interfaz" esperada (por convención)
+/// interface Animal {
+///   nombre: string;
+///   hacerSonido(): void;
+/// }
+
+class Perro {
+  constructor(nombre) {
+    this.nombre = nombre;
+  }
+
+  hacerSonido() {
+    console.log("Guau!");
+  }
+}
+
+const perro = new Perro("Firulais");
+perro.hacerSonido(); // Guau!
+
+
+🗣️ Aquí no hay comprobación automática.
+Eres tú quien debe asegurarse de que Perro tenga los métodos de la “interfaz”.
+
+🧩 Opción 2: Usar clases abstractas (simulan una interfaz)
+
+En JavaScript puedes crear una clase que actúe como “molde” y lanzar errores si no se implementa un método.
+
+class Animal {
+  constructor() {
+    if (this.constructor === Animal) {
+      throw new Error("No se puede instanciar una clase abstracta");
+    }
+  }
+
+  hacerSonido() {
+    throw new Error("El método hacerSonido() debe implementarse");
+  }
+}
+
+class Perro extends Animal {
+  hacerSonido() {
+    console.log("Guau!");
+  }
+}
+
+const perro = new Perro();
+perro.hacerSonido(); // Guau!
+
+
+👉 Aquí, Animal actúa como una interfaz, porque obliga a las subclases a definir el método hacerSonido().
+
+🧩 Opción 3: Validar manualmente (simular “tipo”)
+
+Puedes crear una función que verifique si un objeto cumple con la “interfaz”.
+
+function implementaAnimal(obj) {
+  return typeof obj.nombre === "string" && typeof obj.hacerSonido === "function";
+}
+
+const perro = {
+  nombre: "Firulais",
+  hacerSonido: () => console.log("Guau!"),
+};
+
+console.log(implementaAnimal(perro)); // true
+
+
+🧠 Aquí verificamos si el objeto tiene las propiedades esperadas, como haría TypeScript automáticamente.

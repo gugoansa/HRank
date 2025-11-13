@@ -1,0 +1,43 @@
+🟦 En TypeScript
+🔹 1. Heredar una clase
+
+Para heredar se usa la palabra extends.
+
+class Animal {
+  mover() {
+    console.log("El animal se mueve");
+  }
+}
+
+class Perro extends Animal {
+  ladrar() {
+    console.log("Guau!");
+  }
+}
+
+const perro = new Perro();
+perro.mover(); // El animal se mueve
+perro.ladrar(); // Guau!
+
+
+👉 Perro hereda de Animal, así que puede usar sus métodos.
+
+🟨 En JavaScript
+
+JavaScript no tiene interfaces, pero sí tiene clases e herencia con extends.
+
+class Animal {
+  mover() {
+    console.log("El animal se mueve");
+  }
+}
+
+class Perro extends Animal {
+  ladrar() {
+    console.log("Guau!");
+  }
+}
+
+const perro = new Perro();
+perro.mover(); // El animal se mueve
+perro.ladrar(); // Guau!
