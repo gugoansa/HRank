@@ -1,0 +1,18 @@
+⏱️ Explicación de async y const
+A. async (Asíncrono)
+async (asíncrono) significa "tomarse su tiempo" o "esperar".
+
+¿Qué hace? Cuando Playwright interactúa con una página web (hacer clic, escribir, esperar una carga), esa acción tarda un poco. async le dice a JavaScript que el código dentro de esa función puede ser pausado para esperar a que una operación lenta termine.
+
+Se usa con await: Para pausar la función, tienes que usar la palabra clave await antes de la acción lenta (ej: await this.page.fill(...)).
+
+Regla: ¡Toda función que use await debe tener async!
+
+B. const (Constante)
+const significa "valor fijo" o "inmutable".
+
+¿Qué hace? Declara una variable cuyo valor no puede ser cambiado después de su inicialización.
+
+Uso en Clases: En nuestro ejercicio, lo usamos para declarar los Localizadores (private readonly loginButton: string = '...'), asegurando que la dirección del botón nunca cambie.
+
+Uso en Funciones: No se usa para declarar métodos de clase (como login()), solo para variables locales dentro de ellos (ej: const costo = 10;).

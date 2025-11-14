@@ -1,0 +1,24 @@
+B. El Tipo de Retorno (Void o Valor)
+Siempre debes especificar el tipo de retorno de una función o método para que TypeScript sepa qué esperar.
+
+Tipo de Retorno	                            Explicación	                                                            Ejemplo
+Valor (number, string, etc.)	       La función devuelve un dato.	                                    const sumar = function(...): number { return a + b; };
+void	                               La función hace algo pero no devuelve ningún valor útil.	        public async login(...): Promise<void> { ... } (La función inicia sesión, pero no devuelve nada).
+
+En Playwright, los métodos de acción de POM que solo interactúan con la página casi siempre devuelven Promise<void> (ya que son asíncronos y no devuelven datos, solo completan la acción).
+
+#para las funciones que son void, es bueno ponmerles returnm con la finalidad de que las corte del hilo.
+
+sdfkjebskdjfsad
+
+ponga retun para cortar una funcion void
+
+y para que es el return y como se usa
+
+
+
+callbacks oko callbacks
+callbacks oko callbacks
+callbacks oko callbacks
+callbacks oko callbacks
+callbacks oko callbacks

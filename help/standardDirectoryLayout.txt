@@ -1,0 +1,36 @@
+JAVA
+El "Standard Directory Layout" es una estructura de carpetas estandarizada que organiza los archivos de un proyecto de software de manera lógica, como se utiliza comúnmente en herramientas como Apache Maven. Esto facilita a los desarrolladores encontrar los diferentes componentes del proyecto (código fuente, pruebas, recursos, etc.) y permite que los sistemas de compilación automatizados sepan dónde buscar. 
+Componentes clave
+src/: Contiene todo el código fuente del proyecto, como el código Java principal (src/main/java/) y el código de las pruebas unitarias (src/test/java/).
+target/: Almacena todos los resultados de la compilación, incluyendo los archivos .class, archivos JAR y otros artefactos del proyecto.
+src/main/: Se subdivide para organizar el código principal.
+java/: Para el código fuente principal.
+resources/: Para los archivos de configuración y otros recursos del proyecto.
+src/test/: Se subdivide de manera similar para el código de las pruebas unitarias.
+java/: Para el código de las pruebas unitarias.
+
+
+JAVASCRIPT o TYPESCRIPT
+no hay un pom.xml para proyectos de JavaScript o TypeScript, ya que ese archivo es específico de Maven, una herramienta de gestión de proyectos para Java. En su lugar, el ecosistema de JavaScript y TypeScript tiene sus propias herramientas y convenciones. 
+La alternativa al pom.xml para gestionar dependencias en proyectos JS/TS es el archivo package.json, y la herramienta principal para manejar paquetes es npm (Node Package Manager). 
+Estructura de directorios estándar en JavaScript y TypeScript
+Aunque no existe una única estructura de directorios universalmente impuesta como en Maven, la mayoría de los proyectos modernos siguen convenciones similares: 
+Raíz del proyecto: Contiene archivos de configuración y otros metadatos.
+package.json: El archivo clave que describe el proyecto, sus dependencias, scripts y otra información importante.
+tsconfig.json (solo para TypeScript): Archivo de configuración del compilador de TypeScript.
+README.md: Proporciona una descripción del proyecto.
+LICENSE.md: Contiene información sobre la licencia del proyecto.
+node_modules/: Directorio donde se instalan todas las dependencias del proyecto. Este directorio suele ser ignorado por el control de versiones (.gitignore).
+src/: Carpeta principal que contiene todo el código fuente del proyecto. Dentro de ella, la organización varía según el tipo de aplicación (backend, frontend, biblioteca, etc.), pero algunas convenciones comunes son:
+components/: Si es una aplicación frontend (como React o Vue), contiene los componentes reutilizables.
+pages/ o views/: En aplicaciones frontend, contiene los componentes de página.
+routes/ o controllers/: En aplicaciones backend (como con Express.js), contiene la lógica para manejar las rutas y los controladores.
+models/: Contiene los modelos de datos, si la aplicación interactúa con una base de datos.
+utils/ o helpers/: Funciones y utilidades de propósito general que se usan en varias partes del código.
+dist/ o build/: Al igual que target/ en Maven, esta carpeta contiene el código compilado, optimizado o listo para producción. No se suele incluir en el control de versiones.
+test/: Carpeta donde se guarda el código de las pruebas (unitarias, de integración, etc.). Es una práctica recomendada reflejar la estructura de la carpeta src dentro de test para una mejor organización. 
+Herramientas y ecosistema
+Además de npm, otras herramientas también influyen en la estandarización del flujo de trabajo y la estructura del proyecto en JavaScript/TypeScript: 
+Vite y webpack: Herramientas para empaquetar y compilar código, que gestionan cómo se generan los archivos finales en dist/.
+Gestores de paquetes: Además de npm, existen otros como Yarn y pnpm.
+Entornos de desarrollo (frameworks): El uso de frameworks como Next.js, NestJS o React impone su propia estructura de carpetas, que se considera la "estándar" dentro de ese ecosistema. 

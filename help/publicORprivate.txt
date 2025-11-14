@@ -1,0 +1,9 @@
+🎯 Modificadores de Acceso y Tipos de RetornoA. 
+
+¿Debo Poner public o private?Regla: Siempre es mejor práctica usar public o private para clarificar la intención del código, 
+especialmente en clases POM.Por Defecto: Si no pones ni public ni private, la propiedad o método se considera public por defecto 
+en TypeScript.
+
+Recomendación:
+Métodos de acción (ej: login()) $\rightarrow$ public (porque la prueba debe llamarlos).Localizadores (ej: usernameField) $\rightarrow$ private (para encapsular y proteger).
+

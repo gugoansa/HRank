@@ -1,5 +1,6 @@
-Clases de TypeScript
-Las clases se usan para agrupar datos (propiedades) y funciones (métodos) que actúan sobre esos datos. Se usan mucho en Playwright con el patrón Page Object Model (POM).
+#Clases de TypeScript
+#Las clases se usan para agrupar datos (propiedades) y funciones (métodos) que actúan sobre esos datos. Se usan mucho en Playwright con el patrón Page Object Model (POM).
+#La clase siempre debe tener el mismo nombre del archivo de la misma.
 
 TypeScript
 
@@ -15,3 +16,49 @@ export class LoginPage {
         console.log(`Logeando usuario: ${user}`);
     }
 }
+
+❗Tip, si quieres declarar una variable opcional, solo pon un ? a lado de la variable y ya quedara como opcional
+
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+⚠️⚠️⚠️IMPORTANTE
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+En TypeScript (y JavaScript), las clases tienen una estructura muy estricta: solo pueden contener propiedades 
+(variables de la clase) y métodos (funciones de la clase).
+
+Estructura Permitida-------> Propiedades
+Uso------------------------> Variables que describen la clase (ej: usernameField: string = '...')
+
+Estructura Permitida-------> Métodos
+Uso------------------------> Funciones que la clase puede ejecutar (ej: login() { ... }).
+
+Estructura Permitida-------> Constructor
+Uso------------------------> Función especial para inicializar la clase.
+
+no se puede declarar una variable fuera de cualquier metodo o constructor dentro de una clase.
+
+
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+🧱 Propiedad de la Clase vs. Variable Local
+Esta es la diferencia más importante.
+
+A. Propiedad de la Clase (Propiedad/Atributo)
+Una Propiedad de la Clase es una variable que pertenece al objeto y está disponible en todos los métodos de la clase. 
+Se declaran directamente después del export class Nombre {.
+y OJO deben estar en el constructor o declaradas o inicializadas
+
+Propiedad de la Clase	                    Código
+Declaración/Inicialización:     	private miPropiedad: string = "valor";
+Uso:	                            this.miPropiedad
+Alcance:	                        Toda la clase.
+¿Se puede usar let?	                NO.
+///////////////////////////////////////////////////////////////////////////////////////////
+B. Variable Local (Variable de Función)
+Una Variable Local solo existe dentro del método o función donde fue declarada. Una vez que la función termina, la variable desaparece.
+
+Variable Local	                                Código
+Declaración/Inicialización:	            let miVariable = "valor";
+Uso:	                                miVariable (sin this.)
+Alcance:	                            Solo el método o función.
+¿Se puede usar let?	                    SÍ.

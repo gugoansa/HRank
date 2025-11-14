@@ -1,0 +1,27 @@
+Las variables que contienen funciones en JavaScript y TypeScript se llaman variables de función o expresiones de función. Permiten asignar funciones a nombres de variables, tratándolas como cualquier otro valor (como números o cadenas), lo que facilita su uso y reutilización. En TypeScript, además, se pueden definir explícitamente los tipos de los parámetros y el tipo de valor que la función devuelve. 
+Características principales
+JavaScript:
+Las funciones se pueden asignar a variables, incluso si no se les da un nombre (funciones anónimas).
+Se pueden usar tanto las declaraciones de función tradicionales como las funciones flecha (=>) para asignar a variables.
+Ejemplo: let miFuncion = function() { console.log("Hola"); } o let miFuncionFlecha = () => console.log("Hola");.
+TypeScript:
+Tipado estático: Permite definir el tipo de la función, incluyendo los tipos de sus parámetros y el tipo de retorno.
+Esto ayuda a detectar errores en tiempo de compilación, por ejemplo, si se intenta llamar a la función con los tipos de argumentos incorrectos.
+Ejemplo: let sumar: (a: number, b: number) => number = function(a, b) { return a + b; };. 
+Ventajas de usar variables para funciones
+Reutilización: La función se puede llamar a través de la variable en cualquier parte del código.
+Claridad: Permite dar un nombre significativo a la función, mejorando la legibilidad del código.
+Flexibilidad: Las funciones pueden pasarse como argumentos a otras funciones, o incluso devolverse desde otras funciones, lo que es un patrón común en programación funcional. 
+
+
+
+######################################################################
+######################################################################
+######################################################################
+############ 2. Finalidad de la Función como Variable (export const)
+La principal finalidad es la flexibilidad y la claridad de intención, especialmente en el código moderno.
+
+Forma	                Código	                                Ventaja
+Función Tradicional	    export function sumar() { ... }	        Es la forma clásica. La función existe por sí misma.
+Función como Variable	export const sumar = () => { ... }	    Es más explícita. Estás declarando una variable const cuyo valor resulta ser una función. Es útil cuando pasas funciones como argumentos a otras funciones (algo muy común en la programación moderna).
+En resumen: En muchos frameworks de automatización (como Playwright con sus fixtures), se prefiere la forma export const porque es más consistente con la forma en que se manejan las variables en todo el proyecto.

@@ -1,0 +1,51 @@
+En JavaScript y TypeScript, la forma normal de if-else es un bloque de código que toma una decisión basándose en una condición; la forma abreviada es el operador ternario (?:), que se usa para asignar un valor en función de una condición. Ambas formas funcionan igual en ambos lenguajes. 
+Forma normal (if-else)
+Esta es la estructura estándar para lógica condicional: 
+
+🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦
+🟦🟦typescript
+if (condicion) {
+  // Se ejecuta si la condición es verdadera
+} else {
+  // Se ejecuta si la condición es falsa
+}
+Ejemplo:
+javascript
+let edad = 18;
+let mensaje;
+
+if (edad >= 18) {
+  mensaje = "Eres mayor de edad";
+} else {
+  mensaje = "Eres menor de edad";
+}
+
+console.log(mensaje); // Salida: "Eres mayor de edad"
+Forma abreviada (operador ternario) 
+El operador ternario (?:) ofrece una sintaxis más corta para asignar un valor basado en una condición: 
+
+typescript
+----------> let valor = condicion ? valorSiVerdadero : valorSiFalso;
+Ejemplo:
+
+🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨
+🟨🟨🟨 javascript
+let edad = 20;
+let mensaje = (edad >= 18) ? "Eres mayor de edad" : "Eres menor de edad";
+
+console.log(mensaje); // Salida: "Eres mayor de edad"
+Uso de else if
+Para manejar múltiples condiciones, puedes usar else if después del if: 
+typescript
+let calificacion = 85;
+let calificacionLetra;
+
+if (calificacion >= 90) {
+  calificacionLetra = "A";
+} else if (calificacion >= 80) {
+  calificacionLetra = "B";
+} else {
+  calificacionLetra = "C";
+}
+
+console.log(calificacionLetra); // Salida: "B"

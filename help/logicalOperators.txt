@@ -1,0 +1,14 @@
+Operadores lógicos: Los que combinan ideas
+Piensa en los operadores lógicos como las palabras que usas para unir frases. Te permiten combinar varias condiciones para tomar una decisión más compleja. 
+&& (y):
+Significado: La expresión será verdadera (true) si TODAS las condiciones que conectas son verdaderas. Si al menos una es falsa (false), todo el resultado es falso.
+Ejemplo: if (tienesDinero && esFinDeSemana) { ... } → Esto solo se ejecutará si ambas cosas son ciertas.
+|| (o):
+Significado: La expresión será verdadera si AL MENOS UNA de las condiciones es verdadera. Solo será falsa si todas las condiciones son falsas.
+Ejemplo: if (estasCansado || esTarde) { ... } → El código se ejecutará si estás cansado o si es tarde (o si ambas lo son).
+! (no):
+Significado: Invierte el resultado de una condición. Convierte true en false y false en true.
+Ejemplo: if (!estaLloviendo) { ... } → El código se ejecutará si no está lloviendo.
+?? (coalescencia nula):
+Significado: Este es más moderno. Te permite establecer un valor por defecto si una variable es null o undefined. Ignora otros valores "falsos" como 0 o "".
+Ejemplo: let nombre = nombreDeUsuario ?? "Invitado"; → Si nombreDeUsuario no existe, nombre será "Invitado". Si nombreDeUsuario es "Pepe", nombre será "Pepe". 

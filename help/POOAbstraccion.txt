@@ -1,0 +1,57 @@
+#Entendiendo desde las dudas
+
+🏗️ Clase abstracta (la herramienta)
+Es una forma de aplicar la abstracción en código.
+Una clase abstracta:
+No se puede crear un objeto directamente con ella.
+Sirve como modelo para otras clases.
+Obliga a las clases hijas a implementar ciertos métodos.
+Te muestra solo lo esencial para que uses el objeto sin saber detalles internos.
+
+Ejemplo simple:
+abstract class Animal {
+  abstract hacerSonido(): void; // método que las clases hijas deben implementar
+
+  dormir() {
+    console.log("Zzz...");
+  }
+}
+
+class Perro extends Animal {
+  hacerSonido() {
+    console.log("Guau!");
+  }
+}
+
+🧩 ¿Cómo se conectan?
+
+ABSTRACCIÓN (idea): “Oculta detalles, muestra lo necesario”.
+
+CLASE ABSTRACTA (herramienta): “Crea una plantilla que oculta detalles y obliga a definir lo esencial”.
+
+👉 Las clases abstractas son una forma concreta de aplicar el pilar de Abstracción.
+
+🟢 Respuesta final:
+Sí, las clases abstractas están totalmente ligadas al pilar de Abstracción, pero no son lo mismo.
+Una es la teoría, la otra es una forma práctica de implementarla.
+
+
+
+############################################################
+############################################################
+############################################################
+############################################################
+########OTRA FORMA DE ENCAPSULAMIENTO
+✅ Interfaces
+
+Otra forma súper común.
+
+Una interface define lo que un objeto debe tener o hacer, pero sin decir cómo.
+Eso es abstracción pura.
+
+interface Animal {
+  hacerSonido(): void;
+}
+
+
+Oculta la implementación, solo muestra lo necesario.

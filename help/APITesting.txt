@@ -1,0 +1,24 @@
+pruebas de API:
+1. Modelo de objetos de API (API Object Model)
+En lugar de crear una clase por cada "página", se crea una clase por cada punto de conexión (endpoint) de la API o por cada servicio. A este patrón se le conoce como API Object Model. 
+Encapsulación: Cada clase encapsula la lógica para interactuar con un endpoint específico.
+Métodos: Contiene los métodos para realizar acciones HTTP como GET, POST, PUT y DELETE en ese endpoint.
+Reutilización: Permite reutilizar la lógica de la llamada a la API en diferentes casos de prueba, lo que mejora la legibilidad y el mantenimiento del código. 
+2. Organización de carpetas
+El "encarpetado especial" también existe, pero se adapta a la estructura de las pruebas de API: 
+Por funcionalidad o recurso: Se pueden crear carpetas para agrupar las pruebas por el recurso de la API que están probando. Por ejemplo, una carpeta para las pruebas del endpoint de usuarios (/users), otra para los productos (/products), etc..
+Separación de componentes: Es común separar los archivos de la siguiente manera:
+Clases de objetos de API: Donde se define la lógica para las interacciones con los endpoints.
+Casos de prueba: Donde se definen los escenarios de prueba utilizando las clases de objetos de API.
+Archivos de datos de prueba: Para gestionar los datos de entrada de manera separada, facilitando su mantenimiento. 
+3. Herramientas
+Para realizar pruebas de API se utilizan herramientas específicas, que son diferentes a las de UI: 
+Postman: Una de las más populares para probar APIs de forma manual y automatizada. Permite crear y organizar colecciones de solicitudes.
+REST Assured (Java): Una librería para automatizar pruebas de APIs REST de manera programática.
+Cypress (para API): Aunque conocido por pruebas de UI, Cypress también permite realizar pruebas de API.
+Playwright (para API): De manera similar a Cypress, Playwright ofrece soporte para la automatización de pruebas de API.
+Otros: También se utilizan otras herramientas como SoapUI, JMeter o librerías HTTP específicas en diferentes lenguajes. 
+En resumen, aunque el principio de organización y reutilización es similar (encapsular la lógica en objetos), el enfoque de las pruebas de API se centra en la interacción con los endpoints, y no con los elementos visuales de una interfaz de usuario. 
+
+
+

@@ -1,0 +1,22 @@
+Operadores de comparación: Los que comparan cosas
+Estos operadores se usan para comparar dos valores y siempre devuelven true o false. 
+=== (Igualdad estricta):
+Significado: Pregunta: "¿Los dos valores son exactamente iguales, tanto en valor como en tipo de dato?".
+Ejemplo: '5' === 5 es false porque, aunque el valor es 5, uno es un texto y el otro es un número.
+!== (Desigualdad estricta):
+Significado: Pregunta: "¿Los dos valores son diferentes, en valor o en tipo de dato?". Es lo contrario a ===.
+Ejemplo: '5' !== 5 es true.
+== (Igualdad suelta o flexible):
+Significado: Pregunta: "¿Los dos valores son iguales, ignorando el tipo?". Esto puede dar resultados inesperados.
+Ejemplo: '5' == 5 es true porque JavaScript convierte el texto a número para hacer la comparación. Por eso, casi siempre es mejor usar ===.
+!= (Desigualdad suelta):
+Significado: Pregunta: "¿Los dos valores son diferentes, ignorando el tipo?". Es lo opuesto a ==.
+Ejemplo: '5' != 5 es false.
+> (Mayor que):
+Ejemplo: 10 > 5 es true.
+< (Menor que):
+Ejemplo: 10 < 5 es false.
+>= (Mayor o igual que):
+Ejemplo: 10 >= 10 es true.
+<= (Menor o igual que):
+Ejemplo: 10 <= 10 es true.

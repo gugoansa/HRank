@@ -1,0 +1,23 @@
+Jest es un framework de pruebas de JavaScript de código abierto, desarrollado y mantenido por Meta (antes Facebook). Su principal objetivo es hacer que la escritura de pruebas sea fácil y efectiva. Jest proporciona un entorno de prueba completo para escribir, ejecutar y analizar pruebas en proyectos de JavaScript y TypeScript. 
+El papel de Jest en las pruebas
+Jest juega un papel fundamental al proporcionar la infraestructura necesaria para ejecutar las pruebas, independientemente de que se aplique en pruebas unitarias, de integración, de API o de interfaz de usuario. En los casos que se han mencionado anteriormente, Jest se encarga de la mecánica y la estructura, mientras que los patrones (como el POM) organizan el código de forma lógica. 
+1. Pruebas unitarias
+En el desarrollo de software, las pruebas unitarias validan que los componentes individuales o las funciones de una aplicación funcionen según lo esperado, de forma aislada. 
+Cómo se usa Jest: Jest proporciona una sintaxis sencilla para definir bloques de prueba (describe) y casos de prueba individuales (test o it), así como comparadores (expect) para verificar el resultado de las funciones.
+Papel en el proyecto: Jest es la herramienta que ejecuta estas pruebas y genera informes detallados sobre su éxito o fracaso. 
+2. Pruebas de integración
+Las pruebas de integración verifican que los diferentes módulos o servicios de una aplicación interactúen correctamente entre sí. 
+Cómo se usa Jest: Permite simular dependencias (usando mocks y spies) y observar el comportamiento de las interacciones entre los componentes.
+Papel en el proyecto: Jest aísla las pruebas de dependencias complejas, como las llamadas a la red, para que las pruebas de integración sean más rápidas y fiables. 
+3. Pruebas de interfaz de usuario (UI)
+Aunque Jest no es una herramienta de automatización de navegador como Selenium o Playwright, juega un papel crucial en las pruebas de UI, especialmente en proyectos que usan frameworks de JavaScript como React.js. 
+Cómo se usa Jest: Se combina a menudo con bibliotecas como React Testing Library (RTL) para probar la funcionalidad de los componentes de la interfaz de usuario. Jest ejecuta las pruebas escritas con RTL.
+Snapshot testing: Jest incluye una funcionalidad llamada Snapshot Testing, que captura una "instantánea" de la estructura y el contenido de un componente de la UI en un momento dado y la compara con versiones anteriores. Esto ayuda a detectar cambios inesperados en la interfaz. 
+4. Pruebas de API
+Aunque las pruebas de API generalmente no implican una interfaz visual, Jest es una herramienta excelente para probar los puntos finales (endpoints) de API. 
+Cómo se usa Jest: Se puede usar Jest junto con bibliotecas HTTP como axios o node-fetch para enviar solicitudes a los endpoints de la API y luego usar los comparadores de Jest para verificar las respuestas.
+Papel en el proyecto: Jest se encarga de ejecutar estas pruebas y validar la lógica del lado del servidor. 
+En resumen
+Jest es la herramienta que ejecuta las pruebas en proyectos de JavaScript, mientras que el Page Object Model (POM) y otros patrones son patrones de diseño que ayudan a organizar y estructurar el código de prueba. En otras palabras: 
+Jest es el motor que hace que las pruebas se ejecuten y los resultados sean visibles.
+POM es el mapa de carreteras que organiza el código de prueba de forma lógica, para que el mantenimiento sea más fácil

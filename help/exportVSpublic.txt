@@ -1,0 +1,24 @@
+🛡️ export vs. public
+NO, export y public no son lo mismo. Tienen propósitos totalmente diferentes:
+
+alabra Clave	                    Propósito	                                    Alcance
+export	                Controla la visibilidad del ARCHIVO.                Permite que otros archivos (import) vean y usen el código (clases, funciones, variables) que estás definiendo.	Fuera del archivo
+public	                Controla la visibilidad dentro de la CLASE.         Permite que la propiedad o método sea usado por el objeto creado a partir de la clase (ej: loginPage.login()).	Dentro del objeto.
+
+Analogía: export es como publicar tu libro para que el mundo lo compre. public es como 
+declarar que el índice del libro puede ser leído por todos (mientras que el contenido privado no).
+
+
+#################################
+MAS CLARO AUN
+🔓 public vs. export (De Nuevo)
+La confusión es muy común porque ambos se refieren a visibilidad. El truco está en recordar el alcance:
+
+Palabra	    ¿Para qué sirve?	                        Alcance (La Pregunta)
+export	    Para que el sistema de archivos te vea.	    ¿Puede otro archivo ver esta Clase/Función?
+public	    Para que el objeto te vea.	                ¿Puede la prueba que está usando el objeto (loginPage) usar este método?
+Ejemplo:
+
+La clase LoginPage tiene export. (El archivo de prueba la ve).
+loginPage tiene un método public login(). (La prueba puede usarlo: loginPage.login()).
+loginPage tiene un selector private usernameField. (La prueba NO puede usarlo: loginPage.usernameField falla).

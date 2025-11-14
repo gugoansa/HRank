@@ -1,0 +1,6 @@
+🧭 Manejo de Propiedades en Clases TypeScript
+
+Opción	                                    Código Ejemplo	                            Cuándo Usarla
+1. Inicialización Directa	        private readonly locator: string = '#mi-id';	    Cuando el valor es FIJO y CONSTANTE (ej: selectores/Localizadores en POM). Es la forma más común para los Localizadores.
+2. Inicialización en Constructor	constructor(private valorExterno: string) { ... }	Cuando el valor DEBE SER PROPORCIONADO desde AFUERA al momento de crear el objeto (ej: el objeto Page de Playwright, o una URL base).
+3. Propiedad Opcional	            private miPropiedad?: string;	                    Cuando el valor NO ES REQUERIDO al crear el objeto y puede ser undefined (ej: un contador que se usa solo a veces). Se usa el signo ?.

@@ -1,0 +1,14 @@
+#EXPLICANDO DESDE LAS DUDAS 
+
+1. 🛡️ ¿Por Qué las Propiedades Deben Ser Privadas?
+La razón principal es la encapsulación y el principio del Page Object Model (POM).
+
+Encapsulación (Seguridad): En POO (Programación Orientada a Objetos), private significa que un elemento (como el selector de un campo) solo puede ser accedido y modificado dentro de su propia clase.
+
+Ventaja: Evita que alguien más (por ejemplo, el archivo de la prueba) pueda accidentalmente cambiar el selector. Si tu prueba accediera a loginPage.usernameField y lo cambiara, la automatización se rompería.
+
+Principio POM (Organización): Las clases POM están diseñadas para exponer solo las acciones (los métodos como login()), no los detalles internos (los selectores).
+
+La Regla: Si la prueba necesita interactuar con el campo de usuario, debe llamar al método loginPage.login(), y no intentar manipular el campo directamente.
+
+En resumen: Las propiedades son privadas para ocultar la complejidad (los selectores) y solo mostrar los comportamientos (los métodos) al mundo exterior.

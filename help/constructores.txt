@@ -1,4 +1,5 @@
-
+#Constructor: Es una función especial dentro de una clase que se ejecuta automáticamente cuando creas un objeto de esa clase. Se usa para inicializar cosas.
+# Propósito: Cuando creas un objeto new LoginPage(), el constructor recibe el objeto page (la "mano") y lo guarda dentro de la clase para que todos los métodos puedan usarlo
 
 class Persona {
   nombre: string;
@@ -15,3 +16,36 @@ class Persona {
 // 👇 uso de la clase
 const persona1 = new Persona("Tatao");
 persona1.saludar();
+
+
+//////////////////////////////
+//////////////////////////////
+DEFINIR CONSTRUCTOR MAS CORTO
+//////////////////////////////
+
+export class LoginPage{
+    constructor(private readonly page: Page) { 
+        // ¡El código dentro de {} ya no es necesario!
+        // TypeScript hace lo siguiente automáticamente:
+        // 1. Declara la variable privada 'this.page'.
+        // 2. Asigna el valor que recibe ('page') a 'this.page'.
+        // 3. Establece que 'this.page' nunca cambiará.
+    }
+
+*******************************
+************* OJO *************
+*******************************
+# Muchas veces se pierden buenas practicas lee este ejemplo
+  /*SEGUNDO EJEMPLO DE CONSTRUCTOR de la forma tradicional*/ 
+  export class LoginPage {    
+    page :Page; // ⚠️ PROBLEMA: Esta propiedad es pública por defecto.
+    
+    constructor(page :Page){
+        this.page = page;
+    }
+}
+//Problema,Descripción,Solución Recomendada
+//Público por Defecto,"La propiedad page es pública. Esto significa que cualquier prueba podría accidentalmente cambiarla o acceder a ella directamente (ej: loginPage.page = null;). En POO, las propiedades internas críticas deben ser privadas.",Añadir la palabra clave private a la declaración: private page: Page;.
+//Mutabilidad,"La propiedad page puede ser cambiada después de la inicialización. Como page es la ""mano"" del navegador, nunca debe cambiar.",Añadir la palabra clave readonly (solo lectura) para asegurar que el valor no cambie: private readonly page: Page;.
+
+

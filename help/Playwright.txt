@@ -1,0 +1,2 @@
+El objeto Page de Playwright es la pestaña abierta del navegador.
+Analogía: Es la mano que Playwright usa para interactuar con la web. Para escribir en un campo, hacer clic en un botón, o ir a una URL, siempre tienes que usar esta "mano" (page)

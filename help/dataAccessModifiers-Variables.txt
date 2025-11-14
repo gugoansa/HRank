@@ -1,0 +1,5 @@
+private readonly:
+
+private: Significa que la variable page solo puede ser usada dentro de esta clase. Nadie más afuera puede verla o cambiarla. Esto es encapsulación.
+
+readonly: Significa que una vez que se le asigna el valor (page) en el constructor, no puede cambiar nunca más.

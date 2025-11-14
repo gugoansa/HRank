@@ -1,0 +1,178 @@
+🧠 ¿Qué es la POO?
+
+La Programación Orientada a Objetos es una forma de organizar tu código como si trabajaras con cosas del mundo real (objetos).
+En lugar de pensar en funciones sueltas, piensas en objetos que tienen características y hacen cosas.
+
+🧱  Encapsulamiento — Encapsulation
+🧱  Abstracción — Abstraction
+🧱  Herencia — Inheritance
+🧱  Polimorfismo — Polymorphism
+
+🧱 1. OBJETO
+
+Un objeto es una cosa que tiene:
+
+✔ Propiedades → lo que ES
+✔ Métodos → lo que HACE
+
+Ejemplos reales:
+
+Objeto	Propiedades	Métodos
+Perro	nombre, color, edad	ladrar(), comer()
+Auto	marca, modelo, velocidad	acelerar(), frenar()
+
+En código (JavaScript / TypeScript):
+
+const perro = {
+  nombre: "Luna",
+  edad: 3,
+  ladrar() {
+    console.log("Guau!");
+  }
+};
+
+📦 2. CLASE
+
+Una clase es como una plantilla para crear objetos.
+
+Ejemplo en la vida real:
+Una clase sería “Perro”.
+Un objeto sería “Luna”, “Rocky”, “Toby”.
+
+Clase en código:
+
+class Perro {
+  nombre: string;
+  edad: number;
+
+  constructor(nombre: string, edad: number) {
+    this.nombre = nombre;
+    this.edad = edad;
+  }
+
+  ladrar() {
+    console.log("Guau!");
+  }
+}
+
+const luna = new Perro("Luna", 3);
+
+🎁 3. ENCAPSULAMIENTO
+
+Es proteger los datos dentro del objeto para que nadie los toque sin permiso.
+
+Como cuando tu celular tiene contraseña:
+no cualquiera entra a tus fotos.
+
+class CuentaBancaria {
+  private saldo = 100;
+
+  verSaldo() {
+    return this.saldo;
+  }
+}
+
+👨‍👧 4. HERENCIA
+
+Una clase puede heredar de otra.
+
+Ejemplo real:
+“Perro” y “Gato” heredan de “Animal”.
+
+class Animal {
+  comer() { console.log("Estoy comiendo"); }
+}
+
+class Perro extends Animal {
+  ladrar() { console.log("Guau!"); }
+}
+
+const p = new Perro();
+p.comer(); // heredado
+
+🎭 5. POLIMORFISMO
+
+Una misma función se comporta diferente según el tipo de objeto.
+
+Ejemplo real:
+Si dices “haz sonido”:
+
+un perro ladra
+
+un gato maúlla
+
+una vaca muge
+
+class Animal {
+  hacerSonido() {}
+}
+
+class Perro extends Animal {
+  hacerSonido() { console.log("Guau!"); }
+}
+
+class Gato extends Animal {
+  hacerSonido() { console.log("Miau!"); }
+}
+
+
+🎭 ABSTRACCIÓN (Abstraction)
+
+Es mostrar solo lo importante y ocultar los detalles innecesarios al usar un objeto.
+
+Ejemplo real:
+
+Un auto:
+
+Tú solo ves y usas: volante, pedales, palanca.
+
+No ves ni te importa en ese momento: cómo funciona el motor internamente.
+
+Eso es abstracción:
+👉 usar algo sin conocer toda su complejidad interna.
+
+Ejemplo en código:
+class Auto {
+  encenderMotor() { /* lógica complicada */ }
+
+  arrancar() {
+    this.encenderMotor(); 
+    console.log("El auto está en marcha");
+  }
+}
+
+const miAuto = new Auto();
+miAuto.arrancar(); // No necesito saber cómo funciona encenderMotor()
+
+
+Tú solo llamas arrancar(),
+aunque por dentro pase algo más complejo.
+
+
+
+🚀 EN RESUMEN (la forma más simple)
+Concepto	Explicación
+Objeto	Es una cosa con propiedades y acciones
+Clase	Plantilla para crear objetos
+Encapsulamiento	Proteger datos
+Herencia	Reutilizar código: una clase hija obtiene cosas de la clase padre
+Polimorfismo	Una misma acción con diferentes comportamientos
+💡 La mejor forma de NO olvidarlo nunca:
+
+Imagina que POO es como organizar juguetes:
+
+La clase es el molde del juguete.
+
+Los objetos son los juguetes creados con el molde.
+
+El encapsulamiento es guardarlos en una caja para que no los toquen.
+
+La herencia es crear nuevos juguetes basándose en uno ya existente.
+
+El polimorfismo es que cada juguete hace su propio sonido aunque todos sean “juguetes”.
+
+Abstracción = usar algo sin saber cómo funciona por dentro.
+
+Encapsulamiento = ocultar/proteger datos internos.
+
+(Son parecidos, pero no iguales).

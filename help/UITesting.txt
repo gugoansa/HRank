@@ -1,0 +1,29 @@
+Para las pruebas de la interfaz de usuario (UI) web, el enfoque principal es, como mencionaste, el Page Object Model (POM). Sin embargo, el "encarpetado especial" y las herramientas cambian para adaptarse a la naturaleza de las aplicaciones web. 
+1. El patrón de diseño: Page Object Model (POM) 
+El POM es el patrón de facto para organizar la automatización de pruebas de UI. Funciona de la siguiente manera: 
+Representación de páginas: Cada página o componente significativo de la aplicación web se representa como una clase de objeto independiente.
+Encapsulación de elementos: Cada clase encapsula los elementos de la interfaz de usuario (como botones, campos de texto, tablas) y los métodos para interactuar con ellos.
+Separación de la lógica: Esto separa el código de prueba de la lógica de la UI. Si un elemento de la página cambia (por ejemplo, su selector), solo necesitas actualizarlo en un solo lugar (dentro de la clase de la página correspondiente). 
+2. Estructura de carpetas
+El "encarpetado especial" es una estructura de directorios lógica para mantener el proyecto de automatización ordenado y fácil de mantener. Una estructura común podría ser: 
+src/test/java (o el lenguaje que uses)
+pages/: Contiene las clases del Page Object Model.
+tests/: Contiene los casos de prueba que invocan los métodos de las clases de pages.
+utils/: Para código de ayuda, como el manejo de archivos de datos o la configuración del navegador.
+test_data/: Carpeta para almacenar datos de prueba en formatos como CSV o JSON.
+resources/: Archivos de configuración y otros recursos. 
+3. Herramientas
+Existen diversas herramientas populares para la automatización de pruebas de UI web:
+Selenium WebDriver: Una herramienta estándar de la industria que soporta la mayoría de los navegadores. Funciona invocando el navegador de manera programática.
+Playwright: Desarrollado por Microsoft, es una herramienta más moderna que ofrece un control más potente sobre la automatización. Soporta múltiples navegadores y lenguajes.
+Cypress: Un framework de pruebas de extremo a extremo que está ganando popularidad debido a su arquitectura simple y rápida.
+WebDriverIO: Otro framework potente y extensible para la automatización de pruebas de navegador.
+Katalon Studio: Una herramienta de bajo código que permite a los usuarios con menos experiencia crear pruebas de forma más rápida. 
+Resumen: ¿Cómo se maneja para la UI?
+Patrón: Se utiliza el Page Object Model (POM) para estructurar el código.
+Organización: Se sigue una estructura de carpetas lógica que separa los objetos de página, los casos de prueba y el código de ayuda.
+Herramientas: Se usan frameworks como Selenium, Playwright o Cypress para interactuar con el navegador y los elementos de la interfaz de usuario.
+Enfoque: A diferencia de las pruebas de API que se centran en los endpoints, las pruebas de UI se centran en las páginas y sus elementos visuales, simulando las acciones de un usuario real (hacer clic en botones, rellenar formularios, etc.). 
+
+
+

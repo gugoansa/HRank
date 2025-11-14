@@ -1,0 +1,12 @@
+import vs. Herencia
+Esta es una diferencia crucial en la Programación Orientada a Objetos (POO)
+
+Concepto	        Código	                                                        Analogía	                                        Propósito
+Importar (Usar)	    import { Coche } from './Coche'; const miCoche = new Coche();	Pides prestado o compras un objeto ya hecho.	    Reutilizar una herramienta o dato. Es la forma más común.
+Heredar (Extender)	class Convertible extends Coche { ... }	                        Eres una versión especializada del objeto original. Ganas automáticamente TODAS sus propiedades y métodos.	Crear una variación o especialización de una clase existente.
+
+En la práctica:
+
+Usas import para usar tu LoginPage en un archivo de prueba.
+
+Usarías heredar si quisieras crear una VipLoginPage que sea idéntica a LoginPage pero con una función extra (ej: loginWithBiometrics).

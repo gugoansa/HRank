@@ -1,0 +1,41 @@
+# Las funciones anónimas en JavaScript son funciones sin nombre que se pueden definir directamente como 
+argumentos para otras funciones (callbacks), asignar a variables, o ejecutar inmediatamente. Son útiles 
+para tareas rápidas y únicas, y su sintaxis puede ser más concisa con las funciones de flecha (=>). 
+
+Características principales
+Sin nombre: A diferencia de las declaraciones de funciones tradicionales, no se les asigna un nombre explícito.
+Flexibilidad: Pueden ser pasadas como argumentos a otras funciones (como en el método forEach de los arrays) o asignadas a una variable.
+Sintaxis: Se definen utilizando la palabra clave function, aunque las funciones de flecha (=>) de ES6 ofrecen una alternativa más corta.
+Ejecución: Se pueden ejecutar de inmediato (IIFE - Immediately Invoked Function Expression) para crear un ámbito privado. 
+Ejemplos de uso
+
+Como callbacks:
+Función tradicional:
+
+javascript
+setTimeout(function() {
+  console.log("Pasaron 2 segundos");
+}, 2000);
+Función de flecha:
+javascript
+setTimeout(() => {
+  console.log("Pasaron 2 segundos");
+}, 2000);
+Asignadas a una variable:
+Función tradicional:
+javascript
+const saludar = function(nombre) {
+  return "Hola, " + nombre;
+};
+console.log(saludar("Mundo"));
+Función de flecha:
+javascript
+const saludar = nombre => "Hola, " + nombre;
+console.log(saludar("Mundo"));
+Funciones autoejecutables (IIFE):
+Ejemplo:
+javascript
+(function() {
+  var mensaje = "Este es un mensaje dentro de un IIFE";
+  console.log(mensaje);
+})();

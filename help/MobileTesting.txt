@@ -1,0 +1,27 @@
+Para las pruebas de aplicaciones móviles, el enfoque es muy similar al Page Object Model (POM) de pruebas de interfaz de usuario (UI) web. Sin embargo, en lugar de "páginas" web, se habla de "screens" o "views" (pantallas o vistas) de la aplicación móvil. 
+Screen Object Model (SOM) o Appium Page Object 
+El patrón de diseño se adapta a la naturaleza de las aplicaciones móviles, donde cada pantalla de la app (por ejemplo, la pantalla de inicio de sesión, la del carrito de compras, la de configuración) se representa como una clase en el código de automatización. 
+¿Cómo funciona?
+Clase por pantalla: Se crea una clase separada por cada pantalla de la aplicación.
+Elementos de la pantalla: Cada clase contiene los "elementos" (botones, campos de texto, etc.) y las acciones que se pueden realizar en esa pantalla.
+Separación de lógica: Al igual que en el POM web, esto separa la lógica de las pruebas de los detalles de la interfaz de usuario. Si un elemento cambia, solo necesitas actualizar la clase correspondiente, no todos los casos de prueba que lo usan. 
+Encarpetado y herramientas
+El "encarpetado especial" para móviles sigue una estructura lógica similar a la de las pruebas web, pero adaptada a las herramientas y la plataforma móvil.
+Estructura de carpetas típica:
+src/main/java (o el lenguaje que uses)
+screens/: Contiene las clases que representan las pantallas de la aplicación.
+tests/: Contiene los casos de prueba que invocan los métodos de las clases de screens.
+utils/: Para código auxiliar, como la gestión de datos de prueba o la inicialización del controlador.
+test_data/: Carpeta para almacenar archivos de datos, como JSON o CSV, para las pruebas. 
+Herramientas de automatización móvil:
+Las herramientas para la automatización de pruebas móviles son la pieza clave para interactuar con la aplicación.
+Appium: Es la herramienta más popular y versátil. Permite escribir pruebas para aplicaciones nativas, híbridas y web móviles, usando el mismo código para Android e iOS.
+Espresso (Android): Framework de Google para pruebas de UI en Android, muy rápido y eficiente.
+XCUITest (iOS): Framework de Apple para pruebas de UI en iOS.
+Katalon Studio: Herramienta que soporta la automatización de pruebas móviles, entre otras. 
+Resumen de la diferencia
+La principal diferencia es el contexto:
+Pruebas web (POM): Interactúan con el navegador web y los elementos de una página HTML.
+Pruebas de API (API Object Model): Interactúan directamente con los endpoints (URLs) de una API, sin interfaz visual.
+Pruebas móviles (SOM): Interactúan con las pantallas y los elementos de una aplicación móvil instalada en un emulador, simulador o dispositivo físico.
+En los tres casos, la idea es la misma: usar un patrón de diseño para estructurar y organizar el código de automatización de manera que sea fácil de mantener y reutilizar. 

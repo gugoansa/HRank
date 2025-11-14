@@ -1,0 +1,16 @@
+POM puede referirse a dos conceptos principales: 
+Project Object Model (Maven) 
+En proyectos Java que usan Maven como herramienta de gestión de dependencias y construcción, el POM (Project Object Model) es el archivo pom.xml. 
+Qué es: Un archivo XML fundamental que describe la configuración del proyecto.
+Contiene: Información sobre las dependencias (librerías que el proyecto necesita), los plugins que se usarán, la versión del proyecto, perfiles de construcción y otros detalles.
+Encarpetado especial: En este caso, el "encarpetado especial" es la estructura de directorios estándar que Maven recomienda seguir, conocida como Standard Directory Layout. Esta estructura ayuda a que Maven sepa dónde encontrar el código fuente, los recursos y los tests sin necesidad de una configuración adicional. 
+Page Object Model (Automatización de pruebas) 
+En el desarrollo de pruebas de automatización de interfaces de usuario (UI), el POM (Page Object Model) es un patrón de diseño. 
+Qué es: Un patrón de diseño que representa cada página o componente de una aplicación web como una clase de objeto.
+Funcionalidad: Cada clase (u objeto) contiene los elementos de la página (botones, campos de texto) y los métodos para interactuar con ellos.
+Beneficio: Separa el código de las pruebas de la lógica de la UI. Si la interfaz cambia, solo se necesita modificar la clase correspondiente, no todas las pruebas que la utilizan. Esto facilita el mantenimiento y la reutilización del código.
+Encarpetado especial: Aquí, el "encarpetado especial" se refiere a la organización de las clases y archivos de pruebas. Se deben seguir las convenciones para mantener las pruebas ordenadas, separando las clases que representan las páginas (los "page objects") de las clases que contienen la lógica de las pruebas. 
+Resumen
+La frase "encarpetado especial que seguir" sugiere un estándar o una convención de organización de archivos y carpetas. Dependiendo del contexto, puede ser: 
+Si usas Maven: La estructura de directorios estándar del proyecto.
+Si haces automatización de pruebas UI: La separación lógica de las clases que representan las páginas web y la lógica de las pruebas.

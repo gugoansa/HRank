@@ -1,0 +1,23 @@
+## muchas veces al automatizar y desarrollar se confunden las variables que deben ser private read only entre otras, aca hay 
+una analogia que te ayudar a entender esto para no equivocarte al crearlas y asignarles modificadores de accesso.
+
+🧱 Tres Tipos de Variables en Playwright (Analogía)
+Imagina que estás en un restaurante automatizado donde un chef (Playwright) prepara platos.
+
+A
+Tipo de Variable--------------> A. Localizador
+Analogía del Restaurante------> El número de mesa donde se debe dejar el plato.
+¿Cómo se usa en Playwright?---> Es una dirección fija en el código (#user-name). Se define en la clase POM y no debe cambiar.
+Palabra Clave-----------------> private readonly
+
+B
+Tipo de Variable--------------> B. Dato de Prueba
+Analogía del Restaurante------> Los ingredientes que el cliente pide (ej: "carne", "pasta").
+¿Cómo se usa en Playwright?---> La información que usas para probar (usuario, clave, precio). Se pasa como parámetro a los métodos.
+Palabra Clave-----------------> parámetro (en el método)
+
+C
+Tipo de Variable--------------> C. Variable de Prueba
+Analogía del Restaurante------> La nota donde el chef anota el tiempo que tardó en cocinar.
+¿Cómo se usa en Playwright?---> Una variable temporal que se usa dentro del test (ej: un contador, un subtotal, un resultado de búsqueda).
+Palabra Clave-----------------> let o const

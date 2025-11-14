@@ -1,0 +1,66 @@
+🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+🔴🔴🔴🔴Java
+Java es un lenguaje de tipado estático, lo que significa que el tipo de una variable debe ser declarado y no puede cambiar durante la ejecución del programa. 
+Tipos de datos primitivos:
+Numéricos:
+byte, short, int, long: Para números enteros de diferente tamaño.
+float, double: Para números de punto flotante (con decimales), donde double ofrece mayor precisión.
+Caracteres:
+char: Almacena un solo carácter Unicode.
+Lógicos:
+boolean: Almacena true o false.
+Tipos de datos no primitivos (o de referencia):
+String: Para secuencias de caracteres, es una clase, no un tipo primitivo.
+Arreglos: Colecciones de elementos del mismo tipo.
+Clases e interfaces: Tipos personalizados que definen objetos. 
+🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢vv
+🟢🟢🟢🟢🟢🟢Python
+Python es un lenguaje de tipado dinámico, lo que significa que no es necesario declarar explícitamente el tipo de una variable; el intérprete lo asigna automáticamente. Una variable puede cambiar de tipo durante la ejecución. 
+Tipos de datos básicos:
+Numéricos:
+int: Para números enteros.
+float: Para números de punto flotante.
+complex: Para números complejos.
+Texto:
+str: Para cadenas de texto.
+Lógicos:
+bool: Almacena True o False.
+Secuencias:
+list: Colección ordenada y mutable de elementos.
+tuple: Colección ordenada e inmutable de elementos.
+Mapeos:
+dict: Colección de pares clave-valor.
+Conjuntos:
+set: Colección desordenada de elementos únicos. 
+🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨
+🟨🟨🟨🟨🟨JavaScript
+JavaScript, al igual que Python, es un lenguaje de tipado dinámico.
+Tipos de datos primitivos:
+string: Para cadenas de texto.
+number: Para números, tanto enteros como de punto flotante.
+bigint: Para números enteros muy grandes.
+boolean: Para valores true o false.
+undefined: Cuando una variable no tiene un valor asignado.
+null: Valor que representa la ausencia intencional de un objeto.
+symbol: Tipo de dato único e inmutable.
+Tipos de datos no primitivos:
+object: Tipo de dato que puede ser una colección de pares clave-valor (objetos literales), arrays, etc..
+Declaración de variables:
+var: Alcance de función (menos recomendado actualmente).
+let: Alcance de bloque, permite la reasignación.
+const: Alcance de bloque, no permite la reasignación. 
+🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦
+🟦🟦🟦🟦🟦🟦TypeScript
+TypeScript es un superconjunto de JavaScript que añade tipado estático opcional. Las variables pueden tener un tipo de dato explícito, lo que ayuda a detectar errores en tiempo de desarrollo. 
+Tipos de datos:
+Primitivos de JS: Los mismos que JavaScript (string, number, boolean, null, undefined, etc.).
+any: Permite que la variable contenga cualquier tipo de valor (para cuando se necesita la flexibilidad del tipado dinámico).
+unknown: Similar a any, pero más seguro, ya que requiere comprobaciones de tipo antes de usarse.
+enum: Conjunto de constantes con nombre.
+void: Utilizado en funciones que no devuelven ningún valor.
+Uniones (|): Permite que una variable tenga uno de varios tipos posibles (string | number).
+Tipos literales: Permiten definir tipos con valores específicos, por ejemplo, 'red' | 'blue' | 'green'.
+Interfaces y clases: Permiten definir la estructura de objetos. 
+
+
+

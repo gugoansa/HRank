@@ -1,0 +1,31 @@
+El operador ternario en TypeScript se maneja de forma idéntica a JavaScript. Su sintaxis básica es condición ? valor_si_verdadero : valor_si_falso, y es útil para asignaciones condicionales simples en una sola línea, reemplazando a un if-else básico. Se compone de una condición, seguida de un signo de interrogación (?), y dos expresiones separadas por dos puntos (:). 
+typescript
+// Ejemplo básico
+let edad = 20;
+let categoria = (edad >= 18) ? "adulto" : "menor de edad";
+
+console.log(categoria); // Imprime "adulto"
+Cómo funciona
+Condición: La primera parte (condición) se evalúa.
+Signo de interrogación (?): Si la condición es verdadera (o truthy), se ejecuta la expresión que sigue al signo de interrogación.
+Dos puntos (:): Si la condición es falsa (o falsy), se ejecuta la expresión que sigue a los dos puntos. 
+Casos de uso y consideraciones
+Asignación de valores: Es muy eficiente para asignar un valor a una variable basándose en una condición simple.
+Código conciso: Permite simplificar estructuras de control if-else en un solo renglón, haciendo el código más compacto.
+Evitar anidamiento excesivo: No es recomendable usar múltiples operadores ternarios anidados, ya que puede volver el código difícil de leer. Para lógicas más complejas, es mejor usar if-else o if-else if. 
+typescript
+// Ejemplo anidado (no recomendado)
+let nota = 7;
+let calificacion = nota < 5 ? "Insuficiente" : nota < 6 ? "Suficiente" : nota < 8 ? "Bien" : "Notable";
+
+// Es más legible usar if-else para este caso:
+let calificacionLegible;
+if (nota < 5) {
+    calificacionLegible = "Insuficiente";
+} else if (nota < 6) {
+    calificacionLegible = "Suficiente";
+} else if (nota < 8) {
+    calificacionLegible = "Bien";
+} else {
+    calificacionLegible = "Notable";
+}
