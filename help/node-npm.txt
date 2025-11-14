@@ -1,0 +1,29 @@
+# Node = motor que ejecuta JavaScript.
+# npm = herramienta que instala y administra paquetes/librerías que Node necesita.
+
+NODE/NPM/NPX
+node -v
+npm install -g npm@latest
+npm -v
+mkdir golog
+cd golog
+npm init -y
+npm install -D @playwright/test //Opcional solo instala play write que automaticamente lo hace el comando que ves a continuacion.
+npm init playwright@latest 
+npm init playwright@latest //Crea Estructura
+    ✔ TypeScript o JavaScript: JavaScript
+    ✔ Carpeta de tests: tests
+    ✔ GitHub Actions workflow: No
+    ✔ Instalar Playwright browsers: Yes
+        golog/
+        ├── package.json
+        ├── playwright.config.ts
+        ├── tests/
+        │   └── example.spec.ts
+        └── tests-examples/
+npx playwright install // Instala navegadores ////npm install -g playwright // global
+npx playwright install --with-deps // Instala navegadores si se ejecuta desde linux
+npx playwright test //Ejecuta test
+npx playwright show-report //Abre el reporte visual
+npm cache clean --force //Elimina la cache de node - Node guarda la cache para facilitar instalaciones
+pwd // Muestra la ruta donde estas , sirve para ver la path antes de borrar algo
