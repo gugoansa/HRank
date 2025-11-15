@@ -1,6 +1,6 @@
 // Archivo simulado: src/tests/table.spec.ts (Uso de la Matriz)
 
-import { TablePage } from "../../pages/TablePage";
+import { TablePage } from "../../src/pages/TablePage";
 import { Page } from "@playwright/test"; //Recuerda cómo definiste el constructor de TablePage: constructor(private readonly page: Page) { /* ... */ }
 /* CON RELACION AL IMPORT de Page:
 TypeScript es Estricto: Cuando llamas a new TablePage(page);, TypeScript verifica si el argumento que le pasas (page) coincide con el tipo que el constructor espera (Page).
@@ -16,7 +16,7 @@ async function executeTableTest(page: any) {
         const tablePage = new TablePage(page);
 
         // 2. Navegar a la página de la tabla
-        await page.goto("https://www.w3schools.com/html/html_tables.asp");
+        await page.goto("https://www.w3schools.com/html/html_tables.asp", { waitUntil: 'domcontentloaded' }); //Vamos a decirle que espere solo hasta que el contenido principal (el DOM) esté listo.
 
         // 3. Obtener la Matriz de datos de la tabla (Aquí se llama a tu método)
         const tableData: string[][] = await tablePage.getTableData();

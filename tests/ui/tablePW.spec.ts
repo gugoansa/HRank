@@ -1,7 +1,7 @@
 // Archivo: src/tests/table.spec.ts (Estructura Real de Playwright)
 
 import { test, expect, type Page } from '@playwright/test'; // Importamos 'test', 'expect' y el tipo 'Page'
-import { TablePage } from '../../pages/TablePage'; // Tu clase POM
+import { TablePage } from '../../src/pages/TablePage';// Tu clase POM
 
 // Definición de la prueba: Se le da un nombre y Playwright inyecta el objeto 'page'
 test('Verify table data integrity and content', async ({ page }) => {

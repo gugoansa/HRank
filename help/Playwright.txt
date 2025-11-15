@@ -20,3 +20,16 @@ Todo lo demás lo haces tú con:
     selectors
     POM
     funciones
+
+
+🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨
+🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨
+🚨🚨🚨🚨 OJO
+La carpeta de los test se debe llamar tests en plural de lo contrario encontrar un mensaje asegura el plural
+
+npx playwright test tests/ui/tablePW.spec.ts
+Error: No tests found.
+Make sure that arguments are regular expressions matching test files.
+You may need to escape symbols like "$" or "*" and quote the arguments.
+To open last HTML report run:
+  npx playwright show-report

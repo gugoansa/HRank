@@ -15,6 +15,8 @@ export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
+  //Aumentar el tiempo de espera general del test a 60 segundos =60000ms
+  timeout: 60000, 
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -36,7 +38,12 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'],
+            launchOptions: {
+                // ESTA LÍNEA Desactiva el entorno de seguridad estricto
+                args: ['--no-sandbox'], 
+            }
+       },
     },
 
     {
@@ -46,7 +53,12 @@ export default defineConfig({
 
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      use: { ...devices['Desktop Safari'],
+        launchOptions: {
+                // ESTA LÍNEA ES LA SOLUCIÓN: Desactiva el entorno de seguridad estricto
+                args: ['--no-sandbox'], 
+            }
+       },
     },
 
     /* Test against mobile viewports. */

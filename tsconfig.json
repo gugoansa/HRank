@@ -22,6 +22,6 @@
   },
 
   /* === 📦 Qué incluir/excluir === */
-  "include": ["src/**/*"],                      // Incluye todo lo que está en la carpeta src
+  "include": ["src/**/*", "tests/ui/table.spec.ts"],                      // Incluye todo lo que está en la carpeta src
   "exclude": ["node_modules", "dist", "tests", "src/test/**/*"]  // Excluye node_modules y dist
 }
