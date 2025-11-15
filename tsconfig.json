@@ -23,5 +23,5 @@
 
   /* === 📦 Qué incluir/excluir === */
   "include": ["src/**/*"],                      // Incluye todo lo que está en la carpeta src
-  "exclude": ["node_modules", "dist", "tests"]  // Excluye node_modules y dist
+  "exclude": ["node_modules", "dist", "tests", "src/test/**/*"]  // Excluye node_modules y dist
 }

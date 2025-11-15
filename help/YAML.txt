@@ -1,0 +1,58 @@
+. YAML (YML) – GitHub Actions
+Qué es:
+YAML es un lenguaje de serialización de datos. En GitHub Actions lo usas para describir flujos de trabajo (workflows), jobs, y pasos que quieres que se ejecuten.
+Ventajas:
+Es muy legible: está diseñado para que los humanos lo lean fácilmente.
+Es simple de aprender: básicamente manejas listas, diccionarios y valores.
+Puntos a tener en cuenta:
+Indentación estricta: YAML usa espacios, no tabulaciones. Un error de indentación puede romper todo el workflow.
+Sintaxis sensible: las comillas, los guiones y los dos puntos son importantes.
+Necesitas aprender las palabras clave de GitHub Actions como jobs, steps, runs-on, uses, etc.
+Dificultad:
+Para alguien con experiencia básica en programación, es fácil de aprender en unas horas.
+Los errores más comunes son indentación y pequeños typos.
+
+1️⃣ YAML para GitHub Actions
+Estructura básica de un workflow (.github/workflows/ci.yml):
+
+******************************************************
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+******************************************************
+
+Qué debes notar:
+Todo depende de indentación (2 espacios por nivel).
+jobs contiene los trabajos; cada job tiene steps.
+uses se usa para acciones predefinidas; run para comandos de terminal.
+💡 Tip: si algo falla, revisa primero los espacios, no los comandos.
+
+
+
+3️⃣ Comparación rápida en ejemplos
+Concepto	        GitHub Actions (YAML)	    Jenkins (Groovy)
+Definir workflow	jobs y steps	            pipeline → stages → steps
+Ejecutar comando	run: npm test	            sh 'npm test'
+Automatización	  Fácil y directa	          Flexible y más compleja
+Posible error	    Indentación y sintaxis	  Lógica, variables, API de Jenkins

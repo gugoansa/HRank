@@ -1,0 +1,14 @@
+1. ⏱️ Promise vs. Asincronía y Tareas
+Tienes una confusión común entre Promesas (el concepto de TS/JS) y las Micro/Macro Tareas (el mecanismo de cómo se ejecuta el código).
+
+El Tipo Promise<string[][]>
+public getTableData(): Promise<string[][]> significa: "Este método, al ser llamado, te promete que eventualmente te entregará una matriz de strings (string[][])."
+
+El tipo Promise es el indicador en TypeScript de que la función es asíncrona (usa async) y requiere await para obtener el resultado.
+
+Micro vs. Macro Tareas (El Hilo Principal)
+Toda interacción con Playwright (como .count(), .fill(), .click()) es una operación de I/O (entrada/salida) que crea una Macro Tarea.
+
+Estas tareas no bloquean el hilo principal (donde se ejecutan las Micro Tareas como cambios de interfaz de usuario) mientras Playwright espera la respuesta del navegador.
+
+Tu función async getTableData() permite que el hilo principal continúe mientras espera el await de Playwright. El programa no finalizará hasta que no se complete toda la Promesa de getTableData() (y todas las Promesas dentro de ella), ya que es un paso esencial del test.

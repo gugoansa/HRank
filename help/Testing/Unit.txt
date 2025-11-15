@@ -1,0 +1,99 @@
+1️⃣ Funciones puras / lógicas de negocio
+Estas son las más clásicas. Se prueban funciones que no dependen de nada externo, solo de sus inputs y outputs.
+Ejemplo: calculadora, validación de formularios, conversiones de datos.
+
+// src/utils/math.ts
+export function sumar(a: number, b: number) { return a + b; }
+export function restar(a: number, b: number) { return a - b; }
+export function esPar(n: number) { return n % 2 === 0; }
+
+#PRUEBA UNITARIA
+import { sumar, restar, esPar } from "../../utils/math";
+
+describe("Math utils", () => {
+  test("sumar 2 + 3 debe ser 5", () => {
+    expect(sumar(2,3)).toBe(5);
+  });
+
+  test("restar 5 - 3 debe ser 2", () => {
+    expect(restar(5,3)).toBe(2);
+  });
+
+  test("esPar 4 debe ser true", () => {
+    expect(esPar(4)).toBe(true);
+  });
+
+  test("esPar 5 debe ser false", () => {
+    expect(esPar(5)).toBe(false);
+  });
+});
+
+
+2️⃣ Validaciones y formateos
+Funciones que revisan datos o formatean strings, fechas, números, etc.
+export function validarEmail(email: string) {
+  return /\S+@\S+\.\S+/.test(email);
+}
+Prueba:
+test("validarEmail detecta un correo válido", () => {
+  expect(validarEmail("hola@ejemplo.com")).toBe(true);
+  expect(validarEmail("correo-invalido")).toBe(false);
+});
+
+
+3️⃣ Funciones que lanzan errores
+Si una función puede lanzar errores, la prueba debe verificarlo.
+export function dividir(a: number, b: number) {
+  if (b === 0) throw new Error("No se puede dividir por cero");
+  return a / b;
+}
+Prueba:
+test("dividir lanza error al dividir por cero", () => {
+  expect(() => dividir(5,0)).toThrow("No se puede dividir por cero");
+});
+
+
+4️⃣ Mocks / Stubs (funciones que dependen de otras funciones)
+Cuando tu función llama a APIs, bases de datos, o librerías externas, no quieres ejecutar esas dependencias en la prueba unitaria. Aquí entran los mocks.
+import { enviarEmail } from "../services/email";
+import { notificarUsuario } from "../services/notifications";
+jest.mock("../services/email");
+test("notificarUsuario llama a enviarEmail", () => {
+  notificarUsuario("usuario@ejemplo.com", "Hola");
+  expect(enviarEmail).toHaveBeenCalledWith("usuario@ejemplo.com", "Hola");
+});
+
+
+5️⃣ Cobertura de casos límite / edge cases
+Siempre debes probar:
+Valores vacíos ("", null, undefined)
+Valores extremos (0, -1, Infinity)
+Errores esperados
+Esto asegura que tu código no falle en producción.
+
+
+6️⃣ Pruebas de integridad de objetos / clases
+Si tienes clases:
+class Cuenta {
+  constructor(public saldo: number) {}
+  depositar(monto: number) { this.saldo += monto; }
+  retirar(monto: number) { this.saldo -= monto; }
+}
+
+Prueba:
+test("depositar aumenta el saldo", () => {
+  const cuenta = new Cuenta(100);
+  cuenta.depositar(50);
+  expect(cuenta.saldo).toBe(150);
+});
+
+
+
+🔹 Resumen de tipos de pruebas unitarias
+Tipo	            Qué se prueba	                Ejemplo
+Funciones puras	    Entrada → Salida	            Sumar, restar
+Validaciones	    Datos correctos / incorrectos	Emails, fechas
+Errores	            Que se lance error	            División por cero
+Mocks / Stubs	    Dependencias externas	        Envío de emails, DB
+Casos límite	    Valores extremos / vacíos	    0, -1, null
+Clases / Objetos	Métodos y estado interno	    Cuenta bancaria, carrito

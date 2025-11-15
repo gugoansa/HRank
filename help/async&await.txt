@@ -1,0 +1,10 @@
+Regla de async/await: 
+Toda interacción con el navegador que tome tiempo (contar, hacer clic, llenar texto, esperar) es una Promesa y DEBE ser precedida por await.
+
+await this.tableRows.count() //Le dices a Playwright: "Espera aquí hasta que me devuelvas el número de filas de la página."
+
+estructura
+
+async myFuncion() {
+  return await this.tableRows.count();
+}

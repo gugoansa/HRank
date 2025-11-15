@@ -1,0 +1,64 @@
+2. Groovy – Jenkins
+Qué es:
+Groovy es un lenguaje de programación que corre sobre la JVM (Java Virtual Machine). Jenkins lo usa para los pipelines, especialmente los declarativos y scriptados.
+Ventajas:
+Es parecido a Java, pero más simple y flexible.
+Permite lógica compleja, loops, condicionales, llamadas a APIs, etc.
+Puntos a tener en cuenta:
+Necesitas conocer variables, estructuras de control y sintaxis básica.
+Para pipelines declarativos, la sintaxis es más amigable que Groovy puro, pero si quieres scripts avanzados, Groovy completo se vuelve más desafiante.
+Jenkins tiene muchas funciones y plugins específicos, así que aprender la sintaxis es solo una parte; la otra es familiarizarse con la API de Jenkins.
+Dificultad:
+Moderada: no es muy difícil si ya sabes programar en cualquier lenguaje, pero requiere algo de práctica para escribir pipelines que funcionen correctamente.
+
+2️⃣ Groovy para Jenkins (Pipeline Declarativo)
+Ejemplo de pipeline básico (Jenkinsfile):
+
+*******************************************************
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build y Test exitosos!'
+        }
+        failure {
+            echo 'Algo falló en el pipeline.'
+        }
+    }
+}
+*******************************************************
+
+Qué debes notar:
+La estructura es más parecida a un lenguaje de programación.
+stages → etapas del pipeline, cada stage tiene steps.
+sh ejecuta comandos de terminal (Linux/Mac).
+Puedes usar condicionales, loops y funciones si avanzas a Groovy completo.
+💡 Tip: para empezar, usa pipeline declarativo; evita Groovy puro hasta que necesites lógica compleja.
+
+3️⃣ Comparación rápida en ejemplos
+Concepto	        GitHub Actions (YAML)	    Jenkins (Groovy)
+Definir workflow	jobs y steps	            pipeline → stages → steps
+Ejecutar comando	run: npm test	            sh 'npm test'
+Automatización	  Fácil y directa	          Flexible y más compleja
+Posible error	    Indentación y sintaxis	  Lógica, variables, API de Jenkins

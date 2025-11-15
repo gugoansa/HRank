@@ -1,0 +1,52 @@
+
+1️⃣ ¿Para qué es Jest?
+Jest es un framework de pruebas para JavaScript/TypeScript. Te permite:
+Escribir pruebas unitarias, de integración y de snapshot.
+Ver si tu código funciona como esperas (expect(sumar(2,3)).toBe(5)).
+Ejecutar todas las pruebas automáticamente y mostrar resultados claros.
+En resumen: Jest verifica que tu código haga lo que debería hacer.
+
+// jest para probar funciones/módulos
+🚨 por defecto Jest ejecutará cualquier archivo que termine en .spec.ts o .test.ts.
+🚨🚨 Para evitar problemas con pruebas de PLaywirght 
+✅ OPCIÓN A (RECOMENDADA): Cambia la extensión de Jest
+*.test.ts  ← para Jest (unitarias)
+*.spec.ts  ← para Playwright (E2E)
+Entonces Jest solo ejecutará los .test.ts.
+
+✅ OPCIÓN B: Configurar Jest para ignorar la carpeta de Playwright
+En jest.config.js:
+module.exports = {
+  testMatch: ["**/?(*.)+(test).ts"],  // solo archivos .test.ts
+  testPathIgnorePatterns: ["/playwright/", "/e2e/"]
+};
+Con esto:
+Jest ignora las carpetas con E2E
+Ejecuta solo unit tests
+
+######################################
+######################################
+######################################
+COMMANDS
+
+//--save-dev = -D
+//npm install = npm -i
+
+npm init -y             //Inicializa tu proyecto:
+
+npm install -D typescript 
+npm install -D jest 
+npm install -D ts-jest      // Es un transformador que permite a Jest entender TypeScript. Jest por defecto solo entiende JavaScript. Con ts-jest, Jest puede ejecutar archivos .ts directamente.
+npm install -D @types/jest  // Es un paquete que contiene tipos de TypeScript para Jest. Esto te da: Auto-completado en VSCode Tipos para funciones como test(), describe(), expect() 👉 Sin @types/jest, TypeScript te marcará errores como:
+o todo junto
+** npm install --save-dev typescript jest ts-jest @types/jest //Instala TypeScript y Jest:
+
+
+npx ts-jest config:init // Inicializa Jest con TypeScript: rea automáticamente un archivo de configuración de Jest para TypeScript, llamado jest.config.js (o .cjs si tu proyecto es ESM). Opcionalmente pregunta si quieres configurar cosas extra como globals o testMatch.
+
+npx jest                //Ejecuta tus pruebas:
+
+npx jest --watch        // para ejecutar pruebas automáticamente al guardar
+npx jest calculadora    // para ejecutar solo pruebas que tengan "calculadora" en el nombre
+
+

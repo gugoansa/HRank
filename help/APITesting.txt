@@ -1,3 +1,4 @@
+
 pruebas de API:
 1. Modelo de objetos de API (API Object Model)
 En lugar de crear una clase por cada "página", se crea una clase por cada punto de conexión (endpoint) de la API o por cada servicio. A este patrón se le conoce como API Object Model. 
@@ -20,5 +21,70 @@ Playwright (para API): De manera similar a Cypress, Playwright ofrece soporte pa
 Otros: También se utilizan otras herramientas como SoapUI, JMeter o librerías HTTP específicas en diferentes lenguajes. 
 En resumen, aunque el principio de organización y reutilización es similar (encapsular la lógica en objetos), el enfoque de las pruebas de API se centra en la interacción con los endpoints, y no con los elementos visuales de una interfaz de usuario. 
 
+✅ 1. ¿Qué se valida normalmente en las pruebas de API?
 
+Aquí tienes lo esencial que SIEMPRE se valida en cualquier automatización de API:
+
+🔹 1. Código de respuesta (status code)
+
+Ejemplo:
+200, 201, 400, 401, 404, 500, etc.
+
+expect(response.status()).toBe(200);
+
+🔹 2. Estructura del JSON (schema)
+
+Que el objeto tenga las propiedades correctas.
+
+expect(data).toHaveProperty("name");
+expect(data.id).toBeDefined();
+
+🔹 3. Tipos de datos
+
+Strings, numbers, boolean, arrays, etc.
+
+expect(typeof data.id).toBe("number");
+
+🔹 4. Contenido correcto
+
+Que los valores devueltos sean los esperados.
+
+expect(data.name).toBe("Tati");
+
+🔹 5. Headers
+
+Content-Type, Authorization, etc.
+
+expect(response.headers()["content-type"]).toContain("application/json");
+
+🔹 6. Tiempos de respuesta (basic performance)
+
+Que la API no tarde demasiado.
+
+expect(response.timing().responseEnd).toBeLessThan(500);
+
+🔹 7. Flujos completos
+
+Ejemplo típico:
+
+Creo usuario
+
+Lo busco
+
+Lo actualizo
+
+Lo borro
+
+✅ 3. Ejemplo súper básico de performance / stress test con Playwright
+
+⚠️ Playwright no es una herramienta de performance profesional (como k6 o JMeter),
+pero sí permite hacer pruebas ligeras.
+
+Aquí tienes un mini stress test dentro de Playwright:
+
+🚀 Ejemplo: lanzar 50 peticiones simultáneas
+
+tests/performance.spec.ts
+
+import { test, expect }
 

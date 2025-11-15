@@ -1,0 +1,172 @@
+import vs. Herencia extends
+Esta es una diferencia crucial en la Programación Orientada a Objetos (POO)
+
+Concepto	        Código	                                                        Analogía	                                        Propósito
+Importar (Usar)	    import { Coche } from './Coche'; const miCoche = new Coche();	Pides prestado o compras un objeto ya hecho.	    Reutilizar una herramienta o dato. Es la forma más común.
+Heredar (Extender)	class Convertible extends Coche { ... }	                        Eres una versión especializada del objeto original. Ganas automáticamente TODAS sus propiedades y métodos.	Crear una variación o especialización de una clase existente.
+
+
+INSTANCIAR (new)
+Crea objetos reales
+Necesario para usar métodos y variables en el programa
+
+En la práctica:
+Usas import para usar tu LoginPage en un archivo de prueba.
+Usarías heredar si quisieras crear una VipLoginPage que sea idéntica a LoginPage pero con una función extra (ej: loginWithBiometrics).
+
+***************************************************
+***************************************************
+SI HABLAMOS DE EXTENDS
+El hijo puede acceder a:
+Tipo de miembro del Padre	¿Hijo puede acceder?
+public	                      ✔️ sí
+protected	                    ✔️ sí
+private	                      ❌ NO
+***************************************************
+***************************************************
+SI HABLAMOS DE IMPORT
+Tipo de miembro	¿Objeto puede acceder?
+public	               ✔️ sí
+protected	             ❌ NO (solo clases hijas)
+private	               ❌ NO
+***************************************************
+***************************************************
+
+🟥 PRIMERA VERDAD
+❗ **IMPORT y EXTENDS NO HACEN LA MISMA COSA.
+NO sirven para lo mismo.
+NO se pueden reemplazar.**
+Solo se parecen en que ambas palabras permiten “usar” código, pero funcionan de maneras totalmente distintas.
+
+🟦 1. ¿Qué hace IMPORT en programación?
+👉 IMPORTAR = traer código de otro archivo para poder usarlo.
+Nada más.
+
+Ejemplo:
+import { Carro } from './Carro';
+    Esto NO crea un objeto.
+    Esto NO ejecuta código.
+    Esto NO hereda nada.
+Solo te permite hacer:
+    const miCarro = new Carro();
+
+Importar ≠ Instanciar
+Importar ≠ Heredar
+Importar ≠ Extender lógica
+
+🟩 2. ¿Qué hace EXTENDS en programación (fuera de Playwright)?
+👉 EXTENDS = herencia entre clases.
+
+Una clase obtiene (hereda) las propiedades y métodos de otra class.
+Ejemplo:
+
+class Vehiculo {
+  frenar() { ... }
+}
+
+class Carro extends Vehiculo { }
+
+Ahora Carro puede usar frenar() sin que tú la escribas.
+Esto es herencia.
+
+⚠️ Extender NO importa archivos.
+Extender NO instancia objetos.
+Extender NO crea objetos.
+
+Extender solo hace que una clase obtenga métodos/propiedades de otra.
+
+
+
+🟧 3. ¿Por qué NO puedo usar EXTENDS para reemplazar IMPORT?
+Porque NO funcionan igual.
+
+🔥 EJEMPLO CLARÍSIMO
+🔹 Quieres usar una clase llamada Motor
+class Motor {
+  encender() { ... }
+}
+
+❌ Opción incorrecta
+Tratas de usar extends en tu clase Carro:
+class Carro extends Motor { }
+Con esto…
+Carro hereda los métodos de Motor
+PERO sigues sin poder hacer:
+
+new Motor()
+
+Porque Motor no está importado.
+Y además, Carro ahora es un Motor, lo cual NO quieres.
+
+
+🟪 EJEMPLO DE VIDA REAL MUY SIMPLE
+✔ IMPORT
+Traer una herramienta a tu mesa.
+“Traigo el taladro del garaje”.
+No lo usaste todavía, pero ahora está disponible.
+✔ EXTENDS
+Heredar habilidades.
+“Soy un electricista porque mi padre me enseñó a hacer cableado”.
+No estás trayendo herramientas; estás adquiriendo capacidades.
+🔥 NO SON LO MISMO.
+
+
+🟧 3. ¿Qué heredo cuando uso extends?
+👉 Heredas TODO lo público y protegido de la clase padre:
+✔ Métodos
+✔ Variables / propiedades
+✔ Lógica
+✔ Funciones internas
+Ejemplo:
+
+class Padre {
+  nombre = "Ana";
+  saludar() { console.log("hola"); }
+}
+
+class Hijo extends Padre {}
+Ahora:
+
+const h = new Hijo();
+console.log(h.nombre); // "Ana"
+h.saludar(); // "hola"
+
+El hijo “nace” con todo lo que el padre tiene.
+
+
+🟧 3. ¿Qué heredo cuando uso extends?
+👉 Heredas TODO lo público y protegido de la clase padre:
+✔ Métodos
+✔ Variables / propiedades
+✔ Lógica
+✔ Funciones internas
+Ejemplo:
+
+class Padre {
+  nombre = "Ana";
+  saludar() { console.log("hola"); }
+}
+
+class Hijo extends Padre {}
+
+Ahora:
+
+const h = new Hijo();
+console.log(h.nombre); // "Ana"
+h.saludar(); // "hola"
+
+El hijo “nace” con todo lo que el padre tiene.
+
+🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩
+🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩
+🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩
+🟩 ANALOGÍA DE VIDA REAL (muy clara)
+✔ IMPORT
+Es como traer el manual de un carro a tu mesa.
+Ya puedes leerlo y saber qué hace el carro…
+pero NO tienes el carro.
+✔ EXTENDS
+Es como que tu carro tenga todas las funciones del modelo anterior.
+Heredas cosas del modelo viejo.
+✔ NEW
+Es cuando compras el carro y ya lo puedes manejar.

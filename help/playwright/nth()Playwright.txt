@@ -1,0 +1,20 @@
+Qué hace nth() en Playwright:
+
+nth(i) devuelve un nuevo Locator que apunta al i-ésimo elemento de un conjunto de elementos localizados previamente.
+
+Esto es útil cuando tienes varios elementos con la misma selector y quieres interactuar con uno específico.
+
+Ejemplo:
+const tableRows = page.locator('table tr'); // todos los rows de la tabla
+
+const rowLocator = tableRows.nth(2); // selecciona el tercer row (índice 2)
+await rowLocator.click(); // hace click solo en ese row
+
+
+Notas importantes:
+
+nth(0) es el primer elemento.
+
+nth(-1) funciona para seleccionar el último elemento.
+
+No devuelve el valor directamente, devuelve un Locator, sobre el que luego puedes hacer acciones como click(), textContent(), fill(), etc.

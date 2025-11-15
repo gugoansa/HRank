@@ -1,0 +1,22 @@
+OJO CON 🟨JS Y 🟦TS TIENEN ALGUNOS MATICES DIFERENTES
+
+❓ Inicialización de Variables: Arrays vs. Primitivos
+Estás tocando la diferencia entre Variables Primitivas (que tienen un valor por defecto) y Objetos/Arrays (que no lo tienen).
+
+El Comportamiento en JavaScript
+En 🟨JavaScript (JS), las variables declaradas con var o let que no se inicializan tienen un valor por defecto:
+
+Tipo    	    Variable	    Valor por Defecto en JS
+Primitivo	    let nombre;	    undefined
+Objeto/Array	let miArray;	undefined
+
+El Comportamiento Estricto en 🟦TypeScript (TS)
+🟦TypeScript es más estricto, especialmente con las Propiedades de las Clases (como private readonly usernameField). 
+TS te dice: "Si declaras una propiedad, debes garantizar que tiene un valor antes de que cualquier método la use."
+
+Tipo	                    Declaración sin Inicializar	    ¿Por qué el Error en Propiedades de Clase?
+Primitivo (string, number)	private nombre: string;	        TS no sabe qué valor inicial usar ('' o undefined). Tienes que inicializarlo tú: private nombre: string = '';.
+Objeto (Array, Map, etc.)	private results: string[][];	TS no sabe qué objeto crear. Tienes que inicializarlo tú: private results: string[][] = [];.
+
+Conclusión: La razón por la que te piden inicializar los Arrays (= []) es la misma por la que tendrías que inicializar un string (= '') o 
+un number (= 0) si son propiedades de una clase en TypeScript. El objetivo es seguridad de tipos para evitar el valor undefined en variables críticas.

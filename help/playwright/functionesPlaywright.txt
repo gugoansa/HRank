@@ -1,0 +1,50 @@
+🟣 rowCount es la forma asíncrona y correcta de obtener el tamaño de un Locator en Playwright.
+    let numeros = [10, 20, 30, 40];
+    console.log(numeros.length); // 4
+    ➡️ Importante: la longitud no es necesariamente el tamaño en memoria, sino el número de posiciones disponibles.
+
+🟣 length retorna la longitud de un array --> results.length te daría la longitud del array de resultados ya extraídos (después de que el bucle termine).
+    ✅ Tamaño de locator
+    1. Locator en automatización (Selenium/Appium)
+    Un locator es una forma de identificar elementos en la interfaz (por ejemplo, un botón o un campo).
+    El tamaño puede referirse a:
+    Longitud del selector (ej. lo largo que es un XPATH)
+    Cantidad de resultados encontrados por ese locator
+    Ejemplo en Selenium Java:
+    
+    List<WebElement> items = driver.findElements(By.className("item"));
+    int tamanoLocator = items.size(); // número de elementos encontrados
+    → Aquí el tamaño del locator = cantidad de elementos que coincide con ese selector.
+
+🟣 push() agrega un nuevo elemento al final del array results No reemplaza ni borra el contenido previo. El array sigue siendo el mismo, solo que ahora tiene más elementos.
+    results.push(cellData)
+    
+
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣
+🟣

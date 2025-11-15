@@ -1,0 +1,36 @@
+1. camelCase (para variables y funciones)
+¿Qué es? La primera letra del nombre es minúscula, y las primeras letras de las palabras subsiguientes son mayúsculas. Por ejemplo: pageObjectModel.
+¿Por qué se usa? Es la convención estándar en JavaScript (y por extensión en TypeScript) para nombrar variables, funciones y propiedades. Su propósito es hacer que el código sea más legible y distinguible.
+Ejemplos:
+Variables: usuarioActual, totalDePrecio.
+Funciones: obtenerDatosDeUsuario(), procesarPedido(). 
+
+2. PascalCase (para clases e interfaces) 
+¿Qué es? La primera letra de todas las palabras del nombre es mayúscula. Por ejemplo: PageObjectModel.
+¿Por qué se usa? Es la convención estándar en TypeScript para nombrar clases, interfaces y otros tipos definidos por el usuario. Al ver un nombre que comienza con mayúscula, un desarrollador sabe inmediatamente que se está refiriendo a una clase o una interfaz, no a una variable o función.
+Ejemplos:
+Clases: Usuario, Coche, PageObjectModel.
+Interfaces: IDatosDeUsuario, Formulario. 
+
+3. snake_case
+Estilo: Las palabras se separan con un guion bajo (_) y se escriben completamente en minúsculas.
+Ejemplo: mi_variable_larga, datos_de_usuario.
+Usos comunes:
+Python: Es la convención estándar para nombres de variables, funciones y archivos en Python.
+Bases de datos: Se usa con frecuencia para nombrar tablas y columnas en bases de datos.
+Nombres de archivos: Es una opción popular para nombres de archivos y carpetas, especialmente en proyectos de Python o entornos de desarrollo basados en *nix, porque evita problemas con mayúsculas y minúsculas. 
+
+
+4. kebab-case
+Estilo: Las palabras se separan con un guion (-) y se escriben completamente en minúsculas.
+Ejemplo: mi-variable-larga, mi-componente.
+Usos comunes:
+CSS: Es el estándar para las propiedades de CSS, como font-family o background-color.
+HTML: Se usa en atributos HTML como data-* y en URLs.
+Nombres de archivos: Se utiliza en algunos frameworks de JavaScript para nombrar archivos de componentes, como mi-componente.js
+
+EXTRA. Nomenclatura en carpetas
+Cuando ves que el nombre de una carpeta (como PageObjectModel) comienza con mayúscula, es una extensión de la misma lógica PascalCase. La razón es la siguiente:
+Organización: La carpeta se utiliza para agrupar todos los archivos relacionados con una clase, interfaz o componente específico.
+Coherencia: Si la carpeta PageObjectModel contiene una clase o un componente llamado PageObjectModel.ts, usar el mismo nombre (PascalCase) para la carpeta mantiene la coherencia en el proyecto. Un desarrollador puede asumir que la carpeta PageObjectModel contiene la definición del PageObjectModel.
+Diferenciación: Esta convención ayuda a diferenciar las carpetas que contienen componentes o clases principales de las carpetas de utilidad, que a menudo usan minúsculas o kebab-case (mi-componente).

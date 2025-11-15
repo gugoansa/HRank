@@ -1,0 +1,107 @@
+🚀 TIPOS DE PRUEBAS DE PERFORMANCE
+📌 1. Stress Test (Prueba de Estrés)
+
+👉 Se prueba la API o sistema con una carga mayor a la normal para ver cuándo se rompe y cómo se comporta bajo presión extrema.
+
+Objetivo: encontrar el punto de quiebre.
+Ejemplo: tu API soporta 100 usuarios, le pones 5,000.
+
+📌 2. Load Test (Prueba de Carga)
+
+👉 Se simula la carga normal o esperada para verificar si el sistema aguanta su uso diario.
+
+Objetivo: validar rendimiento en condiciones típicas.
+Ejemplo: 100 usuarios concurrentes, porque eso pasará en producción.
+
+📌 3. Soak Test (Prueba de Resistencia / Duración)
+
+👉 Se mantiene una carga constante durante varias horas para descubrir problemas de:
+
+memory leaks
+
+degradación gradual
+
+conexiones acumuladas
+
+rendimiento sostenido
+
+Objetivo: ver si el sistema aguanta en el tiempo.
+Ejemplo: 50 usuarios constantes durante 3 horas.
+
+📌 4. Spike Test (Prueba de Picos)
+
+👉 Se simulan subidas repentinas de usuarios muy rápidas.
+
+Objetivo: ver cómo reacciona ante explosiones inesperadas de tráfico.
+Ejemplo: pasar de 10 usuarios a 2,000 en 5 segundos.
+
+🎯 RESUMEN SÚPER SIMPLE
+Tipo	Qué prueba
+Stress	¿Cuánto aguanta hasta romperse?
+Load	¿Funciona bien con la carga normal?
+Soak	¿Aguanta horas bajo carga constante?
+Spike	¿Qué pasa con picos repentinos de tráfico?
+🔧 ¿Se puede usar Playwright con JMeter o k6?
+✔️ Sí, se pueden usar juntos… pero no mezclados dentro del mismo test.
+
+Te explico:
+
+✅ Playwright
+
+Sirve para:
+
+pruebas UI (lo principal)
+
+pruebas API ligeras
+
+validaciones funcionales
+
+➡ NO es una herramienta real de performance, solo puede hacer tests básicos.
+
+✅ k6
+
+Sirve para:
+
+carga
+
+estrés
+
+picos
+
+duración
+
+Es el estándar moderno.
+➡ Usa JavaScript para los scripts.
+
+✅ JMeter
+
+Sirve para:
+
+carga pesada
+
+flujos complejos
+
+muchos protocolos (HTTP, SOAP, JDBC, etc.)
+
+🧩 ¿Cómo se combinan en un proyecto?
+
+Opción 1: Playwright para funcional + k6 para performance
+Es lo MÁS común hoy:
+
+Playwright verifica que la API funciona bien.
+
+k6 verifica qué tanto aguanta.
+
+Opción 2: Playwright para UI + JMeter para performance
+Muy usado en empresas grandes.
+
+💥 ¿Playwright dentro de k6 o JMeter?
+
+No.
+No se mezclan dentro del mismo archivo.
+
+Playwright → automatización
+
+k6/JMeter → performance
+
+Pero sí pueden compartir la misma API, entorno, credenciales, variables, etc.

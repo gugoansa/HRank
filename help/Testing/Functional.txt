@@ -1,0 +1,17 @@
+Cuando hablamos de una prueba automatizada funcional de una UI (interfaz de usuario), la finalidad no es solo ver si un botón existe o si redirige correctamente. Tiene objetivos más amplios:
+
+Validar que la aplicación funciona como se espera:
+Por ejemplo, si tienes un formulario de login, quieres asegurarte de que al ingresar un usuario y contraseña correctos, realmente te lleva a la página de inicio.
+No solo revisas que los elementos estén visibles, sino que el flujo completo funcione.
+Detectar errores rápidamente:
+Si alguien rompe algo en el código, la prueba te lo va a avisar antes de que llegue al usuario final.
+Esto es especialmente útil cuando la UI es compleja o cambia con frecuencia.
+Evitar tareas repetitivas para los humanos:
+Imagina que cada vez que se hace un cambio tienes que abrir el navegador, llenar formularios y hacer clic en botones. Esto se vuelve tedioso y propenso a errores.
+Una prueba automatizada hace todo eso de forma confiable y rápida.
+Garantizar consistencia entre versiones:
+Si actualizas tu aplicación, puedes correr las mismas pruebas para asegurarte de que todo sigue funcionando igual.
+Esto ayuda mucho en proyectos grandes o con muchos usuarios.
+Documentar el comportamiento esperado:
+Las pruebas automatizadas sirven como una especie de “manual vivo” de cómo debería comportarse tu aplicación.
+En resumen: no se trata solo de validar que un botón redirija, sino de asegurarse de que toda la interacción que un usuario tendría funciona correctamente, de manera rápida, repetible y confiable.

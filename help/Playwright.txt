@@ -1,2 +1,22 @@
 El objeto Page de Playwright es la pestaña abierta del navegador.
 Analogía: Es la mano que Playwright usa para interactuar con la web. Para escribir en un campo, hacer clic en un botón, o ir a una URL, siempre tienes que usar esta "mano" (page)
+
+
+🟢Playwright sabe automáticamente hacer login, ir al carrito, etc.?
+❌ NO. Nunca.
+Playwright NO sabe nada de tu app.
+No sabe dónde está el login
+No sabe qué botón abrir
+No sabe dónde está tu carrito
+No sabe cómo navegar
+TODO eso lo defines tú, en tu POM.
+Playwright ONLY sabe:
+abrir páginas (page.goto)
+hacer clic (click)
+llenar inputs (fill)
+validar (expect)
+NADA MÁS.
+Todo lo demás lo haces tú con:
+    selectors
+    POM
+    funciones

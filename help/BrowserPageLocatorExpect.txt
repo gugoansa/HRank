@@ -1,0 +1,56 @@
+📚 Analogía completa (Browser, Page, Locator, Expect)
+
+✅ Browser
+Browser = una biblioteca completa.
+La biblioteca tiene muchas salas (páginas).
+Es el objeto grande que contiene todo.
+Tú lo creas con algo como:
+
+const browser = await chromium.launch();
+En la vida real:
+Biblioteca → Chrome, Firefox, Edge.
+
+
+📄 Page
+Page = una sala dentro de la biblioteca.
+En una biblioteca (browser), puedes abrir varias salas.
+Cada sala tiene su propio contenido (sitio web).
+En Playwright:
+const page = await browser.newPage();
+
+
+🔍 Locator
+Locator = el libro dentro de la sala.
+Dentro de una sala (page), agarras un libro específico.
+Ese libro representa un elemento del DOM (por ejemplo, un botón, tabla, fila, etc.)
+
+Lo consigues así:
+const loginButton = page.locator('#login');
+El locator no es la página, es un objeto que apunta a un elemento de la página.
+
+✔️ Expect
+Expect = el bibliotecario que revisa si el libro cumple tus reglas.
+Le dices:
+“Por favor, verifica si la portada es azul.”
+o
+“Comprueba si el libro tiene más de 10 páginas.”
+En Playwright Test:
+await expect(locator).toBeVisible();
+await expect(page).toHaveURL(/dashboard/);
+
+Expect no controla la página ni abre cosas.
+Solo verifica y dice "pasa" o "falla".
+
+
+🧩 ¿Y si juntamos todo?
+const browser = await chromium.launch();    // biblioteca
+const page = await browser.newPage();       // sala
+const button = page.locator('#save');       // libro
+await expect(button).toBeVisible();         // bibliotecario verificando el libro
+
+📝 Resumen final
+Concepto	Qué es	                                    Analogía
+browser	    navegador completo (Chrome/Firefox)	    Biblioteca
+page	    una pestaña/ventana del navegador	    Sala
+locator	    referencia a un elemento del DOM	    Libro dentro de la sala
+expect	    herramienta para verificar propiedades	Bibliotecario

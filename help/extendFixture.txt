@@ -1,0 +1,164 @@
+🔵 2. ¿Qué es extend en fixtures?
+Te lo explico fácil:
+👉 extend = “Crear nuevos ingredientes para tus tests”.
+Playwright ya te da estos ingredientes:
+page
+context
+browser
+Con extend, tú le agregas nuevos ingredientes personalizados:
+loginPage
+cartPage
+carro
+usuario
+datos
+Un fixture es simplemente un ingrediente nuevo que tus tests podrán usar.
+ten claro test.extend(...) expones (o pones disponible) un fixture para que los tests lo usen - exponer = hacer disponible..
+// ADICIONAL base.extend() es la forma estándar de “añadir” fixtures personalizados que tus tests podrán recibir como parámetros.
+
+
+Ejemplo:
+******************************************************
+const test = base.extend({
+  loginPage: async ({ page }, use) => {
+    const pom = new LoginPage(page);
+    await use(pom);
+  }
+});
+******************************************************
+import { test as base } from '@playwright/test';
+import { LoginPage } from '../pages/LoginPage';
+export const test = base.extend({
+  loginPage: async ({ page }, use) => {
+    await use(new LoginPage(page));
+  }
+});
+******************************************************
+
+Esto significa:
+“Créame una cosa llamada loginPage
+usando la Page
+y désela a mis tests”.
+
+🌟 para que se entienda YA
+✔ Importar = traer código (clases, funciones, variables)
+✔ Extender = agregar fixtures a Playwright Test
+✔ Fixture = una “función especial” que Playwright prepara antes del test (por ti)
+
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+⚠️⚠️⚠️MAS SIMPLE 
+🎯 un fixture.debe extenderse.
+Porque un fixture NO vive solo… debe agregarse a un test.extend.
+
+El fixture NECESITA un “padre”:
+
+const test = base.extend({
+  loginPage: async ({ page }, use) => {
+    const pom = new LoginPage(page);
+    await use(pom);
+  }
+});
+
+Entonces:
+✔️ sí, ese bloque es el contenido del fixture
+❌ pero necesita extend para existir
+
+
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+⚠️⚠️⚠️ EXTENDER MAS DE UNA CLASE EN UN FIXTURE
+
+¿Puedo extender varias clases en un mismo fixture?
+
+SÍIIII 🎉
+
+Ejemplo:
+
+const test = base.extend({
+  loginPage: async ({ page }, use) => {
+    await use(new LoginPage(page));
+  },
+
+  cartPage: async ({ page }, use) => {
+    await use(new CartPage(page));
+  },
+
+  userProfile: async ({ page }, use) => {
+    await use(new ProfilePage(page));
+  }
+});
+
+Puedes extender:
+loginPage
+cartPage
+checkoutPage
+dashboard
+API client
+datos de usuario
+Lo que quieras.
+
+
+
+#########################################################################################
+#########################################################################################
+#########################################################################################
+#########################################################################################
+#################################### EXPLICACION LINEA POR LINEA
+¿Qué es base.extend(...)? — explicación línea por línea
+
+Código:
+
+const test = base.extend({
+  loginPage: async ({ page }, use) => {
+    const pom = new LoginPage(page);
+    await use(pom);
+  }
+});
+
+
+Desglose:
+
+base
+Es simplemente una variable que normalmente importa así:
+
+import { test as base } from '@playwright/test';
+
+
+base es el test original que viene de Playwright (los “ingredientes” por defecto: page, context, etc.).
+
+.extend({...})
+Es un método que crea una nueva versión de test con fixtures adicionales.
+Piensa: extend = “agregar más cosas que Playwright ofrecerá a tus tests”.
+
+const test = base.extend(...)
+Aquí guardas esa versión extendida en la variable test (la que luego vas a importar en tus specs).
+Es la práctica recomendada: exportas ese test para usarlo en tus tests.
+
+Dentro del objeto pasado a extend defines fixtures por nombre; en este caso loginPage.
+
+loginPage: async ({ page }, use) => { ... }
+Explicación de los parámetros:
+
+{ page } → Playwright ya te da page (es un fixture ya existente). Se la pasamos para construir el POM.
+
+use → es una función que recibe el valor que quieres exponer al test.
+Llamas await use(valor) para decir “listo, esto es lo que el test recibirá como loginPage”.
+
+const pom = new LoginPage(page);
+Aquí creas la instancia de tu POM usando la page real.
+(La lógica del POM —locators y métodos— ya la escribiste en la clase LoginPage.)
+
+await use(pom);
+Esto entrega la instancia al test.
+Después de use(...), el test corre y puede usar loginPage.
+
+(Opcional) limpieza/teardown: si necesitas hacer algo después del test (cerrar sesión, limpiar datos), lo pones después del await use(...) en un try/finally:
+
+loginPage: async ({ page }, use) => {
+  const pom = new LoginPage(page);
+  try {
+    await use(pom);
+  } finally {
+    await pom.logout?.();
+  }
+}

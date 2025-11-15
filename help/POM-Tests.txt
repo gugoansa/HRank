@@ -1,0 +1,124 @@
+ENTENDER El porque de POM en los test, y por que no es buena idea hacer varios pasos repetitivos en las pruebas
+Mala paractica y buenas practicas, lee lo que esta a continuacion.
+
+
+🎯 ¿Por qué crear funciones en las clases POM?
+
+No es obligatorio…
+PERO sí es altamente recomendado por 4 razones fuertes:
+
+1️⃣ Evitar repetir el mismo código
+
+Si haces esto en cada test:
+
+await page.goto('/cart');
+await page.locator('#add').click();
+await page.locator('#confirm').click();
+
+
+Y lo repites en 20 tests…
+
+Cuando cambie un selector → tienes que arreglar 20 tests.
+
+Si eso lo metes en una función:
+
+async goToCart() {
+  await this.page.goto('/cart');
+  await this.add.click();
+  await this.confirm.click();
+}
+
+
+Y la llamas:
+
+await cartPage.goToCart();
+
+
+→ solo arreglas 1 lugar si algo cambia.
+
+2️⃣ Que el test sea limpio y legible
+
+Tus tests no deberían decir cómo haces las cosas.
+Los tests deben decir qué estás probando.
+
+Test malo (mezcla lógica, clics, selectors):
+
+await page.goto('/cart');
+await page.locator('#add').click();
+await page.locator('#confirm').click();
+await expect(page).toHaveURL('/cart/filled');
+
+
+Test bueno (solo describe comportamiento):
+
+await cartPage.goToCart();
+await expect(cartPage).toBeFilled();
+
+3️⃣ Evitar que el test "se rompa" fácil
+
+Los tests con muchos locators son frágiles.
+
+Si cambias un selector → se rompe medio proyecto.
+
+Si encapsulas en funciones → solo tocas el POM.
+
+4️⃣ Crear acciones de alto nivel
+
+Esto es lo más importante.
+
+En los tests queremos trabajar con acciones, no con clics.
+
+Ejemplos:
+
+❌ En el test:
+
+await page.goto('/login');
+await page.fill('#email', email);
+await page.fill('#pass', pass);
+await page.click('#submit');
+
+
+✅ En POM:
+
+async login(email, pass) {
+  await this.emailInput.fill(email);
+  await this.passwordInput.fill(pass);
+  await this.submitButton.click();
+}
+
+
+Y en el test:
+
+await loginPage.login('user', '1234');
+
+
+Mucho más humano y entendible.
+
+🧠 Entonces la pregunta clave:
+❓ ¿PUEDO HACER TODO DESDE EL TEST SIN CREAR FUNCIONES?
+
+➡️ Sí, puedes.
+Playwright no te obliga.
+
+Pero:
+
+harás código repetitivo
+
+más difícil de leer
+
+más difícil de mantener
+
+más propenso a romperse
+
+más trabajo para tus futuros tú o tus compañeros
+
+Y por eso POM existe.
+
+🎯 RESUMEN CLARO
+Hacer todo desde el test	Usar funciones en POM
+Funciona	Funciona
+Más rápido al inicio	Mejor a largo plazo
+Código repetido	Código limpio y DRY
+Más frágil	Más estable
+Difícil de mantener	Fácil de mantener
+Tests llenos de clics	Tests llenos de acciones claras

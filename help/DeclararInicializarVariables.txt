@@ -4,3 +4,14 @@ Opción	                                    Código Ejemplo	                    
 1. Inicialización Directa	        private readonly locator: string = '#mi-id';	    Cuando el valor es FIJO y CONSTANTE (ej: selectores/Localizadores en POM). Es la forma más común para los Localizadores.
 2. Inicialización en Constructor	constructor(private valorExterno: string) { ... }	Cuando el valor DEBE SER PROPORCIONADO desde AFUERA al momento de crear el objeto (ej: el objeto Page de Playwright, o una URL base).
 3. Propiedad Opcional	            private miPropiedad?: string;	                    Cuando el valor NO ES REQUERIDO al crear el objeto y puede ser undefined (ej: un contador que se usa solo a veces). Se usa el signo ?.
+
+
+
+❓ Inicialización de Arrays (const results: string[][] = [])
+No, no es lo mismo que no iniciarla.
+
+Código	                            ¿Está Inicializada?	    TypeScript está...	    Explicación
+const results: string[][] = [];	    ✅ SÍ	                Feliz.	              Le dices a TS: "Esta canasta es una matriz, y aquí está la canasta vacía lista para ser usada."
+const results: string[][];	        ❌ NO                   	Enojado.	          Le dices a TS: "Esta canasta será una matriz, pero no me has dado la canasta aún." (Necesitaría ser inicializada en el constructor).
+
+El [] es el valor de inicialización más simple para cualquier array vacío en TypeScript.

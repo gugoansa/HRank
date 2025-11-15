@@ -1,0 +1,42 @@
+❓ Promesas que No Importa si se Reciben (Fire-and-Forget)
+La pregunta es: 
+¿Hay Promesas que puedes iniciar con async pero que no necesitas "esperar" con await para que el programa continúe?
+
+Sí, se les llama "Fire-and-Forget" (Disparar y Olvidar).
+Cuándo puedes omitir await
+Se omite await cuando la acción es secundaria para el flujo de la prueba y no necesitas su resultado para el siguiente paso.
+
+Caso de Uso	                Ejemplo de Código	                                            Razón para Omitir await
+Logging Asíncrono	        this.page.evaluate(() => console.log('Log en el navegador'));	Solo quieres que el mensaje se envíe; no te importa cuándo termine, y tu prueba no depende de ello.
+Animaciones/Transiciones	this.page.locator('#banner').hover();	                        Inicias el hover (la acción) pero no necesitas pausar la prueba entera solo para esperar que la animación termine.
+Recolección de Datos	    this.page.collectMetrics();	                                    Inicias la recolección en segundo plano mientras el usuario realiza otras acciones.
+
+El Gran Peligro de Omitir await
+En Playwright, esta práctica se desaconseja fuertemente.
+Si omites el await en una interacción crítica (como page.click() o page.fill()), el framework de prueba pensará que esa acción 
+ya terminó e intentará ejecutar la siguiente línea de código inmediatamente.
+Si el click falla silenciosamente, el test seguirá adelante y fallará más tarde por una razón confusa. Por eso, la regla de oro
+de Playwright es: si es una interacción con el navegador, usa await.
+
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️ COMO CREARLAS ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+1. 🛠️ Creación de Promesas "Fire-and-Forget"
+Las funciones que devuelven promesas ("cosas que requieren tiempo") no siguen una estructura diferente; la clave es si tú, como desarrollador, decides usar el await o no al llamarlas.
+Estructura de la Función (No Cambia)
+Toda función que necesita esperar algo (como una interacción con el navegador) se declara igual:
+
+// La función sigue siendo async y devuelve una Promesa.
+public async enviarLog(): Promise<void> {
+    // 1. Aquí se inicia la tarea asíncrona (la Promesa)
+    await this.page.evaluate(() => console.log('Log enviado')); 
+    // ...
+}
+
+La Decisión del await (La Diferencia)
+La decisión de "olvidar" la promesa ocurre fuera de la función, cuando la llamas:
+Caso de Uso             	Código de Llamada	            Efecto en el Test
+Recibir/Esperar (Lo Común)	await loginPage.enviarLog();	El test se pausa en esta línea y espera a que la promesa se complete antes de pasar a la siguiente línea.
+Disparar y Olvidar	        loginPage.enviarLog();	        El test inicia la promesa y continúa inmediatamente a la siguiente línea sin esperar. La promesa sigue ejecutándose en segundo plano.
+
+🚨Advertencia de Playwright: En Playwright, omitir el await en interacciones críticas puede causar errores de sincronización y no es recomendado. Solo se usa para tareas realmente secundarias, como logging o análisis de datos en segundo plano.

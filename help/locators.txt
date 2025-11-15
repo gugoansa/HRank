@@ -12,6 +12,9 @@ Si le das una dirección ambigua, Playwright podría hacer clic en el juguete eq
 💻 Tipos de Localizadores en Playwright (La Realidad)
 En Playwright, siempre se usa el método page.locator() para empezar, y dentro de él, se usan diferentes tipos de selectores. Playwright recomienda priorizar los selectores basados en Roles y Texto antes de usar selectores basados en la estructura del HTML (como CSS o XPath).
 
+⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+
 1. 🥇 Localizadores Basados en Roles (¡La Mejor Opción!)
 Estos le dicen al Detective qué tipo de elemento es, basándose en lo que ve el usuario o las herramientas de accesibilidad.
 
@@ -20,6 +23,9 @@ getByRole	"Busca un botón que se llama 'Enviar'."	                             
 getByText	"Busca un elemento que contenga el texto exacto 'Finalizar Compra'."	page.getByText('Finalizar Compra')
 getByLabel	"Busca el campo de entrada que tiene una etiqueta 'Usuario'."	        page.getByLabel('Usuario')
 
+⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+
 2. 🥈 Localizadores Basados en HTML (Selectores CSS)
 Si los roles no funcionan, usamos la dirección específica que viene del código HTML. CSS es el más rápido y común.
 
@@ -27,6 +33,41 @@ Tipo	        ¿Qué le dices al Detective?	                                    E
 Por ID	        "Busca el elemento con el número de identificación 'myId'."	    page.locator('#myId')
 Por Clase	    "Busca todos los elementos con la clase 'item-card'."	        page.locator('.item-card')
 Por Atributo	"Busca el elemento que tenga el atributo data-testid='login'."	page.locator('[data-testid="login"]')
+
+⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+
+2.1 **** pseudocode - pseudoclase ****
+ Es una forma de describir un algoritmo o una serie de pasos lógicos de manera simple, utilizando una mezcla de lenguaje natural y convenciones de programación.
+ se usa Para planificar la lógica de un programa antes de escribirlo en un lenguaje de programación real (como Python, JavaScript o C++). No se ejecuta en ningún software.
+Contexto: Se usa en la programación, en la etapa de diseño, y no tiene nada que ver con CSS.
+
+tr:not(:first-child)  //recupera cada fila de la tabla sin los cabeceros
+  :nth-child(n)       //Selecciona el enésimo hijo de un elemento padre. Puedes usar fórmulas para selecciones más complejas.
+tr:nth-child(n+2)     //Selecciona todas las filas a partir de la segunda (excluyendo la primera).
+tr + tr:              //Selecciona cada elemento <tr> que es inmediatamente precedido por otro <tr>. Esto también excluirá el primer <tr>.
+  :not(:last-child)   //Selecciona todos los elementos excepto el último. Si lo usas junto a :not(:first-child), puedes seleccionar todos los elementos intermedios.
+tr:not(:first-child):not(:last-child)  //Selecciona todas las filas excepto la primera y la última.
+  :has()              //Es una pseudoclase más reciente que selecciona un elemento si contiene otro elemento que coincida con el selector especificado. Aunque no es un reemplazo directo para :not(:first-child), ofrece una gran flexibilidad en ciertos escenarios
+
+Pseudoclase CSS (y Pseudoelemento) 
+¿Qué es? Son palabras clave que se añaden a los selectores de CSS para indicar un estado o una posición especial de un elemento HTML, sin necesidad de modificar el HTML.
+¿Para qué se usa? Para aplicar estilos dinámicos a los elementos de una página web, como cambiar el color de un botón cuando pasas el ratón por encima.
+Contexto: Se usa exclusivamente en CSS para definir reglas de estilo.
+Ejemplo:
+:hover (pseudoclase): Aplica un estilo cuando el cursor se sitúa sobre un elemento.
+::first-letter (pseudoelemento): Aplica un estilo solo a la primera letra de un elemento.
+:first-child (pseudoclase): Selecciona el primer hijo de un elemento padre. 
+En resumen
+La expresión tr:not(:first-child) que mencionaste no es pseudocódigo. Es un selector CSS que utiliza una pseudoclase (:not) y otra pseudoclase (:first-child) para seleccionar elementos de una forma muy específica.
+
+2.2  Mexclando ROLE y CSS
+// Localiza la tabla por su rol y luego busca las filas, excluyendo la primera con CSS.
+const filasDeDatos = page.getByRole('table').locator('tr:not(:first-child)');
+
+
+⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 
 3. 🥉 Localizadores Basados en Ruta (XPath)
 XPath es poderoso, pero generalmente es lento y frágil. Solo úsalo si no hay otra opción.
@@ -52,3 +93,48 @@ Localizador	        Código Playwright	                            Razón
 getByRole (Mejor)	page.getByRole('button', { name: 'Enviar' })	Usa el texto que ve el usuario y el rol. Muy estable.
 CSS ID	            page.locator('#submit-btn')	                    Usa el ID. Rápido y único.
 CSS Class	        page.locator('.main-btn')	                    Menos ideal, puede haber otras clases iguales.
+
+⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+🔥 EXTRA TIP 🔥 POCM - Page Object Component Model
+Cuando estas usando POM, defines todos los objetos (locators) en la clase POM, sin embargo puedes usar un archivo referenciado para los 
+✔️ Elementos globales / comunes
+
+Si tienes elementos que aparecen en todas las páginas,
+como:
+header
+sidebar
+footer
+navbar
+modal reutilizable
+
+componentes UI repetidos
+
+Ahí SÍ tiene sentido crear una clase separada llamada por ejemplo:
+
+Header.ts
+export class Header {
+  constructor(private page: Page) {}
+
+  readonly userMenu = this.page.locator('#user-menu');
+  readonly logoutBtn = this.page.locator('#logout');
+
+  async logout() {
+    await this.userMenu.click();
+    await this.logoutBtn.click();
+  }
+}
+
+
+Y luego usarla DENTRO de las demás páginas:
+
+class DashboardPage {
+  header: Header;
+
+  constructor(private page: Page) {
+    this.header = new Header(page);
+  }
+}
+
+
+Esto se llama Component Model o POCM (Page Object Component Model).

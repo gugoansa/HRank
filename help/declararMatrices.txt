@@ -29,3 +29,7 @@ const tablaPaises: string[][] = [
     ["Argentina", "Buenos Aires"] // -> Este es el índice [2]
 ];
 Paso 2: El Acceso (Doble Corchete)CódigoSignificadoResultadoExplicacióntablaPaisesLa matriz completa.[ [Fila 0], [Fila 1], [Fila 2] ]Acceso a todo el estante.tablaPaises[1]La fila en la posición 1.["Perú", "Lima"]Acceso a la caja grande de la posición 1.tablaPaises[1][0]La fila 1, y el elemento en la posición 0."Perú"Acceso a la Fila 1 (Perú/Lima), Columna 0 (Perú).tablaPaises[2][1]La fila 2, y el elemento en la posición 1."Buenos Aires"Acceso a la Fila 2 (Argentina/BA), Columna 1 (Buenos Aires).
+
+
+⭐ declarar una matriz vacia
+const results: string[][] = []  // Es la forma correcta de declarar una Matriz vacía que luego llenarás

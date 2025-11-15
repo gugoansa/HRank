@@ -1,0 +1,363 @@
+
+🟩 Un fixture es un POM YA CREADO Y LISTO que el test recibe sin que tú tengas que crearlo dentro del test.
+🟢 RESUMEN EN UNA SOLA LÍNEA
+El fixture es la fábrica que crea tu POM antes del test para que tú lo uses sin tener que instanciarlo.
+El fixture solo se usa para CREAR INSTANCIAS de tus POM. Tú nunca metes lógica de negocio en un fixture.
+Solo:
+Extiende Playwright Test
+Crea objetos (instancias)
+Los entrega al test
+
+ORDEN CORRECTO DE LA APLICACIOON DEL FIXTURE
+✔️ (1) Crear el POM (la clase)
+Ej: LoginPage.ts
+✔️ (2) Crear el fixture que construye ese POM
+Ej: base.fixtures.ts
+import { test as base } from '@playwright/test';
+import { LoginPage } from '../pages/LoginPage';
+
+export const test = base.extend({
+  loginPage: async ({ page }, use) => {
+    await use(new LoginPage(page));
+  }
+});
+
+✔️ (3) Usar ese fixture en el test
+Ej:
+test('algo', async ({ loginPage }) => {
+  await loginPage.login();
+});
+Ese es el flujo correcto.
+
+
+ENCARPETADO - NORMALMENTE VAN EN 
+/tests
+   /fixtures
+      myFixtures.ts
+      page.fixture.ts
+      base.fixtures.ts
+
+
+🧠 EJEMPLO SIMPLE Y PERFECTO de FIXTURE - SI NO ESTA CLARO SOLO SIGUE LEYTENDO LO ENTENDERAS!!!!!!!!!!
+🔹 1. Creas tu POM:
+class LoginPage {
+  constructor(page) {
+    this.page = page;
+    this.email = page.locator('#email');
+    this.pass = page.locator('#pass');
+    this.submit = page.locator('#submit');
+  }
+
+  async login(usuario, clave) {
+    await this.email.fill(usuario);
+    await this.pass.fill(clave);
+    await this.submit.click();
+  }
+}
+
+🔹 2. Creas un fixture que prepare ese POM antes del test:
+const test = base.extend({
+  loginPage: async ({ page }, use) => {
+    const pom = new LoginPage(page);
+    await use(pom);
+  }
+});
+
+
+Fíjate:
+el fixture crea el POM
+se lo pasa al test listo
+tú NO lo creas dentro del test
+
+🔹 3. En el test lo usas así:
+test('Login exitoso', async ({ loginPage }) => {
+  await loginPage.login('tati', '1234');
+});
+
+
+🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨
+🚨SI SABEMOS QUE FIXTURE ES PARA REUTILIZACION DE CODIGO ENTENDAMOS AHORA LA DIFERENCIA ENTRE:
+
+
+
+🟦 1. Lo que tú preguntas (crear funciones para acciones)
+Esto es POM puro, no fixtures.
+Ejemplo:
+async login(email, pass) {
+  await this.email.fill(email);
+  await this.password.fill(pass);
+  await this.submit.click();
+}
+
+Estas funciones sirven para:
+    encapsular pasos
+    limpiar tus tests
+    evitar repetir lógica
+    volver tu test más legible
+Esto NO es un fixture.
+Es una acción de la clase POM.
+
+🟩 2. Entonces, ¿qué es un fixture?
+Un fixture es algo que Playwright Test crea automáticamente antes del test, y tú puedes usar.
+Ejemplos típicos:
+    page
+    browser
+    context
+tus propios objetos POM inyectados
+
+Ejemplo real:
+test('mi test', async ({ page }) => {
+  await page.goto('/');
+});
+
+El page que recibes viene de un fixture.
+O si creas tu POM como fixture personalizado:
+
+test.extend({
+  loginPage: async ({ page }, use) => {
+    const login = new LoginPage(page);
+    await use(login);
+  },
+});
+
+
+Ahora puedes hacer:
+
+test('Ejemplo', async ({ loginPage }) => {
+  await loginPage.login('a', 'b');
+});
+
+🟥 3. Diferencias claras
+Concepto	Qué es	Para qué sirve
+Funciones en POM	Acciones como login(), goToCart()	Limpiar tests, agrupar pasos, evitar repetición
+Locators en POM	Selectores de la página	Organizar elementos por página
+Fixtures	Objetos que Playwright crea para ti	Inyectar page, context, POMs, datos, etc.
+🟨 Ejemplo completo para que lo veas claro
+✔️ POM (acciones)
+class LoginPage {
+  constructor(private page: Page) {}
+
+  readonly email = this.page.locator('#email');
+  readonly pass = this.page.locator('#pass');
+  readonly submit = this.page.locator('#submit');
+
+  async login(email, pass) {
+    await this.email.fill(email);
+    await this.pass.fill(pass);
+    await this.submit.click();
+  }
+}
+
+✔️ Fixture que inyecta la clase en los tests
+const test = base.extend({
+  loginPage: async ({ page }, use) => {
+    await use(new LoginPage(page));
+  },
+});
+
+✔️ Test usando TODO
+test('Login', async ({ loginPage }) => {
+  await loginPage.login('user@test.com', '1234');
+});
+
+✔️ Respuesta final a tu pregunta:
+
+¿Esas funciones que hago para agrupar acciones son fixtures?
+
+❌ No.
+Son métodos del POM.
+Los fixtures son una forma de inyectar tus POMs (o cualquier cosa) en los tests.
+
+
+
+
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+⚠️⚠️⚠️⚠️⚠️ VAMOS MAS FACIL, CON UN EJEMPLO MAS FACIL
+
+🚗 TODO explicado con el ejemplo del carro
+Imagina que tú quieres manejar un carro.
+Hay 4 cosas:
+1️⃣ El test
+2️⃣ El POM (Page Object)
+3️⃣ Las funciones del POM
+4️⃣ Los fixtures
+
+Vamos uno por uno.
+
+✅ 1. El TEST = Tú diciendo lo que quieres
+Tú dices:
+“Quiero ir a la tienda en carro.”
+
+En código, sería:
+test('Ir a la tienda', async ({ carro }) => {
+  await carro.irALaTienda();
+});
+El test solo dice QUÉ quieres, no cómo hacerlo.
+
+✅ 2. El POM = El carro
+El carro (POM) sabe cómo hacer las cosas:
+cómo prender
+cómo avanzar
+cómo doblar
+cómo frenar
+Así se ve un POM:
+
+class Carro {
+  async irALaTienda() {
+    await this.prender();
+    await this.avanzar();
+    await this.doblarIzquierda();
+    await this.frenar();
+  }
+  async prender() { ... }
+  async avanzar() { ... }
+  async doblarIzquierda() { ... }
+  async frenar() { ... }
+}
+
+Tú no haces esas acciones en el test.
+El CARRO (POM) las hace.
+
+
+✅ 3. Las funciones del POM = los pedales, volante, llaves
+Cada función es un paso que el carro sabe hacer.
+Ejemplos:
+prender() = girar llave
+avanzar() = presionar acelerador
+doblarIzquierda() = mover volante
+frenar() = usar freno
+
+En Playwright, sería como:
+async login() { ... }
+async llenarFormulario() { ... }
+async agregarAlCarrito() { ... }
+
+
+Son acciones que el POM sabe hacer.
+❌ SIN POM: tú manejas pieza por pieza (muy largo)
+
+Sería como en el test tener que escribir:
+await girarLlave();
+await presionarAcelerador();
+await soltarAcelerador();
+await girarVolanteIzquierda();
+await presionarFreno();
+
+Pero eso es MUY largo y repetitivo 😵‍💫.
+Por eso existe el POM.
+
+✅ 4. Los fixtures = la llave puesta y el carro listo
+Los fixtures son cosas que Playwright prepara antes del test, como:
+tener el carro prendido
+tener gasolina
+tener las llaves puestas
+
+En Playwright, page es un fixture:
+test('algo', async ({ page }) => {})
+
+Playwright te da la "llave" lista para usar.
+Si tú creas tu propio POM:
+test('algo', async ({ carro }) => {})
+
+Ese "carro" también viene de un fixture que tú configuraste.
+
+🎉 AHORA TODO JUNTO
+🔹 TEST (tú):
+test('Ir a la tienda', async ({ carro }) => {
+  await carro.irALaTienda();
+});
+
+🔹 POM (carro):
+class Carro {
+  async irALaTienda() {
+    await this.prender();
+    await this.avanzar();
+    await this.doblarIzquierda();
+    await this.frenar();
+  }
+
+  async prender() {}
+  async avanzar() {}
+  async doblarIzquierda() {}
+  async frenar() {}
+}
+
+🔹 FIXTURE (carro listo antes del test):
+test.extend({
+  carro: async ({ page }, use) => {
+    await use(new Carro(page));
+  }
+});
+
+🧠 RESUMEN QUE TE QUEDA PARA SIEMPRE
+Cosa	Ejemplo del carro	En Playwright
+Test	“Quiero ir a la tienda”	test(… )
+POM	El carro	LoginPage, CartPage, DashboardPage
+Funciones del POM	prender, avanzar, doblar	login(), agregarProducto(), irAPagina()
+Fixture	El carro ya con llaves listas	{ page }, { loginPage }
+
+🧩 FORMATO VISUAL PARA QUE SEA IMPOSIBLE OLVIDARLO
+Cosa	Qué es
+POM	Una clase con locators + funciones (como LoginPage, CartPage)
+Fixture	El que crea el POM y te lo da listo
+Test	El que usa el POM que el fixture preparó
+
+
+
+
+🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨
+SIN FIXTURE
+¿Para qué fixture si ya tengo la clase POM? ¿No es más código?
+
+❌ Sin fixture
+Debes crear el POM a mano en cada test:
+
+test('algo', async ({ page }) => {
+  const loginPage = new LoginPage(page);  // repetir en TODOS los tests
+  await loginPage.login();
+});
+Si tienes 200 tests → repites 200 veces esa línea.
+
+✅ Con fixture
+Playwright crea el POM por ti y tú solo lo usas:
+
+test('algo', async ({ loginPage }) => {
+  await loginPage.login();
+});
+
+Además:
+Puedes compartir el POM entre tests
+Puedes abrir sesión antes de cada test
+Puedes inyectar datos de usuario
+Puedes crear más cosas listas antes del test
+El código final es MÁS LIMPIO y MENOS REPETIDO.
+👉 Los fixtures NO son obligatorios,
+pero sí son la forma recomendada, limpia y profesional de trabajar en Playwright Test.
+
+
+🧿🧿🧿🧿🧿🧿🧿🧿🧿🧿🧿🧿🧿🧿🧿🧿🧿🧿🧿🧿🧿🧿
+🧿🧿🧿🧿🧿🧿🧿 OJO
+Un fixture:
+no agrega funciones al POM
+no agrega funciones al navegador
+no modifica Playwright
+NO toca su lógica interna
+
+Un fixture lo único que hace es:
+Crear objetos (POM, datos, clientes API, etc.) y entregarlos listos al test.
+
+Es como decirle a Playwright:
+“Cada vez que se ejecute un test, prepárame este LoginPage listo”.
+
+Y los tests lo reciben así:
+
+test('algo', async ({ loginPage }) => {
+  // loginPage está listo porque lo preparó el fixture
+});
+
+
+🌟 RESPUESTA CORTA (para que se entienda YA)
+✔ Importar = traer código (clases, funciones, variables)
+✔ Extender = agregar fixtures a Playwright Test
+✔ Fixture = una “función especial” que Playwright prepara antes del test (por ti)

@@ -1,3 +1,7 @@
+Un "callback" es una función que se pasa como argumento a otra función para ser ejecutada más tarde, típicamente después de que una 
+tarea se ha completado. El término también se refiere a una segunda audición para un actor, o a la acción de una compañía telefónica 
+que te vuelve a llamar sin coste para terminar una llamada. 
+
 B. El Tipo de Retorno (Void o Valor)
 Siempre debes especificar el tipo de retorno de una función o método para que TypeScript sepa qué esperar.
 
@@ -6,19 +10,16 @@ Valor (number, string, etc.)	       La función devuelve un dato.	              
 void	                               La función hace algo pero no devuelve ningún valor útil.	        public async login(...): Promise<void> { ... } (La función inicia sesión, pero no devuelve nada).
 
 En Playwright, los métodos de acción de POM que solo interactúan con la página casi siempre devuelven Promise<void> (ya que son asíncronos y no devuelven datos, solo completan la acción).
-
 #para las funciones que son void, es bueno ponmerles returnm con la finalidad de que las corte del hilo.
 
-sdfkjebskdjfsad
-
-ponga retun para cortar una funcion void
-
-y para que es el return y como se usa
+ retun para cortar una funcion void, sirve paramejorar la ejecucion de la aplicacion.
 
 
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+⚠️MAS FACILITO
+👉Significado del return
+Analogía: El return es como la cinta transportadora de una fábrica. La función trabaja, procesa cosas y, al final, devuelve el producto terminado.
+public async getTableData(): Promise<string[][]>: Esto es una promesa (por ser async) de que, al finalizar el trabajo, la función te entregará una Matriz de strings (string[][]).
+¿Debes poner return? Sí. Si la función promete devolver algo, debes usar return results; para cumplir esa promesa y entregar el resultado.
 
-callbacks oko callbacks
-callbacks oko callbacks
-callbacks oko callbacks
-callbacks oko callbacks
-callbacks oko callbacks
+

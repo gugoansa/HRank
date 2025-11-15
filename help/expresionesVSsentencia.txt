@@ -1,5 +1,12 @@
-En JavaScript, una expresión es cualquier unidad de código que se resuelve en un valor, mientras que una sentencia es un bloque de código que realiza una acción. Las expresiones pueden ser tan simples como un valor literal (por ejemplo, 10 o "hola") o tan complejas como una operación aritmética (3 + 4), una llamada a función o una asignación (x = 7). 
+En JavaScript, 
+
+una expresión es cualquier unidad de código que se resuelve en un valor, mientras que una sentencia es un bloque de código que realiza una acción. 
+Las expresiones pueden ser tan simples como un valor literal (por ejemplo, 10 o "hola") o tan complejas como una operación aritmética (3 + 4), una 
+llamada a función o una asignación (x = 7). 
+
+
 Tipos comunes de expresiones
+
 Literales: Representan un valor directamente, como 5, "Hola" o true.
 Aritméticas: Se resuelven en un número, utilizando operadores como +, -, *, /. Por ejemplo, 3 + 4 se evalúa como 7.
 De cadena: Se resuelven en una cadena de texto. Por ejemplo, "JavaScript" + " " + "es divertido".

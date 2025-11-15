@@ -1,0 +1,34 @@
+Puedes recorrer un for en TypeScript utilizando los bucles for estándar, 
+🔴for...of para iterar sobre valores, 
+🔴for...in para iterar sobre propiedades de un objeto o el método 
+🔴 forEach() para arrays. 
+
+La elección depende de si necesitas los índices, los valores o las propiedades. 
+
+🔴for (tradicional)
+Este es el bucle for clásico, útil cuando necesitas un contador o acceso por índice. 
+typescript
+for (let i = 0; i < miArray.length; i++) {
+  console.log(miArray[i]);
+}
+🔴for...of
+Es ideal para recorrer directamente los valores de un iterable (como arrays y strings), y es la forma más sencilla para obtener los elementos de un array. 
+typescript
+let miArray = [1, 2, 3, 4, 5];
+for (const elemento of miArray) {
+  console.log(elemento);
+}
+🔴for...in
+Se utiliza para iterar sobre las propiedades enumerables de un objeto. Ten en cuenta que también puede recorrer propiedades heredadas del prototipo. 
+typescript
+let miObjeto = { a: 1, b: 2 };
+for (const clave in miObjeto) {
+  console.log(clave, miObjeto[clave]);
+}
+🔴forEach()
+Este método de array ejecuta una función para cada elemento del array. Es una alternativa concisa para iterar sobre colecciones. 
+typescript
+const frutas = ['manzana', 'banana', 'cereza'];
+frutas.forEach(fruta => {
+  console.log(fruta);
+});
