@@ -16,6 +16,23 @@
     int tamanoLocator = items.size(); // número de elementos encontrados
     → Aquí el tamaño del locator = cantidad de elementos que coincide con ese selector.
 
+🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣
+.length VS .count()
+¡Muy buenas preguntas! Son esenciales para diferenciar entre el manejo de Playwright y el manejo de Arrays estándar de JavaScript.
+
+1. ❓ ¿Por Qué tableData.length y No .count()?
+La clave está en qué objeto estás usando y si la operación requiere interactuar con el navegador (ser asíncrona) o no.
+Objeto	                                Propiedad/Método	¿Asíncrono?	  Razón
+this.tableRows (Locator de Playwright)	.count()	        SÍ            (await) este objeto aún está conectado al navegador. Necesita tiempo (una promesa) para preguntarle a la página cuántos elementos encontró.
+tableData (Array de JavaScript)	        .length	            NO      	  Este objeto ya es una matriz de JavaScript (string[][]) que reside en la memoria de tu computadora. Ya no está conectado al navegador. Puedes obtener su longitud instantáneamente.
+
+Conclusión: Usaste .count() correctamente dentro de tu clase TablePage para contar las filas del Locator. Ahora, en el archivo de prueba, la variable tableData ya es un Array puro de JS, por lo que usas la propiedad .length para saber su tamaño.
+
+OBJETO                  PROPIEDAD PARA CONTRAL          ¿Por qué?
+Playwright Locator -->  .count() --->	    Es un método asíncrono (await). Le pide al navegador que cuente cuántos elementos encontró el selector.
+JavaScript Array -->    .length	 --->       Es una propiedad instantánea que existe en la memoria de tu script. Se usa después de que Playwright ha extraído los datos a un array puro de JS.
+🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣🟣
+
 🟣 push() agrega un nuevo elemento al final del array results No reemplaza ni borra el contenido previo. El array sigue siendo el mismo, solo que ahora tiene más elementos.
     results.push(cellData)
     

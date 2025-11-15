@@ -30,6 +30,7 @@ El locator no es la página, es un objeto que apunta a un elemento de la página
 
 ✔️ Expect
 Expect = el bibliotecario que revisa si el libro cumple tus reglas.
+sirve para hacer aserciones (comparaciones/verificaciones).
 Le dices:
 “Por favor, verifica si la portada es azul.”
 o
@@ -54,3 +55,48 @@ browser	    navegador completo (Chrome/Firefox)	    Biblioteca
 page	    una pestaña/ventana del navegador	    Sala
 locator	    referencia a un elemento del DOM	    Libro dentro de la sala
 expect	    herramienta para verificar propiedades	Bibliotecario
+
+⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+⭐⭐⭐ EXTRA ⭐⭐⭐⭐
+⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+test es la función que define un test.
+Test es como el planificador de la visita a la sala.
+Le dice al bibliotecario (tu script) qué acciones ejecutar:
+
+
+Browser (Biblioteca completa)
+│
+├── Page (Sala dentro de la biblioteca)
+│    ├── Locator (Libro dentro de la sala)
+│    │    └─ Aquí interactúas con elementos: click, leer texto, etc.
+│    └── page.goto('url') → abrir contenido en la sala
+│
+├── test() (Planificador del día / Actividad)
+│    └─ Organiza qué salas abrir, qué libros mirar y qué verificaciones hacer
+│
+└── expect() (Bibliotecario inspector)
+     └─ Verifica reglas: si el libro está visible, tiene la información correcta, etc.
+
+
+
+⭐Ejemplo en código usando la analogía
+import { test, expect } from '@playwright/test';
+
+test('mi prueba de biblioteca', async ({ page }) => {
+    // 📖 Abrir la sala
+    await page.goto('https://example.com');
+
+    // 📗 Tomar un libro
+    const loginButton = page.locator('#login');
+
+    // 👀 El bibliotecario revisa si el libro cumple la regla
+    await expect(loginButton).toBeVisible();
+});
+
+Browser → la biblioteca completa
+page → la sala que se abre para este test
+locator → libro específico dentro de la sala
+expect → bibliotecario que dice “pasa” o “falla”
+test() → organiza la visita y dice qué acciones se van a ejecutar

@@ -2,7 +2,6 @@
 // https://www.w3schools.com/html/html_tables.asp
 
 import { Page,Locator } from "@playwright/test";
-import { table } from "console";
 
 export class TablePage {
     //usamos el constructor para usare las caracteridticas de page
