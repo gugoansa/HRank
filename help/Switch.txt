@@ -1,0 +1,79 @@
+🎠 ¿Qué es un switch? (explicado como a un bebé)
+
+Imagina que tienes un panel mágico con botones de colores:
+🔵 🔴 🟢 🟡
+Cuando presionas un botón diferente, pasa algo diferente.
+Tu mamá te dice:
+“Si presionas el botón azul → hace sonido de coche.
+Si presionas el rojo → hace sonido de dinosaurio.
+Si presionas el verde → hace sonido de campana.
+Si presionas el amarillo → hace sonido de robot.”
+
+Eso es un switch.
+👉 Switch significa:
+“Dependiendo del valor que elijas, hago una acción distinta.”
+Es como un menú de opciones.
+🧸 Ejemplo como bebé
+Tu elección:
+
+color = "rojo"
+Switch:
+rojo → RAAAAAH (dinosaurio) 🦖
+
+💻 Ejemplo de switch en programación
+const color = "rojo";
+
+switch (color) {
+  case "azul":
+    console.log("Sonido de coche 🚗💨");
+    break;
+
+  case "rojo":
+    console.log("Rugido de dinosaurio 🦖");
+    break;
+
+  case "verde":
+    console.log("Campanita 🔔");
+    break;
+
+  case "amarillo":
+    console.log("Robot 🤖");
+    break;
+
+  default:
+    console.log("Color desconocido 👀");
+}
+
+🍼 ¿Qué significa cada parte?
+🔹 switch (color)
+Le dices: “Mira esta variable y elige qué hacer según su valor”.
+🔹 case "rojo":
+“Si el valor es rojo, haz esto.”
+🔹 break;
+Es como decir:
+“Ya terminé, no revises más.”
+🔹 default:
+Es el “sino” del switch.
+“Si no coincide con ningún color, haz esto otro.”
+
+🍪 Diferencia fácil entre if/else y switch
+Imagina que tienes muchas opciones:
+Si es azul → algo
+Si es rojo → algo
+Si es verde → algo
+Si es amarillo → algo
+
+Con if/else queda largo y feo:
+
+if (color === "azul") { ... }
+else if (color === "rojo") { ... }
+else if (color === "verde") { ... }
+else if (color === "amarillo") { ... }
+else { ... }
+
+
+Con switch queda ordenado, limpio y bonito.
+
+⭐ Resumen para bebé
+if/else = elegir entre SÍ o NO (dos opciones).
+switch = elegir entre MUCHAS OPCIONES (como varios botones de colores).

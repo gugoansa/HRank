@@ -7,7 +7,8 @@ export class contarNumeros {
         // Llamada correcta ddesde el constructor
         this.conteoIToF();
         this.conteoFToI();
-    } ;
+    }
+    ;
     //contar de inicio a fin
     async conteoIToF() {
         for (let i = this.numeroI; i <= this.numeroF; i++) {

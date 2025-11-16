@@ -1,3 +1,12 @@
-CTRL + Shift + P
+Reiniciar VSCode
 
+CTRL + Shift + P
 TypeScript: Restart TS server
+
+CTRL + Shift + P
+Developer: Reload Window
+
+
+Ctrl + Shift + P → 
+“Reload Window”
+//Esto equivaler a reiniciar VSCode sin cerrarlo.

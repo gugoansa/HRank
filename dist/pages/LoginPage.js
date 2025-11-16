@@ -1,24 +1,28 @@
+/* 🚀 Comencemos: Módulo I, Parte 1 (Login Iterado)
+Comenzaremos con el primer paso: la clase POM para el login.
+
+Paso 1: Definición de la Clase POM de Login
+Tu Tarea: Escribe la clase LoginPage completa para https://www.saucedemo.com/, incluyendo el constructor, l
+os localizadores (Usuario, Contraseña, Botón Login) y un método login() simple.
+Completa el código de la clase LoginPage.ts con los localizadores y el método login() para la página saucedemo.com. 👇
+*/
 export class LoginPage {
-    //Crea el constructor dejando el objeto como privado y solo lectura - FORMA CORTA
-    // Propiedad page (Inicializada por constructor)
     constructor(page) {
         this.page = page;
-        //Propiedades - Localizadores Fijos (readonly)    private readonly usernameField: string = '#user-name';
-        this.usernameField = '#user-name';
-        this.passwordField = '#password';
-        this.loginButton = '#login-button';
+        // Localizadores (ID son los más estables)
+        this.userNameField = this.page.locator('#user-name');
+        this.passwordField = this.page.locator('#password');
+        this.loginButton = this.page.locator('#login-button');
+        // Localizador del mensaje de error, listo para la verificación
+        this.errorMessage = this.page.locator('[data-test="error"]');
     }
-    // 🌟 TU CÓDIGO AQUÍ: El método de acción 'login()' 🌟
-    async login(username, password) {
-        // public es opcional (es el valor por defecto)
-        // Promise<void> es el tipo de retorno recomendado para TS
-        // 1. Escribir el nombre de usuario
-        await this.page.fill(this.usernameField, username); // Llenar campo de usuario
-        // 2. Escribir la contraseña
-        await this.page.fill(this.passwordField, password); // Llenar campo de contraseña
-        // 3. Hacer clic en el botón de Login
-        await this.page.click(this.loginButton); // Clic en el botón
-        // El método termina cuando el clic se ha realizado y la página empieza a cargar.
+    async login(userName, password) {
+        // Rellenar campos y hacer clic
+        await this.userNameField.fill(userName);
+        //await this.page.fill('#user-name', userName);
+        await this.passwordField.fill(password);
+        await this.loginButton.click();
     }
+    ;
 }
 ;
