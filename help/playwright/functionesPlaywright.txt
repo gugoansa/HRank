@@ -36,7 +36,16 @@ JavaScript Array -->    .length	 --->       Es una propiedad instantánea que ex
 🟣 push() agrega un nuevo elemento al final del array results No reemplaza ni borra el contenido previo. El array sigue siendo el mismo, solo que ahora tiene más elementos.
     results.push(cellData)
     
-
+🟣✔ .fill()
+        await this.userNameField.fill(userName);
+        o
+        await this.page.fill('#user-name', userName);
+🟣✔ .click()
+🟣✔ .type()
+🟣✔ .press()
+🟣✔ .first()
+🟣✔ .nth(n)
+🟣✔ .getByText()
 🟣
 🟣
 🟣

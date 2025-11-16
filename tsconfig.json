@@ -9,7 +9,10 @@
     /* === 📁 Estructura de carpetas === */
     "rootDir": "src",                    // Dónde están tus .ts
     "outDir": "dist",                    // Dónde guardar los .js compilados
-
+    "baseUrl": ".",
+        "paths": {
+      "src/*": ["src/*"]
+    },
     /* === ✅ Buenas prácticas === */
     "strict": true,                      // Verificación estricta de tipos
     "esModuleInterop": true,             // Permite importar módulos comunes
@@ -22,6 +25,6 @@
   },
 
   /* === 📦 Qué incluir/excluir === */
-  "include": ["src/**/*", "tests/ui/table.spec.ts"],                      // Incluye todo lo que está en la carpeta src
+  "include": ["src/**/*", "tests/ui/table.spec.ts", "tests/login.spec.ts"],                      // Incluye todo lo que está en la carpeta src
   "exclude": ["node_modules", "dist", "tests", "src/test/**/*"]  // Excluye node_modules y dist
 }

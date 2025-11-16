@@ -1,0 +1,3 @@
+CTRL + Shift + P
+
+TypeScript: Restart TS server

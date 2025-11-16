@@ -1,0 +1,73 @@
+En Playwright Test, lo que aparece como beforeEach y afterEach se conoce como “hooks” (ganchos o funciones de ciclo de vida).
+Sirven para ejecutar código antes o después de cada prueba o de toda la suite.
+
+Aquí tienes todos los hooks disponibles y una explicación clara de cada uno.
+
+🔧 Hooks de Playwright Test
+✅ 1. beforeEach
+
+Se ejecuta antes de cada test dentro del bloque test.describe.
+Uso típico:
+    Navegar a una URL
+    Preparar datos
+    Iniciar sesión
+
+test.beforeEach(async ({ page }) => {
+  await page.goto('https://example.com');
+});
+
+
+
+✅ 2. afterEach
+Se ejecuta después de cada test.
+Uso típico:
+    Cerrar sesión
+    Limpiar datos temporales
+    Tomar logs o screenshots si algo sale mal
+
+test.afterEach(async ({ page }) => {
+  // cleanup
+});
+
+
+
+✅ 3. beforeAll
+Se ejecuta una sola vez antes de todos los tests del bloque describe.
+Uso típico:
+    Crear datos globales
+    Iniciar un servidor
+    Abrir una conexión a base de datos
+
+test.beforeAll(async () => {
+  console.log("Iniciando suite...");
+});
+
+⚠️ Nota:
+Las fixtures automáticas de Playwright NO comparten información entre tests, pero beforeAll sí puede guardar valores en variables externas.
+
+
+✅ 4. afterAll
+Se ejecuta una vez al finalizar todos los tests.
+Uso típico:
+    Borrar datos globales
+    Cerrar conexiones
+    Apagar servidores o procesos temporales
+
+test.afterAll(async () => {
+  console.log("Suite finalizada");
+});
+
+📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌
+📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌
+📌 Nota adicional: Hooks disponibles solo dentro de test.describe()
+
+Si usas:
+
+test.describe('Mis pruebas', () => {
+  test.beforeEach(...)
+  test.afterEach(...)
+  test.beforeAll(...)
+  test.afterAll(...)
+});
+
+Estos hooks solo aplican a las pruebas dentro de ese describe.

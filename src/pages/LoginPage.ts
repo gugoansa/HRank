@@ -1,27 +1,34 @@
-import { Page } from '@playwright/test'; // Necesitamos el tipo Page de Playwright
+/* 🚀 Comencemos: Módulo I, Parte 1 (Login Iterado)
+Comenzaremos con el primer paso: la clase POM para el login.
+
+Paso 1: Definición de la Clase POM de Login
+Tu Tarea: Escribe la clase LoginPage completa para https://www.saucedemo.com/, incluyendo el constructor, l
+os localizadores (Usuario, Contraseña, Botón Login) y un método login() simple.
+Completa el código de la clase LoginPage.ts con los localizadores y el método login() para la página saucedemo.com. 👇
+*/
+
+import { Locator, Page } from '@playwright/test';
 
 export class LoginPage{
-    
-    //Propiedades - Localizadores Fijos (readonly)    private readonly usernameField: string = '#user-name';
-    private readonly usernameField: string = '#user-name';
-    private readonly passwordField: string = '#password';
-    private readonly loginButton: string = '#login-button';
-    //Crea el constructor dejando el objeto como privado y solo lectura - FORMA CORTA
-    // Propiedad page (Inicializada por constructor)
-    constructor(private readonly page: Page) { 
-    }
 
-    // 🌟 TU CÓDIGO AQUÍ: El método de acción 'login()' 🌟
-    public async login(username: string, password: string): Promise<void> { 
-    // public es opcional (es el valor por defecto)
-    // Promise<void> es el tipo de retorno recomendado para TS
-    // 1. Escribir el nombre de usuario
-        await this.page.fill(this.usernameField, username); // Llenar campo de usuario
-        // 2. Escribir la contraseña
-        await this.page.fill(this.passwordField, password); // Llenar campo de contraseña
-        // 3. Hacer clic en el botón de Login
-        await this.page.click(this.loginButton); // Clic en el botón
-        // El método termina cuando el clic se ha realizado y la página empieza a cargar.
+    constructor(private readonly page : Page){
+
     }
+    // Localizadores (ID son los más estables)
+    private readonly userNameField: Locator = this.page.locator('#user-name');
+    private readonly passwordField: Locator = this.page.locator('#password');
+    private readonly loginButton: Locator = this.page.locator('#login-button');
+    // Localizador del mensaje de error, listo para la verificación
+    private readonly errorMessage: Locator = this.page.locator('[data-test="error"]')
+
+    public async login(userName:string, password:string): Promise<void>{
+        // Rellenar campos y hacer clic
+        await this.userNameField.fill(userName);
+        //await this.page.fill('#user-name', userName);
+        await this.passwordField.fill(password);
+        await this.loginButton.click();
+
+
+    };
 
 };

@@ -24,3 +24,9 @@ Tarea	O                       bjetivo
 Verificación de Estado (200)	Asegurar que un endpoint devuelve el código de estado HTTP 200 (OK).
 Verificación de Contenido	    Asegurar que la respuesta (el body JSON) tiene la estructura esperada y que los datos clave son correctos.
 
+***********************************************************
+***********************************************************
+Subir archivos.
+Manejar iframes.
+Interactuar con dropdowns dinámicos o date pickers.
+Usar page.route() para mockear (simular) respuestas de red.
