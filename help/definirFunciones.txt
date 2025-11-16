@@ -22,3 +22,8 @@ export const procesarCompra = async (...) => {
 const sumar = function(a: number, b: number): number {
     return a + b;
 };
+
+⚠️⚠️⚠️⚠️⚠️
+⚠️⚠️OJO
+⚠️⚠️⚠️⚠️⚠️
+dentro de una clase NO se puede usar la palabra function para declarar métodos.

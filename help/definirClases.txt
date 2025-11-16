@@ -18,6 +18,11 @@ export class LoginPage {
 }
 
 ❗Tip, si quieres declarar una variable opcional, solo pon un ? a lado de la variable y ya quedara como opcional
+Dentro de una clase no puedes usar const para definir propiedades. Solo se usa:
+public
+private
+protected
+readonly
 
 ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 ⚠️⚠️⚠️IMPORTANTE

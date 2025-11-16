@@ -1,0 +1,196 @@
+El web scraping es la técnica de extraer información automáticamente de páginas web. En lugar de copiar datos manualmente, un script visita un sitio, lee su contenido (HTML, texto, imágenes, etc.) y obtiene los datos que necesitas para analizarlos, guardarlos o procesarlos.
+🕸️ ¿Cómo funciona el web scraping?
+Generalmente implica:
+Enviar una petición a una página web (con herramientas como requests, fetch o un navegador automatizado).
+Recibir el HTML de la página.
+Parsear ese HTML con librerías como BeautifulSoup, Cheerio, lxml, etc.
+Extraer el contenido deseado (texto, enlaces, precios, tablas, etc.).
+🎭 ¿Cómo usa Playwright el web scraping?
+Playwright es una herramienta que automatiza navegadores (Chromium, Firefox y WebKit).
+a diferencia del scraping clásico (que solo descarga HTML), Playwright abre un navegador real o headless y puede:
+Navegar como un usuario real.
+Cargar páginas dinámicas con JavaScript.
+Hacer clic, rellenar formularios y desplazarse.
+Esperar elementos específicos.
+Interactuar con sistemas anti-bots básicos.
+Esto lo convierte en una excelente herramienta para scraping de sitios modernos que dependen mucho de JavaScript.
+Ejemplo básico de scraping con Playwright (Python)
+from playwright.sync_api import sync_playwright
+
+with sync_playwright() as p:
+    browser = p.chromium.launch(headless=True)
+    page = browser.new_page()
+    page.goto("https://quotes.toscrape.com")
+    quotes = page.locator(".quote").all_text_contents()
+    for q in quotes:
+        print(q)
+    browser.close()
+
+⭐ ¿Es difícil implementar web scraping con Playwright?
+En general, no.
+Es más fácil que con otras herramientas cuando:
+La página usa mucho JavaScript.
+Necesitas interactuar (clicks, scroll, login).
+Hay contenido cargado dinámicamente.
+Qué tan difícil es → Depende de la complejidad del sitio:
+Situación	Dificultad
+Sitio simple sin JS	⭐ Fácil
+Sitio dinámico con JS	⭐⭐ Fácil–Moderado
+Necesita login, scroll infinito	⭐⭐⭐ Moderado
+Tiene protección anti-bots (Cloudflare, captchas)	⭐⭐⭐⭐ Difícil
+
+🧠 Ventajas de Playwright para scraping
+    ✔ Carga páginas dinámicas perfectamente
+    ✔ Fácil de automatizar acciones humanas
+    ✔ Muy rápido con modo headless
+    ✔ API clara y moderna
+    ✔ Funciona en Python, JavaScript, Java, .NET
+❗ Consideraciones éticas y legales
+Antes de hacer scraping, revisa:
+El archivo robots.txt del sitio
+Sus términos de servicio
+Que tu uso no cause carga excesiva
+
+
+1. ¿El scraping no es automático? ¿Siempre tengo que darle el ID del elemento?
+Sí y no.
+Sí, necesitas decirle qué datos quieres extraer (texto, precio, enlace, tabla…).
+No, no siempre necesitas un ID.
+Puedes usar selectores CSS, clases, texto visible, xpath, o incluso selección automática.
+Ejemplos de cómo seleccionar elementos:
+✔ Usar ID
+page.locator("#precio").text_content()
+✔ Usar clase
+page.locator(".product-title").all_text_contents()
+✔ Usar texto (sin ID)
+page.get_by_text("Agregar al carrito").click()
+✔ Usar estructura HTML
+page.locator("div.producto > span.precio").text_content()
+✔ Usar patrones si no conoces los IDs
+Puedes buscar elementos similares sin saber sus IDs exactos:
+page.locator("img[alt*='Nike']").first
+✔ También puedes extraer todo un bloque de HTML automáticamente
+html = page.content()
+
+➡️ Conclusión:
+No es 100% automático porque tú decides qué datos quieres,
+pero sí puede encontrar e interactuar con elementos sin IDs.
+
+2. Pros y contras del web scraping
+✔ Ventajas
+1. Acceso a datos que no tienen API
+Cuando el sitio no ofrece una API oficial, scraping es la única forma de obtener datos.
+2. Automatiza tareas repetitivas
+Como:
+    copiar precios,
+    revisar stock,
+    descargar listas,
+    buscar información masiva.
+3. Navega sitios complejos con JavaScript
+Con herramientas como Playwright.
+4. Rápido y eficiente
+Puedes extraer miles de datos en minutos.
+✖ Desventajas
+1. No siempre es legal
+Algunos sitios lo prohíben en sus Términos de Servicio.
+2. Los sitios pueden bloquearte
+Mediante:
+    captchas,
+    rate limits,
+    Cloudflare,
+    detección de bots.
+3. Si la web cambia, tu script deja de funcionar
+Por eso el scraping necesita mantenimiento.
+4. Puede ser costoso en recursos
+Con Playwright abriendo navegadores, consume más RAM/CPU.
+5. No es una API oficial
+No hay garantía de estabilidad.
+3. ¿El web scraping es solo usar automatización para navegar un sitio?
+Sí… pero no solo eso.
+✔ Lo que describes es automatización de navegador.
+Web scraping incluye:
+A. Automatización → navegar, hacer clic, esperar contenido
+B. Extracción de datos → leer HTML y obtener información estructurada
+➡️ Entonces scraping = automatización + extracción de datos.
+Playwright hace la parte de automatización muy bien.
+La extracción la haces tú leyendo el contenido.
+🔍 EN RESUMEN
+❓ ¿Es automático?
+Automático sí, porque el script hace todo.
+Pero tú defines qué datos necesitas (selectores).
+❓ ¿Pros y contras?
+Pros: flexible, poderoso, extrae datos de cualquier sitio.
+Contras: bloqueos, legalidad, cambios en el sitio rompen tu script.
+❓ ¿Es solo automatización?
+Es automatización + extracción de datos.
+
+
+1. ¿Dónde se encuentra el archivo robots.txt de un sitio?
+Siempre está en la misma ruta base del dominio.
+📌 Ejemplos:
+https://google.com/robots.txt
+https://facebook.com/robots.txt
+https://amazon.com/robots.txt
+https://midominio.com/robots.txt
+
+👉 Solo agrega /robots.txt al final del dominio.
+¿Qué contiene?
+Indicaciones para bots o scrapers, como:
+qué partes del sitio pueden visitar
+cuáles no
+cada cuánto pueden pedir datos
+⚠️ NO es legalmente obligatorio, pero es una referencia ética importante.
+2. ¿El web scraping es lo mismo que la automatización con Playwright?
+❗ NO SON LO MISMO, aunque se usan juntos.
+Aquí va la diferencia clara:
+📌 A. Automatización (Playwright / Selenium / Puppeteer)
+Esto es cuando un script:
+    abre un navegador,
+    da clic,
+    escribe,
+    navega,
+    hace scroll,
+    espera elementos,
+    simula un usuario.
+Ejemplo de AUTOMATIZAR:
+    page.goto("https://tienda.com")
+    page.click("#boton-comprar")
+    page.fill("#email", "yo@algo.com")
+➡️ Esto es automatización, NO scraping.
+📌 B. Web Scraping (extracción de datos)
+Esto es cuando tu script lee e interpreta información del sitio para obtener datos:
+    .text_content()
+    .all_text_contents()
+    .get_attribute()
+    .content() (HTML completo)
+    parsear HTML con BeautifulSoup, etc.
+
+Ejemplo de SCRAPING:
+precios = page.locator(".precio").all_text_contents()
+➡️ Esto extrae datos → eso es scraping.
+
+🧠 Entonces…
+✔ Playwright = automatización del navegador
+Navega como un humano, pero no “extrae datos” por sí mismo.
+✔ Scraping = extraer datos estructurados del HTML
+Tú decides qué sacar: textos, precios, imágenes, tablas.
+✔ Web scraping moderno = Playwright (automatizar) + extracción de datos
+Ambas cosas juntas hacen que puedas:
+entrar a una página que usa JavaScript,
+esperar productos,
+extraer sus nombres y precios.
+
+🎯 Ejemplo para ver la diferencia en una sola mirada:
+Automatización:
+page.goto("https://amazon.com")
+page.click("text=Ofertas")
+
+Scraping:
+ofertas = page.locator(".offer-title").all_text_contents()
+print(ofertas)
+
+🔍 Resumen ultra-claro
+Concepto	    Qué hace	                Ejemplo
+Automatización	Controla el navegador	    Click, scroll, escribir
+Scraping	    Extrae datos de la página	Texto, precios, imágenes
+Juntos	        Scraping moderno	        Playwright + .text_content()

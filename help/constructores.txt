@@ -18,6 +18,14 @@ const persona1 = new Persona("Tatao");
 persona1.saludar();
 
 
+❗Tip 
+Dentro de una clase no puedes usar const para definir propiedades. Solo se usa:
+public
+private
+protected
+readonly
+
+
 //////////////////////////////
 //////////////////////////////
 DEFINIR CONSTRUCTOR MAS CORTO

@@ -1,0 +1,26 @@
+¡Tienes toda la razón! Hubo un error de conteo de mi parte. El Manejo de Frames que solicitaste formaba parte del Módulo I, pero es tan distinto que debería ser su propio módulo.
+
+Además, agregar las Pruebas de API es una idea excelente. Automatizar tanto la Interfaz de Usuario (UI) como la API es la práctica recomendada (Full-Stack Testing).
+
+🎯 Alcance Consolidado y Estructurado (4 Módulos)
+Aquí está el programa de práctica final con los cuatro módulos, ordenado de la forma más lógica para el aprendizaje:
+
+Módulo I: 💻 Web Automation Básico (Login Iterado)
+Tarea	                Objetivo
+Login Iterado	        Ejecutar un mismo test de login con múltiples usuarios usando un Array de Objetos (Data-Driven Testing).
+Extracción de Tablas	Repetir el proceso de extracción de la tabla completa a una matriz (string[][]) y verificación.
+
+Módulo II: 🖼️ Interacción con Elementos Complejos
+Tarea	            Objetivo
+Manejo de Frames	Interactuar con un botón o texto que está anidado dentro de un iframe usando frameLocator.
+
+Módulo III: 🧠 Lógica de Strings y Regex
+area	                Detalle
+Extracción Avanzada	    Obtener solo consonantes, solo vocales, solo letras 'A', solo números, solo caracteres especiales, solo mayúsculas, y solo minúsculas de un texto.
+Conversión de Caso	    Convertir un texto completamente a mayúsculas y completamente a minúsculas.
+
+Módulo IV: 🌐 API Testing (Playwright API)
+Tarea	O                       bjetivo
+Verificación de Estado (200)	Asegurar que un endpoint devuelve el código de estado HTTP 200 (OK).
+Verificación de Contenido	    Asegurar que la respuesta (el body JSON) tiene la estructura esperada y que los datos clave son correctos.
+
