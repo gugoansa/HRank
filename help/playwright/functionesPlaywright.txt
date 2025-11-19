@@ -46,14 +46,14 @@ JavaScript Array -->    .length	 --->       Es una propiedad instantánea que ex
 🟣✔ .first()
 🟣✔ .nth(n)
 🟣✔ .getByText()
-🟣
-🟣
-🟣
-🟣
-🟣
-🟣
-🟣
-🟣
+🟣 await expect(page.getByText('Login')).toBeVisible(); //1️⃣ Esperar que un texto esté visible
+🟣 await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html'); //2️⃣ Esperar que la URL sea la correcta
+🟣 await expect(page.locator('#error-message')).toHaveText('Usuario inválido'); //3️⃣ Esperar que un elemento tenga un texto específico
+🟣 await expect(page.locator('#username')).toHaveValue('standard_user'); //4️⃣ Esperar que un input tenga cierto valor
+🟣 await expect(page.getByText('Error')).toBeHidden();  //5️⃣ Esperar que NO esté visible
+🟣 await expect(page.locator('#login-button')).toBeEnabled(); //6️⃣ Esperar que un botón esté habilitado
+🟣 await expect(page.locator('#login-button')).toBeDisabled(); //7️⃣ Esperar que un botón esté deshabilitado
+🟣 await expect(page.locator('#user-name')).toHaveAttribute('type', 'text'); //8️⃣ Esperar que un elemento tenga una clase o atributo
 🟣
 🟣
 🟣

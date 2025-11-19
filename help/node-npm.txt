@@ -31,3 +31,27 @@ pwd // Muestra la ruta donde estas , sirve para ver la path antes de borrar algo
 
 
 npm list typescript // npm list nos ayuda a buscar si ya esta instalado esa dependencia.
+
+
+
+#######################################################################################################
+### EJECUCIONES ###
+npx playwright test tests/login.spec.ts --project=chromium
+npx playwright test tests/login.spec.ts --project=firefox
+npx playwright test tests/login.spec.ts --project=webkit
+npx playwright test --headless //headless ON //deprecated
+npx playwright test --headed //headless OFF //deprecated
+npx playwright test tests/login.spec.ts --project=chromium --headed
+npx playwright test tests/login.spec.ts --project=firefox --headed
+npx playwright test tests/login.spec.ts --project=webkit --headless
+npm run test:chrome
+npm run test:chrome:headed
+npm run test:firefox
+
+| Objetivo                     | Comando                                                             |
+| ---------------------------- | ------------------------------------------------------------------- |
+| Headless (sin ver navegador) | `npx playwright test tests/login.spec.ts --project=webkit`          |
+| Headed (ver navegador)       | `npx playwright test tests/login.spec.ts --project=webkit --headed` |
+#######################################################################################################
+
+

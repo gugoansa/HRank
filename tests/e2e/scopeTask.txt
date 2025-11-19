@@ -2,8 +2,9 @@
 
 Además, agregar las Pruebas de API es una idea excelente. Automatizar tanto la Interfaz de Usuario (UI) como la API es la práctica recomendada (Full-Stack Testing).
 
-🎯 Alcance Consolidado y Estructurado (4 Módulos)
-Aquí está el programa de práctica final con los cuatro módulos, ordenado de la forma más lógica para el aprendizaje:
+🎯 Alcance Consolidado y Estructurado (5 Módulos)
+Aquí está el programa de práctica final con los cinco módulos, ordenado de la forma más lógica para el aprendizaje:
+Este programa cubre las áreas clave del Full-Stack Testing, desde la automatización web básica hasta el testing de APIs y la simulación de red.
 
 Módulo I: 💻 Web Automation Básico (Login Iterado)
 Tarea	                Objetivo
@@ -19,14 +20,24 @@ area	                Detalle
 Extracción Avanzada	    Obtener solo consonantes, solo vocales, solo letras 'A', solo números, solo caracteres especiales, solo mayúsculas, y solo minúsculas de un texto.
 Conversión de Caso	    Convertir un texto completamente a mayúsculas y completamente a minúsculas.
 
-Módulo IV: 🌐 API Testing (Playwright API)
+Módulo IV: 📝 Formulario Avanzado y Controles
+Tarea	        Detalle
+Dropdowns       Dinámicos	Seleccionar opciones de un dropdown que se carga dinámicamente.
+Date Pickers	Interactuar con un Selector de Fechas para elegir un día específico.
+
+Módulo V: 📂 Archivos y Control de Red (Mocking)
+area	                Detalle
+Subir Archivos	        Utilizar setInputFiles para simular la subida de un archivo.
+Mocking de Respuesta	Usar page.route() para interceptar una solicitud de red y devolver una respuesta JSON o un código de estado simulado.
+
+Módulo VI: 🌐 API Testing (Playwright API)
 Tarea	O                       bjetivo
 Verificación de Estado (200)	Asegurar que un endpoint devuelve el código de estado HTTP 200 (OK).
 Verificación de Contenido	    Asegurar que la respuesta (el body JSON) tiene la estructura esperada y que los datos clave son correctos.
 
-***********************************************************
-***********************************************************
-Subir archivos.
-Manejar iframes.
-Interactuar con dropdowns dinámicos o date pickers.
-Usar page.route() para mockear (simular) respuestas de red.
+Módulo ?????: Estrategias de Espera y Estabilidad (Flakiness)
+El mayor desafío en la automatización es la "flakiness" (pruebas inestables). Playwright es el mejor para manejar esto, pero debemos usar sus herramientas avanzadas.
+Tarea	                        Objetivo	                                                                                            Importancia
+Espera por Eventos de Red	    Usar page.waitForResponse o page.waitForLoadState('networkidle').	                                    Asegurar que el test espera hasta que toda la información crítica haya cargado, no solo el DOM.
+Pruebas sin Carga de Red	    Usar el parámetro waitUntil: 'domcontentloaded' en page.goto.	                                        Acelerar las pruebas omitiendo la espera de recursos estáticos.
+Uso de Asserts de Auto-Espera	Confirmar el uso de expect(locator).toBeEnabled() en lugar de esperas manuales (page.waitForTimeout).	Garantizar la estabilidad y evitar timeouts innecesarios.

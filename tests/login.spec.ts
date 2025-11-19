@@ -17,12 +17,14 @@ import { test, expect } from '@playwright/test'; // Mano de PlayWright
 import { LoginPage } from '../src/pages/LoginPage'; //Clase POM
 import { loginTestData } from '../src/data/loginData'; //Datos par las pruebas
 import { interfazLogin } from '../src/models/InterfazLogin'; //Interfaz
+import { carritoDeCompras } from '../src/data/data';
 
 
 test.describe('Mi suite de pruebas - Login Iterativo', () => {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     test.beforeEach(async ({ page }) => {
         // Navegar a la página inicial antes de cada test
+        console.log('Navegando a la página de Login...');
         await page.goto('https://www.saucedemo.com');
     });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -43,12 +45,29 @@ test.describe('Mi suite de pruebas - Login Iterativo', () => {
 
             // 2. Lógica de Verificación condicional
             if (data.expectedOutcome === 'SUCCESS') {
-                // Verificar éxito: URL
-                // ...
-            } else {
-                // Verificar fallo: Mensaje de error
-                // ...
-            }
+                            // Caso de Éxito
+                            console.log(`✅ Resultado: Login exitoso para ${data.username}.`);
+                            
+                            // Aserción 1: Verificar que la URL cambió a la esperada (inventory)
+                            await expect(page).toHaveURL(data.expectedUrl!);
+                            console.log(loginPage.errorMessage.allTextContents);
+                            console.log(loginPage.successMessage.allTextContents);
+                        } else {
+                            // Caso de Fallo
+                            console.log(`❌ Resultado: Fallo esperado para ${data.username}.`);
+                            
+                            // Aserción 1: Verificar que el mensaje de error es visible
+                            await expect(loginPage.errorMessage).toBeVisible();
+
+                            // Aserción 2: Verificar que el mensaje de error tiene el texto correcto
+                            await expect(loginPage.errorMessage).toHaveText(data.expectedErrorMessage!);
+
+                            // Aserción 3: Verificar que la URL no cambió (seguimos en el login)
+                            await expect(page).toHaveURL('https://www.saucedemo.com/');
+                            console.log(loginPage.errorMessage.allTextContents);
+                            console.log(loginPage.successMessage.allTextContents);
+                        };
         });
+        
     });
 });

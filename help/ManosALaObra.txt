@@ -1,0 +1,71 @@
+🚀 Plan de Preparación para el HackerRank
+La prueba está diseñada para evaluar tus conocimientos de QA general, habilidades técnicas específicas en automatización (Playwright, CI/CD) y 
+capacidad de resolución de problemas.
+
+1. Let's check the QA basics! (6 mins) 💡
+Enfoque: Conceptos fundamentales de Aseguramiento de Calidad.
+
+Temas clave:
+Ciclo de Vida de Pruebas (STLC): Fases, entregables en cada fase.
+Tipos de Pruebas: Funcionales (Unidad, Integración, Sistema, Aceptación) y No Funcionales (Rendimiento, Seguridad, Usabilidad). Concéntrate en la diferencia entre Regression, Re-testing y Smoke testing.
+Técnicas de Diseño de Pruebas: Particionamiento de Equivalencia, Análisis de Valores Límite, Tablas de Decisión.
+Defecto vs. Falla vs. Error: Conocer la terminología correcta.
+Roles y responsabilidades de un QA Test Automation.
+
+2. Let's check the API Testing basics! (6 mins) 🌐
+Enfoque: Pruebas de Servicios Web (REST/SOAP).
+
+Temas clave:
+Conceptos REST: Recursos, Verbos HTTP (GET, POST, PUT, DELETE, PATCH) y cuándo usar cada uno.
+Códigos de Estado HTTP: Los principales (200, 201, 400, 401, 403, 404, 500) y su significado.
+Formato de datos: JSON y XML (estructura, cómo se validan).
+Herramientas para Testing API: Postman, SoapUI o librerías de automatización (como Axios o fetch en Playwright o Rest-Assured).
+
+3. Let's check the Database Testing basics! (6 mins) 💾
+Enfoque: Validación de datos y estructuras de bases de datos (principalmente SQL).
+
+Temas clave:
+Comandos SQL básicos: SELECT, INSERT, UPDATE, DELETE.
+Cláusulas clave: WHERE, JOIN (INNER, LEFT, RIGHT), GROUP BY, ORDER BY.
+Propósitos del Testing DB:
+Validar la integridad de los datos.
+Verificar que las transacciones se ejecuten correctamente (propiedades ACID).
+Asegurar que los datos ingresados por la interfaz/API se reflejen correctamente en la DB.
+
+4. Let's check the Source Control and CI/CD basics! (6 mins) ⚙️
+Enfoque: Integración de pruebas en el flujo de desarrollo.
+
+Temas clave:
+Control de Versiones (Git): Comandos básicos (clone, pull, push, commit, branch, merge, rebase).
+CI/CD: Definición, objetivos y beneficios.
+Jenkins: Como la JD lo menciona, repasa su rol en la automatización. ¿Qué es un Pipeline? ¿Cómo se ejecuta un job de automatización (ej. Playwright) en Jenkins?
+Artifacts y Reports: Cómo se generan y se publican los resultados de las pruebas en la pipeline.
+
+5. Let's check the Automation basics! (6 mins) 🤖
+Enfoque: Principios de la automatización de pruebas y Playwright.
+
+Temas clave:
+Principios de Automatización: F.I.R.S.T. (Fast, Independent, Repeatable, Self-Validating, Timely).
+Page Object Model (POM): Su estructura y beneficios (mantenibilidad, reusabilidad).
+Localizadores (Selectors): XPath, CSS Selectors. En Playwright, prioriza CSS y getByRole/getByText por su robustez.
+Manejo de elementos: Esperas explícitas/implícitas (Playwright Auto-Wait), iframes, alerts, dropdowns.
+
+6. Let's go deeper! The Challenge (60 mins) 🎯
+Enfoque: Implementación práctica usando Playwright.
+
+Expectativas:
+Configuración de Proyecto: Crear un proyecto funcional de Playwright (probablemente en JavaScript/TypeScript) que siga el patrón POM.
+Escenarios End-to-End (E2E): Automatizar un flujo de usuario complejo (ej. Registrarse, iniciar sesión, buscar un producto, agregarlo al carrito, y checkout).
+Manejo de Asincronía: Uso correcto de async/await.
+Validaciones (Assertions): Uso de las assertions de Playwright/Chai (ej. expect(page).toHaveText(...)).
+
+💡 Consejo para la práctica: Céntrate en automatizar una aplicación de prueba pública (como Sauce Demo o la Playwright TodoMVC) utilizando TypeScript (es el lenguaje preferido para frameworks modernos como Playwright) y aplicando el Page Object Model.
+
+7. [Entirely optional section] Do you want to stand out...? (60 mins) 🌟
+Enfoque: Mostrar habilidades avanzadas o complementarias.
+
+Posibles temas:
+Integración API/UI: Automatizar un escenario que use una llamada a una API para preparar datos antes de interactuar con la UI (ej. Crear un usuario vía API y luego iniciar sesión en la UI).
+Pruebas de Accesibilidad: Implementar validaciones de accesibilidad (ej. con Axe-core en Playwright).
+Generación de Datos de Prueba: Usar librerías como Faker para generar datos realistas.
+Docker: Contenerizar el proyecto de automatización.

@@ -19,7 +19,9 @@ export class LoginPage{
     private readonly passwordField: Locator = this.page.locator('#password');
     private readonly loginButton: Locator = this.page.locator('#login-button');
     // Localizador del mensaje de error, listo para la verificación
-    private readonly errorMessage: Locator = this.page.locator('[data-test="error"]')
+    public readonly errorMessage: Locator = this.page.locator('[data-test="error"]')
+    public readonly successMessage: Locator = this.page.locator('[data-test="shopping-cart-link"]')
+
 
     public async login(userName:string, password:string): Promise<void>{
         // Rellenar campos y hacer clic
@@ -27,8 +29,7 @@ export class LoginPage{
         //await this.page.fill('#user-name', userName);
         await this.passwordField.fill(password);
         await this.loginButton.click();
-
-
     };
+
 
 };
