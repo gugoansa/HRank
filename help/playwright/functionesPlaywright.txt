@@ -87,8 +87,8 @@ JavaScript Array -->    .length	 --->       Es una propiedad instantánea que ex
 🟣 page.content()
 🟣 page.screenshot({ path: 'foto.png' })
 🟣 page.frameLocator('#mi_iframe')
-🟣 
-🟣
+🟣 await page.setViewportSize({ width: 1920, height: 1080 });
+🟣 const context = await browser.newContext(); // esto es modo incognito
 🟣
 🟣
 🟣

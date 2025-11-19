@@ -22,7 +22,7 @@ test.describe('Módulo II: Interacción con Frames (iframe)', () => {
         await frameAction.enterTextIntoIFrame(expectedText);
         const actualText = await frameAction.getIFrameTextContent();
         await expect(actualText).toContain(expectedText);
-        
+        await page.waitForTimeout(5000); // 5000 ms = 5 segundos
 
     });
 
