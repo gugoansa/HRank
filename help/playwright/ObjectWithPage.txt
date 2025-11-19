@@ -1,0 +1,13 @@
+🧩 ¿Cuáles son TODOS los “objetos” relacionados con Page?
+Playwright trabaja con estos objetos principales:
+
+
+| Objeto                 | ¿Qué representa?                                      |
+| ---------------------- | ----------------------------------------------------- |
+| **Browser**            | El navegador (Chrome, Firefox, WebKit).               |
+| **BrowserContext**     | Un perfil independiente dentro del navegador.         |
+| **Page**               | Una pestaña o ventana del navegador.                  |
+| **Locator**            | Un puntero a un elemento de la página.                |
+| **FrameLocator**       | Un puntero a un iframe dentro de la página.           |
+| **ElementHandle**      | Referencia directa a un elemento (casi no se usa ya). |
+| **Request / Response** | Para manejar peticiones de red.                       |

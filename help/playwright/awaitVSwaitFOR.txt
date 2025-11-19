@@ -1,0 +1,97 @@
+🔑 Conclusión
+Ambos son promesas, ambos necesitan await para esperar correctamente.
+await es la acción de esperar la promesa.
+waitFor() es una promesa específica de Playwright que espera algo en la página.
+En otras palabras:
+await = “voy a esperar aquí”
+waitFor() = “esta es la cosa que quiero esperar”
+
+----->
+🍼 Explicado como bebé
+await es como decirle a Playwright:
+“Espera a que esta acción termine antes de seguir con la siguiente línea”. ✅
+waitFor() es como decirle:
+“No hagas nada hasta que este elemento exista, sea visible o cumpla una condición”. ⏳
+Entonces:
+await page.goto(url) → espera a que la página se cargue (pero solo la carga básica).
+waitFor() → espera a que un elemento específico aparezca o cumpla una condición, porque no siempre aparece inmediatamente, aunque la página ya “terminó de cargar”.
+🧠 Explicado con un ejemplo real
+Imagina la página del iframe:
+await page.goto("https://the-internet.herokuapp.com/iframe");
+await page.goto(...) espera que la página responda y que el HTML se reciba.
+Pero el iframe puede tardar unos milisegundos en cargarse dentro del DOM.
+Si inmediatamente haces:
+await editorBody.fill("Hola");
+Playwright podría lanzar error: “element not attached to the DOM” o “element not found”, porque el iframe o su contenido aún no apareció.
+Ahí entra waitFor():
+await editorBody.waitFor();
+→ Garantiza que el elemento dentro del iframe ya existe y es interactuable, antes de intentar escribir.
+✔ Resumen práctico
+Acción	Qué hace
+await page.goto(url)	Espera que la página responda, pero no garantiza que todos los elementos dinámicos estén listos.
+await locator.waitFor()	Espera que ese elemento específico esté listo (visible o en DOM) antes de seguir.
+await locator.fill("texto")	Si el elemento aún no está listo, lanza error, por eso conviene waitFor() antes.
+💡 Regla práctica en Playwright
+Siempre que interactúes con un elemento dinámico que tarda en aparecer, haz:
+await locator.waitFor(); // opcional pero seguro
+await locator.fill("texto");
+Si es algo que ya sabemos que está seguro desde el inicio, waitFor() no hace falta, await solo con fill() basta.
+
+************************************************************************************************************
+************************************************************************************************************
+************************************************************************************************************
+MAS CLARO
+************************************************************************************************************
+************************************************************************************************************
+1️⃣ Qué hace await
+
+await bloquea solo la ejecución de esa función async, no todo el programa.
+
+Mientras espera, otras cosas en JavaScript siguen ejecutándose normalmente (otros timers, eventos, etc.).
+
+Cuando la promesa que estás esperando se resuelve, la función continúa desde la línea siguiente.
+
+Ejemplo:
+
+async function ejemplo() {
+    console.log("Antes de await");
+    await new Promise(r => setTimeout(r, 2000)); // espera 2 segundos
+    console.log("Después de await");
+}
+
+ejemplo();
+console.log("Esto sigue mientras await espera");
+
+
+Salida:
+
+Antes de await
+Esto sigue mientras await espera
+Después de await
+
+
+✅ Como ves, no bloquea todo el programa, solo la función async donde está.
+
+2️⃣ Qué hace waitFor()
+
+waitFor() devuelve una promesa, así que normalmente siempre se usa con await.
+
+No bloquea el programa entero, solo bloquea la función async que lo espera hasta que se cumpla la condición (por ejemplo, que un elemento sea visible).
+
+No es como un “sleep” que detiene todo JavaScript, solo detiene la ejecución de tu función hasta que el elemento esté listo o se cumpla el timeout.
+
+Ejemplo típico en Playwright:
+
+await editorBody.waitFor({ state: 'visible' });
+await editorBody.fill("Hola"); // solo se ejecuta después de que waitFor termine
+
+
+Mientras waitFor espera, Playwright y el resto del programa siguen ejecutando otras cosas.
+
+3️⃣ Resumen clave
+Acción	Qué bloquea
+await promesa	Solo la función async donde está el await
+locator.waitFor()	Devuelve promesa, normalmente la usas con await. Solo bloquea la función async hasta que el elemento cumpla la condición.
+JavaScript en general	Sigue ejecutándose normalmente en otras partes, timers, eventos, etc.
+
+💡 En otras palabras: await + waitFor() no bloquea todo el programa, solo tu función hasta que el elemento esté listo.

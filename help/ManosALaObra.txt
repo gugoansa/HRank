@@ -69,3 +69,23 @@ Integración API/UI: Automatizar un escenario que use una llamada a una API para
 Pruebas de Accesibilidad: Implementar validaciones de accesibilidad (ej. con Axe-core en Playwright).
 Generación de Datos de Prueba: Usar librerías como Faker para generar datos realistas.
 Docker: Contenerizar el proyecto de automatización.
+
+
+
+
+Pregunta	Respuesta	Explicación Breve
+1	            B	El Smoke Testing (o Build Verification Test) es la primera prueba, asegurando que el build no sea trivialmente defectuoso.
+2	            D	El desarrollador comete un Defecto (error en el código), que puede llevar a una Falla (mal funcionamiento visto por el usuario) en producción.
+3	            C	El Análisis de Valores Límite se enfoca en los valores justo dentro y justo fuera de los límites aceptados (17, 18, 60, 61).
+4	            C	POST crea un recurso y el 201 es el código estándar de éxito para una creación.
+5	            B	403 Forbidden (Autenticado, pero no autorizado para el recurso); 401 Unauthorized (Requiere autenticación).
+6	D	Todas son validaciones importantes. El cuerpo de la respuesta (B) es la más crítica para la funcionalidad.
+7	C	INNER JOIN devuelve solo los registros con coincidencias en los campos unidos.
+8	C	La sentencia SELECT se utiliza para verificar o consultar datos existentes.
+9	B	Las propiedades ACID garantizan que las transacciones sean confiables y consistentes, esencial en el testing de DB.
+10	C	git pull es el más común (trae y combina). git fetch solo trae los datos.
+11	C	Jenkins es una herramienta de CI/CD que se especializa en la orquestación de pipelines automatizadas.
+12	B	La publicación de los reportes de prueba (por ejemplo, el HTML reporter de Playwright) es crucial para la trazabilidad y revisión.
+13	C	getByRole es el selector recomendado en Playwright porque emula la forma en que los usuarios y las tecnologías de accesibilidad ven la página.
+14	B	Playwright Auto-Waiting es una característica clave que lo distingue de otros frameworks, eliminando la necesidad de esperas manuales en la mayoría de los casos.
+15	C	Page Object Model (POM) separa los elementos (Page Objects) de los pasos de prueba, mejorando enormemente la mantenibilidad.

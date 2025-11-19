@@ -1,0 +1,15 @@
+Esperas implícitas y explícitas (facilito 😎)
+Tipo de espera	Qué es	Ejemplo en Playwright
+Implícita	El framework espera automáticamente a que un elemento esté listo antes de hacer acciones (fill, click, etc.)	await locator.fill("texto"); → Playwright espera que el elemento sea visible e interactuable
+Explícita	Tú le dices exactamente qué esperar y cómo	await locator.waitFor({ state: 'visible', timeout: 5000 });
+
+Resumen simple:
+
+Implícita → ya viene con Playwright, casi no tienes que hacer nada.
+
+Explícita → tú controlas la espera, decides condiciones y timeout.
+
+💡 Tip práctico:
+
+Casi siempre basta con usar solo fill(), click() o type(), porque Playwright ya hace la espera implícita.
+Solo necesitas waitFor() si el elemento tarda mucho en aparecer o quieres esperar algo específico.

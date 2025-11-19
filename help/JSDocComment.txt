@@ -1,0 +1,20 @@
+Más exactamente:
+/** … */ → JSDoc comment (comentario JSDoc)
+
+@param → parameter tag (etiqueta de parámetro)
+Se usa para documentar funciones, parámetros, retornos, etc. y es muy común en JavaScript y TypeScript.
+Ejemplo en inglés:
+    /**
+    * Writes a given text inside the iframe editor.
+    * @param text The text to input.
+    */
+    async enterTextIntoIFrame(text: string) {
+        await this.editorBody.fill(text);
+    }
+@param text → “the parameter named text”
+La descripción después explica qué hace ese parámetro.
+💡 Tip: Hay otras etiquetas JSDoc útiles:
+    @returns → describe lo que devuelve la función
+    @throws → describe posibles errores
+    @example → muestra un ejemplo de uso
+

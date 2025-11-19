@@ -54,10 +54,40 @@ JavaScript Array -->    .length	 --->       Es una propiedad instantánea que ex
 🟣 await expect(page.locator('#login-button')).toBeEnabled(); //6️⃣ Esperar que un botón esté habilitado
 🟣 await expect(page.locator('#login-button')).toBeDisabled(); //7️⃣ Esperar que un botón esté deshabilitado
 🟣 await expect(page.locator('#user-name')).toHaveAttribute('type', 'text'); //8️⃣ Esperar que un elemento tenga una clase o atributo
-🟣
-🟣
-🟣
-🟣
+    .toEqual()
+    .toBe()
+🟣 page.locator(selector) // Se usa para encontrar un elemento que se encuentra directamente en el DOM principal de la página (el documento padre). -Locator
+🟣 page.frameLocator(selector) // Se usa para encontrar un elemento que representa un iframe (o frame) en el DOM principal, y te permite encadenar selectores para buscar elementos dentro de ese frame. - FrameLocator
+🟣 MapsToIFramePage() //Para navegar a la URL.
+🟣 enterTextIntoIFrame(text: string) //Para escribir texto dentro del editor.
+🟣 getIFrameTextContent() //Para obtener el texto y verificarlo.
+🟣 page.goto(url)
+🟣 page.reload()
+🟣 page.goBack()
+🟣 page.goForward()
+🟣 page.locator("selector")
+🟣 page.click(selector)
+🟣 page.fill(selector, text)
+🟣 page.type(selector, text)
+🟣 page.check(selector)
+🟣 page.uncheck(selector)
+🟣 page.selectOption(selector, value)
+🟣 waitFor() // Solo existe en: Locator- Page -Route -ElementHandle -Pero NO existe en FrameLocator
+    await locator.waitFor({ state: 'visible', timeout: 5000 });
+    state puede ser:
+    'attached' → el elemento existe en el DOM.
+    'visible' → el elemento existe y se ve.
+    'hidden' → el elemento está oculto.
+    'detached' → el elemento desapareció del DOM.
+    timeout → cuánto tiempo esperar antes de lanzar error (en milisegundos). Por defecto es 30s.
+🟣 page.waitForSelector(selector)
+🟣 page.waitForLoadState()
+🟣 page.title()
+🟣 page.url()
+🟣 page.content()
+🟣 page.screenshot({ path: 'foto.png' })
+🟣 page.frameLocator('#mi_iframe')
+🟣 
 🟣
 🟣
 🟣

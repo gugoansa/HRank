@@ -15,6 +15,7 @@ export class LoginPage {
         this.loginButton = this.page.locator('#login-button');
         // Localizador del mensaje de error, listo para la verificación
         this.errorMessage = this.page.locator('[data-test="error"]');
+        this.successMessage = this.page.locator('[data-test="shopping-cart-link"]');
     }
     async login(userName, password) {
         // Rellenar campos y hacer clic

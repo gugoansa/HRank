@@ -41,3 +41,12 @@ Tarea	                        Objetivo	                                         
 Espera por Eventos de Red	    Usar page.waitForResponse o page.waitForLoadState('networkidle').	                                    Asegurar que el test espera hasta que toda la información crítica haya cargado, no solo el DOM.
 Pruebas sin Carga de Red	    Usar el parámetro waitUntil: 'domcontentloaded' en page.goto.	                                        Acelerar las pruebas omitiendo la espera de recursos estáticos.
 Uso de Asserts de Auto-Espera	Confirmar el uso de expect(locator).toBeEnabled() en lugar de esperas manuales (page.waitForTimeout).	Garantizar la estabilidad y evitar timeouts innecesarios.
+
+
+
+--
+Agregar el Uso de Maps
+Hacer eherciios de logica en codigo
+Crear una API que haga algo que le gusta luego  Automatizarla
+Empezar a Automatizar con Appium
+Hace nuevamente cualquier test pero con varios datos de prueba, por que no tomar informacion de una pagina y pasarla a otra como una tabla con info y probarla en otra
