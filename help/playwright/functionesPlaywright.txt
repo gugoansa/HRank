@@ -46,6 +46,7 @@ JavaScript Array -->    .length	 --->       Es una propiedad instantánea que ex
 🟣✔ .first()
 🟣✔ .nth(n)
 🟣✔ .getByText()
+🟣 Usamos .toContain() en lugar de .toEqual() o .toBe() porque la herramienta de edición de texto que está dentro del iframe (TinyMCE) a menudo agrega caracteres ocultos o saltos de línea (\n) alrededor del texto que ingresas.
 🟣 await expect(page.getByText('Login')).toBeVisible(); //1️⃣ Esperar que un texto esté visible
 🟣 await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html'); //2️⃣ Esperar que la URL sea la correcta
 🟣 await expect(page.locator('#error-message')).toHaveText('Usuario inválido'); //3️⃣ Esperar que un elemento tenga un texto específico
