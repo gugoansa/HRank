@@ -1,0 +1,32 @@
+🧠 ¿Qué es una Clase de Utilidad (Utility Class)?
+Una Clase de Utilidad (o Clase de Ayuda/Helper) es una clase que contiene un conjunto de métodos estáticos diseñados para realizar una tarea específica, a menudo repetitiva o de soporte, que no está directamente ligada a una página web específica ni a la lógica de negocio principal de la aplicación.
+
+Su objetivo principal es mejorar la reusabilidad y organización del código, siguiendo el principio de "separación de responsabilidades".
+
+1. ⚙️ Propósito principal:
+Reusabilidad: Contiene lógica que se puede llamar desde cualquier parte del proyecto (tests, otros Page Objects, etc.).
+
+Aislamiento: Separa la lógica genérica (como manipular fechas, strings, o generar números) de la lógica específica de la UI (como hacer clic en un botón).
+
+Simplicidad: Sus métodos suelen ser estáticos, lo que significa que no necesitas crear una instancia de la clase para usarlos. Simplemente llamas al método directamente usando el nombre de la clase.
+
+2. 📁 Ejemplos en tu Proyecto
+Módulo	        Tipo de Clase	                            Responsabilidad
+Módulo I/II	    Page Object (LoginPage.ts)	                Interactuar con elementos de la interfaz (UI).
+Módulo III	    Clase de Utilidad (StringManipulator.ts)	Aplicar RegEx para extraer datos de cualquier string.
+Módulo V	    Clase de Utilidad (FileManager.ts)      	Manejar operaciones con archivos (subir, descargar).
+
+3. Ejemplo de Uso (Método Estático)
+En lugar de hacer esto (instanciar la clase):
+
+TypeScript
+
+// ESTO NO ES NECESARIO para una clase de utilidad
+const manipulador = new StringManipulator();
+const mayusculas = manipulador.convertToUpperCase('texto'); 
+Haces esto (llamar directamente al método estático):
+
+TypeScript
+
+// ESTO ES IDEAL para una clase de utilidad
+const mayusculas = StringManipulator.convertToUpperCase('texto');
