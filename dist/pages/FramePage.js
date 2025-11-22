@@ -43,7 +43,12 @@ export class FramePage {
      * @param text El texto a ingresar.
      */
     async enterTextIntoIFrame(texto) {
-        await this.editorBody.fill(texto);
+        // Espera a que el editor esté listo
+        await this.editorBody.waitFor({ state: 'visible' });
+        // Asegurarse que sea editable
+        await this.editorBody.evaluate(el => el.setAttribute('contenteditable', 'true'));
+        // Escribe el texto
+        await this.editorBody.fill(texto); // o type(texto)
     }
     ;
     //Para obtener el texto y verificarlo.

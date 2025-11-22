@@ -90,7 +90,18 @@ JavaScript Array -->    .length	 --->       Es una propiedad instantánea que ex
 🟣 page.frameLocator('#mi_iframe')
 🟣 await page.setViewportSize({ width: 1920, height: 1080 });
 🟣 const context = await browser.newContext(); // esto es modo incognito
-🟣
+🟣 RegEx
+const texto = "Factura 456 y código 789";
+// encontrar todos los números
+const numeros = texto.match(/\d+/g); //✔️ Devuelve lo que encontró.✔️ Regresa un array si usas /g.
+const texto2 ='hola123adios' const remplazos = texto2.replace(/\d+/g, "");//✔️ Reemplaza lo que coincida con la regex.
+const search = "hola123".search(/\d/) //✔️ Devuelve la posición donde encontró la primera coincidencia. ✔️ NO devuelve el texto, solo el número.
+const split = "uno,dos; tres".split(/[,;]\s*/) //✔️ Corta el texto usando la regex como separador.
+/\d/.test("hola123") // → true ✔️ Devuelve true o false ✔️ Sirve para saber si existe el patrón.
+/\d/.test("hola") // → false ✔️ Devuelve true o false ✔️ Sirve para saber si existe el patrón.
+text.slice(0, -1) → todo el texto MENOS la última letra
+text.slice(-1) → la última letra
+.toUpperCase() → la convierte en mayúscula
 🟣
 🟣
 🟣

@@ -1,0 +1,82 @@
+🧐 ¿Qué son las Expresiones Regulares (RegEx)?
+Una Expresión Regular (o RegEx) es una secuencia de caracteres que define un patrón de búsqueda. Esencialmente, es un
+lenguaje pequeño y especializado que te permite describir patrones de texto de forma muy precisa.
+Piensa en RegEx como un "buscador avanzado" de texto que va mucho más allá de las funciones básicas de "Buscar y 
+Reemplazar" que encuentras en un editor de texto.
+
+1. ¿Para qué se usa en Automatización?
+En testing y automatización, RegEx es vital para:
+Validación de Formatos: Asegurar que un campo (como un email o un número de teléfono) cumpla con una estructura específica.
+Extracción de Datos: Sacar solo la parte de una cadena de texto que te interesa (como un número de orden o una fecha de un log).
+Limpieza de Datos: Eliminar caracteres no deseados o espacios en blanco antes de una verificación.
+
+2. Los Componentes Clave de RegEx (Metacaracteres)
+La magia de RegEx reside en los metacaracteres, que son caracteres especiales con un significado predefinido. Estos son los más 
+comunes y los que usaremos:
+
+Metacarácter	Descripción	                                                                        Ejemplo de Uso	    Lo que Encontraría
+\b              “inicio de palabra”
+\d	            Coincide con cualquier dígito (0-9).	                                            \d\d\d	            123, 901
+\w	            Coincide con cualquier palabra (letras, números o guion bajo).	                    \w+	                Hola, user123
+\s	            Coincide con cualquier espacio en blanco (espacio, tabulación, salto de línea).	    a\sb	            a b
+[ y ]	        Define un conjunto de caracteres a buscar.	                                        [aeiou]	            a, e, i, o o u
+/[a-z]/i        todas las letras sin importar si son minusculas o mayusculas.
+^	            case-insensitive -Negación dentro de un conjunto.                                   [^aeiou]	        Cualquier cosa que no sea una vocal.
++	            Coincide con una o más ocurrencias del elemento anterior.	                        \d+	                1, 123, 9087
+g (Flag)	    Global. Busca todas las coincidencias en la cadena, no solo la primera.	            /patron/g	        Si hay 3 números, encuentra los 3.
+g e i: Bandera global e insensible a mayúsculas/minúsculas, como en el caso anterior.  (ignore case).
+[:lower:]: Coincide con cualquier carácter en minúscula.
+[:upper:]: Coincide con cualquier carácter en mayúscula
+/[a-záéíóú]/i letras con tilde
+/[^a-zA-Z0-9\s]/g      Solo caracteres especiales 
+
+
+
+3. Ejemplo Práctico: Extrayendo Números
+Queremos tomar la cadena: 
+    "Factura #456 con monto de $12.50. ID: 789"        y obtener solo los números.
+
+Patrón a Usar   Significado                                 Resultado
+/\d/g           Busca todos los dígitos (gracias a la g).   4, 5, 6, 1, 2, 5, 0, 7, 8, 9
+
+El Método en TypeScript
+Para usar RegEx en TypeScript (y JavaScript), se utiliza el método .replace() o .match() de los strings.
+Para extraer solo lo que quieres, la técnica más fácil es usar .replace() para reemplazar todo lo que NO quieres con una cadena vacía ("").
+Lo que NO queremos (Todo lo que no es un número): [^\d]
+    La Expresión Completa: /[^\d]/g
+    [^\d]: Cualquier cosa que no sea un dígito.
+    / /g: Busca en toda la cadena (g de global).
+
+
+
+####################################################################################
+####################################################################################
+#######################    ADICIONALES   ###########################################
+####################################################################################
+####################################################################################
+
+Cuando ves algo como /\d/g o /\s+/, lo que estás viendo es la sintaxis típica de una expresión regular en JavaScript (y TypeScript). Veamos lo que significa cada parte:
+
+/ al principio y al final de la expresión regular: Es solo la forma estándar en la que se define una expresión regular en JavaScript. Las expresiones regulares están rodeadas por barras (/) para decirle al lenguaje que lo que está entre ellas es un patrón de búsqueda.
+
+Ejemplo:
+/\d/: Esto significa "buscar un dígito".
+\ dentro del patrón: Este es un carácter de escape dentro de las expresiones regulares. En otras palabras, el \ se usa para darle un significado especial a ciertos caracteres, como los números o las letras.
+\d: Significa "cualquier dígito" (del 0 al 9).
+\s: Significa "cualquier espacio en blanco" (puede ser un espacio, un tab, o incluso un salto de línea).
+Resumen de la sintaxis:
+Las expresiones regulares se encapsulan entre /.
+Dentro de las barras, usas metacaracteres como \d, \s, \w y otros.
+\ es un carácter de escape, usado para representar cosas especiales dentro de la expresión regular.
+
+✔️ \ = backslash
+✔️ / = slash
+
+
++ → pertenece al patrón
+Le dice al patrón:
+“Repite lo anterior una o más veces”.
+
+g → es una bandera (flag)
+Le dice al motor de regex:
+“Busca por toda la cadena, no te detengas en la primera coincidencia”.
