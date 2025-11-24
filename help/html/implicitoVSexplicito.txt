@@ -1,0 +1,188 @@
+🧩 2. ¿QUÉ ES “IMPLÍCITO” Y “EXPLÍCITO”?
+
+🟢 EXPLÍCITO = tú lo escribes a mano
+Ejemplo:
+<div role="button">Guardar</div>
+Aquí tú dijiste explícitamente:
+
+👉 “Este div es un botón.”
+
+Otro ejemplo explícito:
+<div role="checkbox"></div>
+
+🔵 IMPLÍCITO = ya viene por defecto aunque no lo pongas
+HTML trae roles automáticos.
+Ejemplo:
+<input type="checkbox">
+Esto ya tiene el rol “checkbox”, aunque tú no lo escribas.
+
+Es como:
+Si ves una puerta → sabes que es para entrar (implícito)
+Si alguien le pone un letrero “ENTRADA” → es explícito
+
+🧠 ¿Tiene otro nombre?
+Sí:
+📌 “Implicit ARIA roles” (roles ARIA implícitos)
+📌 “Explicit ARIA roles” (roles ARIA explícitos)
+
+Pero en palabras sencillas:
+implícito = “lo trae por defecto”
+explícito = “yo se lo puse”
+
+🎯 EJEMPLOS SUPER FÁCILES
+✔️ Rol implícito:
+<button>OK</button>
+
+Aunque no escribas role="button",
+el navegador ya sabe que es un botón.
+
+✔️ Rol explícito:
+<div role="button">OK</div>
+
+Aquí un div normal se convierte en botón gracias al role.
+
+✔️ Sin rol accesible (malo):
+<div onclick="guardar()">OK</div>
+
+Un usuario ciego no sabría que esto es un botón.
+Playwright tampoco.
+
+❤️ Resumen con frases simples:
+
+Accesibilidad = que la página pueda “hablar” y explicar lo que tiene.
+
+Rol implícito = el navegador ya sabe lo que es algo.
+
+Rol explícito = tú se lo dices manualmente.
+
+Playwright usa esa información accesible para buscar elementos.
+
+Si NO hay accesibilidad… tú usas CSS selectors.
+
+#########################################
+#########################################
+#########################################
+########## MAS CLARO ####################
+#########################################
+#########################################
+#########################################
+🧸 ¿Qué pasa con esto?
+<div onclick="guardar()">OK</div>
+
+
+A simple vista, tú lo ves como un “botón”.
+
+Pero… realmente no lo es.
+
+No es un <button>
+
+No tiene role="button"
+
+No tiene accesibilidad
+
+No tiene un “nombre accesible”
+
+Entonces, para una persona que no puede ver:
+
+👉 Esto no es un botón
+👉 Es simplemente un pedacito de texto que dice "OK"
+
+🧑‍🦯 Imagina esto en la vida real (explicación infantil)
+
+Tienes una pared blanca.
+
+Tu mamá te dice:
+
+“Toca esa pared en ese punto para abrir la puerta.”
+
+Tú sabes que es un botón, porque te lo dijeron.
+
+Pero un visitante ciego:
+
+toca la pared
+
+no siente un botón
+
+no hay relieve
+
+no hay una etiqueta en braille
+
+no sabe que eso hace algo
+
+👉 Para él, no existe el botón.
+
+🧩 Ahora llévalo a una página web
+
+Cuando usas:
+
+<div onclick="guardar()">
+
+
+Es como una pared blanca:
+
+no dice que es un botón
+
+no suena como un botón
+
+no actúa como un botón (no tiene foco de teclado)
+
+no informa a un lector de pantalla que es un botón
+
+Entonces un usuario ciego, usando su lector de pantalla (que lee lo que hay en la página), escucharía:
+
+“Texto: OK”
+
+Nada más.
+
+No dirá:
+
+“Botón. OK. Activable.”
+
+Porque este div no es accesible.
+
+🌀 ¿Y por qué Playwright no lo reconoce bien?
+
+Porque Playwright, cuando usas getByRole, se comporta como un usuario real:
+
+page.getByRole('button')
+
+
+Pero este div:
+
+❌ No es un botón
+❌ No tiene rol
+❌ No tiene nombre accesible
+❌ No aparece en el árbol de accesibilidad
+
+Entonces Playwright no lo encuentra como un botón.
+
+🧠 ¿Y cómo se soluciona?
+
+Dos formas:
+
+✔️ Mejor forma — usar un <button>
+<button onclick="guardar()">OK</button>
+
+✔️ Alternativa accesible — agregar el role explícito
+<div role="button" onclick="guardar()">OK</div>
+
+
+Con eso, el lector de pantalla dirá:
+
+“Botón. OK.”
+
+Y Playwright podrá usar:
+
+page.getByRole('button', { name: 'OK' })
+
+❤️ Resumen bebé
+
+Un <div> no es un botón.
+
+Un usuario ciego no puede “ver” que hace algo.
+
+El navegador tampoco lo trata como botón.
+
+Playwright tampoco lo detecta como botón.
+
+Por eso es “malo” para accesibilidad

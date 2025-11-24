@@ -1,0 +1,33 @@
+🎯 Resumen SUPER claro
+Cosa	                    Es parte de	            Descripción
+type="checkbox"	            HTML	                Dice cómo debe funcionar el input
+role="checkbox" (implícito)	Accesibilidad (ARIA)	Dice qué es el elemento a nivel accesible
+
+Y Playwright usa el role para seleccionar de forma accesible
+
+
+🧩 1️⃣ type → Viene de HTML
+Es parte del DOM tradicional.
+Ejemplo:
+
+<input type="checkbox">
+
+type="checkbox" le dice al navegador:
+👉 "Este input debe comportarse como un checkbox."
+
+🧩 2️⃣ role → Viene de ARIA (Accesibilidad)
+El role NO es para el navegador, es para que:
+lectores de pantalla
+tecnologías asistivas
+herramientas de accesibilidad
+Playwright (a través del Accessibility Tree)
+… sepan qué tipo de control es.
+Ejemplo explícito:
+
+<div role="button">Click</div>
+
+Aquí estás diciéndole al browser:
+👉 "Aunque soy un <div>, compórtate como un botón."
+
+
+

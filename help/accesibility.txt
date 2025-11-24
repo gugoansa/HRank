@@ -1,0 +1,46 @@
+Accesibilidad (ARIA)
+Dice qué es el elemento a nivel accesible
+
+🧸 1. ACCESIBILIDAD (explicado como para un bebé)
+Imagina que estás en un cuarto con los ojos cerrados, y alguien te guía diciéndote:
+“Aquí hay un botón.”
+“Aquí hay una caja para escribir.”
+“Aquí hay un checkbox para marcar.”
+Eso es accesibilidad:
+👉 que la computadora pueda describirle a una persona (o a Playwright) qué es cada cosa.
+
+🧸 ¿Por qué existe?
+Porque hay muchas personas que:
+no pueden ver
+no pueden usar un mouse
+usan lectores de pantalla
+usan teclados especiales
+Estas personas necesitan que la página explique lo que tiene.
+Por ejemplo:
+<input type="checkbox">
+Un lector de pantalla dirá:
+“Checkbox. No marcado.”
+Eso es accesibilidad.
+
+🌍 Accesibilidad en la vida real (para que lo entiendas bien)
+Ejemplo: un elevador
+Los botones tienen:
+forma (botón físico)
+número (el piso)
+texto en braille (para personas ciegas)
+El braille es como el “role” y los “labels” en las páginas web.
+👉 Permiten a alguien “ver” o entender lo que está pasando sin poder ver de verdad.
+
+🧠 En una página web:
+HTML visual (lo que tú ves)
+<button>Guardar</button>
+
+Accesibilidad (lo que “escucha” alguien que no puede ver)
+
+👉 “Botón. Nombre: Guardar.”
+Playwright también “escucha” esto cuando usas:
+
+page.getByRole('button', { name: 'Guardar' })
+
+Por eso Playwright ama los roles:
+Porque selecciona las cosas como un usuario real, no como un robot.
