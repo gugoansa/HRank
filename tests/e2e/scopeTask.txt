@@ -52,3 +52,5 @@ Empezar a Automatizar con Appium
 Hace nuevamente cualquier test pero con varios datos de prueba, por que no tomar informacion de una pagina y pasarla a otra como una tabla con info y probarla en otra
 manipular Fechas
 Obtener un texto de una pagina web cualquiera y con regex obtener solo los nombres si numeros.
+Implementar en un test que sea multiple
+USAR EL FOR EACH Y CCLOS EN LAS PRUEBAS PILAS.

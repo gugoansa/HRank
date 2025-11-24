@@ -14,10 +14,10 @@ Completa la lógica condicional (if y else) dentro del bucle forEach en el archi
 */
 
 import { test, expect } from '@playwright/test'; // Mano de PlayWright
-import { LoginPage } from '../src/pages/LoginPage'; //Clase POM
-import { loginTestData } from '../src/data/loginData'; //Datos par las pruebas
-import { interfazLogin } from '../src/models/InterfazLogin'; //Interfaz
-import { carritoDeCompras } from '../src/data/data';
+import { LoginPage } from '../../../src/pages/LoginPage'; //Clase POM
+import { loginTestData } from '../../../src/data/loginData'; //Datos par las pruebas
+import { interfazLogin } from '../../../src/models/InterfazLogin'; //Interfaz
+import { carritoDeCompras } from '../../../src/data/data';
 
 
 test.describe('Mi suite de pruebas - Login Iterativo', () => {

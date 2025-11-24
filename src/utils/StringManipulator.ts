@@ -65,7 +65,7 @@ export class StringManipulator {
 
 }
 
-
+/*
 console.log(StringManipulator.extractOnlyNumbers("Hola Mundo 123 ! 7]"));
 console.log(StringManipulator.extractOnlyVowels("Hola Mundo 123 ! ]"));
 console.log(StringManipulator.extractOnlyConsonants("Hola Mundo 123 ! ]"));
@@ -81,7 +81,14 @@ const texto = "Factura 456 y código 789";
 // encontrar todos los números
 const numeros = texto.match(/\d+/g); //✔️ Devuelve lo que encontró.✔️ Regresa un array si usas /g.
 const texto2 ='hola123adios'
+
 const remplazos = texto2.replace(/\d+/g, "");//✔️ Reemplaza lo que coincida con la regex.
 const search = "hola123".search(/\d/) //✔️ Devuelve la posición donde encontró la primera coincidencia. ✔️ NO devuelve el texto, solo el número.
-const split = "uno,dos; tres".split(/[,;]\s*/); //✔️ Corta el texto usando la regex como separador.
+*/
+
+//const split = "uno,dos; tres".split( /[,;]\s*/ ); //✔️ Corta el texto usando la regex como separador. 
+
+ 
+/*
 console.log(numeros, "\n",remplazos,"\n", search,"\n", split); // ["456", "789"] 
+*/
