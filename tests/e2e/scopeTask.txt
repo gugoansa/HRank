@@ -54,3 +54,4 @@ manipular Fechas
 Obtener un texto de una pagina web cualquiera y con regex obtener solo los nombres si numeros.
 Implementar en un test que sea multiple
 USAR EL FOR EACH Y CCLOS EN LAS PRUEBAS PILAS.
+Tomar capturas de pantalla
