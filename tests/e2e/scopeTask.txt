@@ -1,4 +1,6 @@
-¡Tienes toda la razón! Hubo un error de conteo de mi parte. El Manejo de Frames que solicitaste formaba parte del Módulo I, pero es tan distinto que debería ser su propio módulo.
+¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡
+
+Tienes toda la razón! Hubo un error de conteo de mi parte. El Manejo de Frames que solicitaste formaba parte del Módulo I, pero es tan distinto que debería ser su propio módulo.
 
 Además, agregar las Pruebas de API es una idea excelente. Automatizar tanto la Interfaz de Usuario (UI) como la API es la práctica recomendada (Full-Stack Testing).
 
@@ -55,3 +57,7 @@ Obtener un texto de una pagina web cualquiera y con regex obtener solo los nombr
 Implementar en un test que sea multiple
 USAR EL FOR EACH Y CCLOS EN LAS PRUEBAS PILAS.
 Tomar capturas de pantalla
+
+Pruebas mobile
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

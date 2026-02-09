@@ -1,0 +1,48 @@
+Kubernetes es una plataforma de software que sirve para ejecutar, organizar y administrar aplicaciones que están dentro de contenedores (normalmente contenedores Docker).
+
+Dicho fácil
+
+Imagina que tu aplicación es un restaurante 🍽️:
+
+Cada contenedor es un cocinero que hace una tarea específica.
+
+Kubernetes es el gerente que decide:
+
+cuántos cocineros necesitas,
+
+en qué cocina trabajan,
+
+qué pasa si uno se enferma (se cae),
+
+y cómo atender más clientes cuando llega mucha gente.
+
+¿Para qué se usa Kubernetes?
+
+Sirve para:
+
+🚀 Arrancar aplicaciones automáticamente
+
+📈 Escalar (más o menos contenedores según la demanda)
+
+🔁 Reiniciar contenedores que fallan
+
+🌐 Conectar servicios entre sí
+
+🔄 Actualizar apps sin que se caigan
+
+Conceptos clave (sin dolor)
+
+Contenedor: una app con todo lo que necesita para correr.
+
+Pod: uno o varios contenedores que van juntos.
+
+Cluster: el conjunto de máquinas donde corre todo.
+
+Node: una máquina dentro del cluster.
+
+Service: la forma de acceder a una app sin saber dónde está exactamente.
+
+¿Quién lo usa?
+
+Empresas grandes y chicas:
+Google, Netflix, Spotify… y también startups que quieren crecer sin que su sistema explote 💥.
