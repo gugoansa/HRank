@@ -1,4 +1,4 @@
-# para ejecutar un pipeline con GITHUBACTIONS
+ # para ejecutar un pipeline con GITHUBACTIONS
 
 TEORIA:
 el archivo playwright.yml (o cualquier archivo con extensión .yml o .yaml) que se usa en GitHub Actions está escrito en YAML (YAML Ain’t Markup Language).
